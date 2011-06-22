@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622124745) do
+ActiveRecord::Schema.define(:version => 20110622182806) do
+
+  create_table "nodes", :force => true do |t|
+    t.string   "type"
+    t.text     "content"
+    t.integer  "rank"
+    t.integer  "slide_id"
+    t.integer  "lock_version", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nodes", ["slide_id"], :name => "index_nodes_on_slide_id"
 
   create_table "slides", :force => true do |t|
     t.string   "title"

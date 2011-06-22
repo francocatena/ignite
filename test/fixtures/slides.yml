@@ -5,3 +5,7 @@ opening:
 toc:
   title: Table of content
   number: 2
+  
+content:
+  title: Content
+  number: 3

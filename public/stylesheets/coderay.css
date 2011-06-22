@@ -1,15 +1,16 @@
 .CodeRay {
-  background-color: #f8f8f8;
-  border: 1px solid silver;
-  font-family: 'Courier New', 'Terminal', monospace;
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
   color: #000;
+  padding: 1em 0px 1em 1em;
 }
-
 .CodeRay pre {
   margin: 0px;
 }
 
-div.CodeRay { }
+div.CodeRay {
+}
 
 span.CodeRay {
   white-space: pre;
@@ -24,16 +25,15 @@ table.CodeRay {
 }
 
 table.CodeRay td {
-  padding: 2px 4px;
+  padding: 1em 0.5em;
   vertical-align: top;
 }
 
 .CodeRay .line_numbers, .CodeRay .no {
-  background-color: #def;
-  color: gray;
+  background-color: #ECECEC;
+  color: #AAA;
   text-align: right;
 }
-
 .CodeRay .line_numbers tt {
   font-weight: bold;
 }
@@ -99,7 +99,8 @@ ol.CodeRay li {
 }
 
 .CodeRay .c  {
-  color:#888;
+  color:#998;
+  font-style: italic;
 }
 
 .CodeRay .ch {
@@ -115,7 +116,7 @@ ol.CodeRay li {
 }
 
 .CodeRay .cl {
-  color:#B06;
+  color:#458;
   font-weight:bold;
 }
 
@@ -125,8 +126,7 @@ ol.CodeRay li {
 }
 
 .CodeRay .co {
-  color:#036;
-  font-weight:bold;
+  color:teal;
 }
 
 .CodeRay .cr {
@@ -189,17 +189,16 @@ ol.CodeRay li {
 }
 
 .CodeRay .fl {
-  color:#60E;
-  font-weight:bold;
+  color:#099;
 }
 
 .CodeRay .fu {
-  color:#06B;
+  color:#900;
   font-weight:bold;
 }
 
 .CodeRay .gv {
-  color:#d70;
+  color:teal;
   font-weight:bold;
 }
 
@@ -209,8 +208,7 @@ ol.CodeRay li {
 }
 
 .CodeRay .i  {
-  color:#00D;
-  font-weight:bold;
+  color:#099;
 }
 
 .CodeRay .ic {
@@ -219,7 +217,6 @@ ol.CodeRay li {
 }
 
 .CodeRay .il {
-  background: #ddd;
   color: black;
 }
 
@@ -232,15 +229,11 @@ ol.CodeRay li {
 }
 
 .CodeRay .il .idl {
-  background: #ddd;
-  font-weight: bold;
-  color: #666;
+  color: #D14;
 }
 
 .CodeRay .idl {
-  background-color: #bbb;
-  font-weight: bold;
-  color: #666;
+  color: #D14;
 }
 
 .CodeRay .im {
@@ -248,11 +241,12 @@ ol.CodeRay li {
 }
 
 .CodeRay .in {
-  color:#B2B; font-weight:bold;
+  color:#B2B;
+  font-weight:bold;
 }
 
 .CodeRay .iv {
-  color:#33B;
+  color:teal;
 }
 
 .CodeRay .la {
@@ -278,7 +272,6 @@ ol.CodeRay li {
 }
 
 .CodeRay .pc {
-  color:#038;
   font-weight:bold;
 }
 
@@ -302,10 +295,9 @@ ol.CodeRay li {
 }
 
 .CodeRay .r, .kw  {
-  color:#080;
+  color:#000;
   font-weight:bold;
 }
-
 
 .CodeRay .ke {
   color: #808;
@@ -322,7 +314,6 @@ ol.CodeRay li {
 .CodeRay .vl {
   color: #088;
 }
-
 
 .CodeRay .rx {
   background-color:#fff0ff;
@@ -346,43 +337,41 @@ ol.CodeRay li {
 }
 
 .CodeRay .s {
-  background-color:#fff0f0;
   color: #D20;
 }
 
 .CodeRay .s .s {
-  background-color:#ffe0e0;
 }
 
-.CodeRay .s .s  .s {
+.CodeRay .s .s .s {
   background-color:#ffd0d0;
 }
 
 .CodeRay .s .k {
+  color: #D14;
 }
 
 .CodeRay .s .ch {
-  color: #b0b;
+  color: #D14;
 }
 
 .CodeRay .s .dl {
-  color: #710;
+  color: #D14;
 }
 
 .CodeRay .sh {
-  background-color:#f0fff0;
-  color:#2B2;
+  color:#D14;
 }
 
 .CodeRay .sh .k {
 }
 
 .CodeRay .sh .dl {
-  color:#161;
+  color:#D14;
 }
 
 .CodeRay .sy {
-  color:#A60;
+  color:#990073;
 }
 
 .CodeRay .sy .k {

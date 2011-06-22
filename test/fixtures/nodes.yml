@@ -1,0 +1,11 @@
+title:
+  type: Node
+  content: Title node
+  rank: 1
+  slide: content
+
+ruby_code:
+  type: Node
+  content: "puts 'Hello world!'"
+  rank: 2
+  slide: content
