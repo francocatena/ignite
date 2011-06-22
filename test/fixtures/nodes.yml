@@ -1,11 +1,12 @@
 title:
-  type: Node
+  type: TextNode
   content: Title node
   rank: 1
   slide: content
 
 ruby_code:
-  type: Node
+  type: CodeNode
   content: "puts 'Hello world!'"
   rank: 2
+  options: <%= {'lang' => 'ruby'}.to_yaml.inspect %>
   slide: content

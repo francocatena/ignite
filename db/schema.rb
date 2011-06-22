@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110622182806) do
   create_table "nodes", :force => true do |t|
     t.string   "type"
     t.text     "content"
+    t.text     "options"
     t.integer  "rank"
     t.integer  "slide_id"
     t.integer  "lock_version", :default => 0
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20110622182806) do
   end
 
   add_index "nodes", ["slide_id"], :name => "index_nodes_on_slide_id"
+  add_index "nodes", ["type"], :name => "index_nodes_on_type"
 
   create_table "slides", :force => true do |t|
     t.string   "title"

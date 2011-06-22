@@ -16,13 +16,38 @@ class NodeTest < ActiveSupport::TestCase
   end
 
   # Prueba la creación de un nodo
-  test 'create' do
+  test 'create generic node' do
     assert_difference 'Node.count' do
       @node = Node.create(
         :content => 'New content',
         :rank => 3
       )
     end
+  end
+  
+  # Prueba la creación de un nodo de texto
+  test 'create text node' do
+    assert_difference 'TextNode.count' do
+      @node = TextNode.create(
+        :content => 'New text content',
+        :rank => 3
+      )
+    end
+    
+    assert @node.draw
+  end
+  
+  # Prueba la creación de un nodo de código
+  test 'create code node' do
+    assert_difference 'CodeNode.count' do
+      @node = CodeNode.create(
+        :content => 'puts "Hello world!"',
+        :rank => 3,
+        :options => { 'lang' => 'ruby' }
+      )
+    end
+    
+    assert @node.draw
   end
 
   # Prueba de actualización de un nodo
@@ -72,5 +97,27 @@ class NodeTest < ActiveSupport::TestCase
     assert_equal 1, @node.errors.count
     assert_equal [error_message_from_model(@node, :rank, :not_an_integer)],
       @node.errors[:rank]
+  end
+  
+  # Prueba que las validaciones del modelo se cumplan como es esperado
+  test 'validates options' do
+    @node = CodeNode.find nodes(:ruby_code).id
+    @node.options['lang'] = 'not_supported'
+    
+    assert @node.invalid?
+    assert_equal 1, @node.errors.count
+    assert_equal [error_message_from_model(@node, :options, :invalid)],
+      @node.errors[:options]
+    
+    @node.options['lang'] = nil
+    
+    assert @node.invalid?
+    assert_equal 1, @node.errors.count
+    assert_equal [error_message_from_model(@node, :options, :invalid)],
+      @node.errors[:options]
+    
+    @node.options['lang'] = 'ruby'
+    
+    assert @node.valid?
   end
 end

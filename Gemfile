@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'coderay'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0.beta'
+gem 'RedCloth'
 
 group :production do
   gem 'smurf'

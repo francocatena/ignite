@@ -1,4 +1,6 @@
 class Node < ActiveRecord::Base
+  serialize :options, Hash
+  
   # Validations
   validates :content, :rank, :presence => true
   validates :rank, :allow_nil => true, :allow_blank => true,
@@ -6,4 +8,8 @@ class Node < ActiveRecord::Base
   
   # Relations
   belongs_to :slide
+  
+  def draw
+    raise 'Must be implemented in the subclass!'
+  end
 end
