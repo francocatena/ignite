@@ -44,8 +44,6 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fastthread (1.0.7)
-    foreigner (1.0.3)
-      activerecord (>= 3.0.0)
     gem_plugin (0.2.3)
     highline (1.6.2)
     i18n (0.5.0)
@@ -109,6 +107,7 @@ GEM
     turn (0.8.2)
       ansi (>= 1.2.2)
     tzinfo (0.3.28)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -116,7 +115,6 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   coderay
-  foreigner
   jquery-rails
   mongrel
   rails (= 3.0.9)
@@ -125,3 +123,4 @@ DEPENDENCIES
   smurf
   sqlite3
   turn
+  will_paginate (~> 3.0.beta)

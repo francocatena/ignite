@@ -1,0 +1,16 @@
+<%= form_for(@slide) do |f| %>
+  <%= show_error_messages @slide %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :autofocus => true, :maxlength => 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number, :maxlength => 3 %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :lock_version %>
+    <%= f.submit %>
+  </div>
+<% end %>

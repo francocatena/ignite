@@ -5,7 +5,7 @@ gem 'rails', '3.0.9'
 gem 'sqlite3'
 gem 'coderay'
 gem 'jquery-rails'
-gem 'foreigner'
+gem 'will_paginate', '~> 3.0.beta'
 
 group :production do
   gem 'smurf'

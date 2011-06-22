@@ -1,0 +1,14 @@
+<p>
+  <b><%= Slide.human_attribute_name :title %>:</b>
+  <%= @slide.title %>
+</p>
+
+<p>
+  <b><%= Slide.human_attribute_name :number %>:</b>
+  <%= @slide.number %>
+</p>
+
+<nav class="links">
+  <%= link_to t(:'label.edit'), edit_slide_path(@slide) %> |
+  <%= link_to t(:'label.list'), slides_path %>
+</nav>
