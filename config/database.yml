@@ -3,7 +3,7 @@ defaults: &defaults
   pool: 5
   timeout: 5000
 
-# SQLite portray
+# SQLite ignite
 #   gem install sqlite3
 development:
   database: db/development.sqlite3

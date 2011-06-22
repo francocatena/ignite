@@ -1,4 +1,4 @@
-Portray::Application.routes.draw do
+Ignite::Application.routes.draw do
   resources :slides
 
   # The priority is based upon order of creation:
