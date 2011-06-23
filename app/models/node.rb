@@ -1,4 +1,6 @@
 class Node < ActiveRecord::Base
+  include Comparable
+  
   serialize :options, Hash
   
   # Validations
@@ -8,6 +10,37 @@ class Node < ActiveRecord::Base
   
   # Relations
   belongs_to :slide
+  
+  class << self
+    def new(attributes = nil)
+      type = attributes.try :delete, :type
+      return super if type.blank?
+
+      klass = type.constantize
+      
+      raise "Unknown type #{type}" unless klass
+
+      klass.new attributes
+    end
+  end
+  
+  def <=>(other)
+    if other.kind_of?(Node)
+      self.rank <=> other.rank
+    else
+      -1
+    end
+  end
+  
+  def ==(other)
+    if other.kind_of?(Node)
+      if self.new_record?
+        self.object_id == other.object_id
+      else
+        self.id == other.id
+      end
+    end
+  end
   
   def draw
     raise 'Must be implemented in the subclass!'

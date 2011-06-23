@@ -26,7 +26,6 @@
     </div>
     
     <div id="nodes" class="items">
-      <% @slide.nodes.build if @slide.nodes.empty? %>
       <%= f.fields_for :nodes do |n_f| %>
         <%= render :partial => 'node', :locals => {
           :f => n_f, :is_dynamic => false

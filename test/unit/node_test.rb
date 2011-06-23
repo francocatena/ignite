@@ -5,14 +5,14 @@ class NodeTest < ActiveSupport::TestCase
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
-    @node = Node.find nodes(:title).id
+    @node = Node.find nodes(:content_title).id
   end
 
   # Prueba que se realicen las búsquedas como se espera
   test 'find' do
     assert_kind_of Node, @node
-    assert_equal nodes(:title).content, @node.content
-    assert_equal nodes(:title).rank, @node.rank
+    assert_equal nodes(:content_title).content, @node.content
+    assert_equal nodes(:content_title).rank, @node.rank
   end
 
   # Prueba la creación de un nodo
@@ -101,7 +101,7 @@ class NodeTest < ActiveSupport::TestCase
   
   # Prueba que las validaciones del modelo se cumplan como es esperado
   test 'validates options' do
-    @node = CodeNode.find nodes(:ruby_code).id
+    @node = CodeNode.find nodes(:content_ruby_code).id
     @node.options['lang'] = 'not_supported'
     
     assert @node.invalid?

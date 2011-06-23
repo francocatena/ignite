@@ -48,6 +48,10 @@
       slide:
         title: 'Título'
         number: 'Número'
+        nodes:
+          content: 'Contenido'
+          options: 'Opciones'
+          rank: 'Orden'
 
   app_name: 'Presentaciones'
 
@@ -314,3 +318,8 @@
       nodes: 'Nodos'
       add_text_node: 'Agregar texto'
       add_code_node: 'Agregar código'
+      langs:
+        ruby: 'Ruby'
+        css: 'CSS'
+        html: 'HTML'
+        java_scrip: 'JavaScript'

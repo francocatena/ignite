@@ -1,10 +1,23 @@
-title:
+opening_title:
   type: TextNode
-  content: Title node
+  content: h1. Grand Opening Title
+  rank: 1
+  slide: opening
+  
+opening_ruby_code:
+  type: CodeNode
+  content: "puts 'Hello world!'"
+  rank: 2
+  options: <%= {'lang' => 'ruby'}.to_yaml.inspect %>
+  slide: opening
+
+content_title:
+  type: TextNode
+  content: h1. Title node
   rank: 1
   slide: content
 
-ruby_code:
+content_ruby_code:
   type: CodeNode
   content: "puts 'Hello world!'"
   rank: 2

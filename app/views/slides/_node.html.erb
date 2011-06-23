@@ -6,11 +6,16 @@
       <%= f.text_area :content %>
     </div>
     <div class="nested_item_field">
-      <%= f.text_area :options %>
+      <% if f.object.kind_of?(CodeNode) %>
+        <%= show_options_for_code_node(f) %>
+      <% else %>
+        -
+      <% end %>
     </div>
     <div class="nested_item_actions">
       <%= link_to_remove_nested_item(f, :node) %>
       <%= f.hidden_field :rank, :class => :sort_number %>
+      <%= f.hidden_field :type %>
       <%= f.hidden_field :lock_version %>
     </div>
     <br class="break" />

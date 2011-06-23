@@ -8,7 +8,20 @@ class CodeNode < Node
   
   def draw
     div_options = { :line_numbers => :table, :css => :class }
+    marked_code = CodeRay.scan(self.content, self.lang).div(div_options)
     
-    CodeRay.scan(self.content, self.options['lang']).div(div_options).html_safe
+    "<div class=\"code_node\">#{marked_code}</div>".html_safe
+  end
+  
+  def lang
+    self.options ||= {}
+    
+    self.options['lang']
+  end
+  
+  def lang=(lang)
+    self.options ||= {}
+    
+    self.options['lang'] = lang
   end
 end

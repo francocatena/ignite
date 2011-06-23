@@ -150,6 +150,26 @@ div.field input[type="checkbox"] + label {
   margin-left: .5em;
 }
 
+div.text_node, div.code_node {
+  margin: .5em 0em;
+}
+
+div.text_node h1 {
+  font-size: 2em;
+}
+
+div.text_node h2 {
+  font-size: 1.5em;
+}
+
+div.text_node h3 {
+  font-size: 1.2em;
+}
+
+div.text_node ul, div.text_node ol {
+  margin-left: 3em;
+}
+
 form.button_to input[type="submit"] {
   font-size: .8em;
   padding: 0em .5em;
