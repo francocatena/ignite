@@ -5,7 +5,7 @@
   </header>
   
   <div class="content">
-    <% (@slide.text_nodes | @slide.code_nodes).sort.each do |node| %>
+    <% @slide.all_nodes.each do |node| %>
       <%= node.draw %>
     <% end %>
 

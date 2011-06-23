@@ -11,4 +11,8 @@ class Slide < ActiveRecord::Base
   has_many :text_nodes, :readonly => true, :order => 'rank ASC'
   
   accepts_nested_attributes_for :nodes, :allow_destroy => true
+  
+  def all_nodes
+    (self.code_nodes | self.text_nodes).sort
+  end
 end
