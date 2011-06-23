@@ -4,6 +4,8 @@ class Slide < ActiveRecord::Base
   validates :number, :presence => true
   validates :number, :allow_nil => true, :allow_blank => true,
     :numericality => { :greater_than => 0, :only_integer => true }
+  validates :number, :allow_nil => true, :allow_blank => true,
+    :uniqueness => { :scope => :lesson_id }
   
   # Relations
   belongs_to :lesson

@@ -1,14 +1,55 @@
-<p>
-  <b><%= Lesson.human_attribute_name :name %>:</b>
-  <%= @lesson.name %>
-</p>
+<div class="lesson">
+  <% @lesson.slides.each do |slide| %>
+    <%= render :partial => 'slides/slide_content', :locals => {
+      :slide => slide, :lesson => @lesson
+    } %>
+  <% end %>
+</div>
+<script type="text/javascript">
+var Slide = {
+  currentNumber: function() {
+    if(window.location.href.match(/#\D*\d+$/)) {
+      var number = window.location.href.match(/#\D*(\d+)$/)[1];
 
-<p>
-  <b><%= Lesson.human_attribute_name :sequence %>:</b>
-  <%= @lesson.sequence %>
-</p>
+      if(number) { return parseInt(number); }
+    }
+  },
 
-<nav class="links">
-  <%= link_to t(:'label.edit'), edit_lesson_path(@lesson) %> |
-  <%= link_to t(:'label.list'), lessons_path %>
-</nav>
+  next: function() {
+    return (Slide.currentNumber() || 0) + 1;
+  },
+
+  prev: function() {
+    return (Slide.currentNumber() || 0) - 1;
+  },
+
+  show: function(number) {
+    window.location.href =
+      window.location.href.replace(/#.+$/, "#slide-" + number);
+  }
+};
+
+jQuery(function() {
+  var firstSlide = '<%= @lesson.slides.first.try(:number) %>';
+  
+  if(!window.location.href.match(/#/) && firstSlide != '') {
+    window.location.href = window.location.href + '#slide-' + firstSlide;
+  }
+
+  $(document).keydown(function(e) {
+    var key = e.which;
+
+    // 39 = right arrow, 34 = page down, 40 = down arrow, 13 = enter
+    if(key == 39 || key == 34 || key == 40 || key == 13) {
+      if($('#slide-' + Slide.next()).length > 0) { Slide.show(Slide.next()); }
+      
+      e.preventDefault();
+    // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
+    } else if(key == 37 || key == 33 || key == 38 || key == 8) {
+      if($('#slide-' + Slide.prev()).length > 0) { Slide.show(Slide.prev()); }
+      
+      e.preventDefault();
+    }
+  });
+});
+</script>

@@ -25,7 +25,7 @@ class SlidesControllerTest < ActionController::TestCase
     assert_difference ['Slide.count', 'TextNode.count', 'CodeNode.count'] do
       post :create, :lesson_id => @lesson.to_param, :slide => {
         :title => 'New slide',
-        :number => '3',
+        :number => '4',
         :nodes_attributes => {
           :new_1 => {
             :type => 'TextNode',

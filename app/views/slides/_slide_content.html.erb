@@ -1,0 +1,17 @@
+<div class="slide" id="slide-<%= slide.number %>">
+  <header>
+    <h1><%= slide.title %></h1>
+    <p class="number"><%= slide.number %></p>
+  </header>
+  
+  <div class="content">
+    <% slide.all_nodes.each do |node| %>
+      <%= node.draw %>
+    <% end %>
+
+    <nav class="links">
+      <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
+      <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+    </nav>
+  </div>
+</div>
