@@ -1,4 +1,10 @@
 <%= form_for(@slide) do |f| %>
+  <%= content_for :js_extra do -%>
+    <%= raw "var textNode='#{generate_template(f, :nodes,
+      :locals => {:disabled => false}, :object => TextNode.new)}';" %>
+    <%= raw "var codeNode='#{generate_template(f, :nodes,
+      :locals => {:disabled => false}, :object => CodeNode.new)}';" %>
+  <% end -%>
   <%= show_error_messages @slide %>
   
   <div class="field">
@@ -9,8 +15,38 @@
     <%= f.label :number %>
     <%= f.text_field :number, :maxlength => 3 %>
   </div>
+  
+  <section class="nested_items">
+    <h2><%= t :nodes, :scope => [:view, :slides] %></h2>
+    
+    <div id="nodes_headers" class="headers">
+      <h3><%= Node.human_attribute_name :content %></h3>
+      <h3><%= Node.human_attribute_name :options %></h3>
+      <br class="break" />
+    </div>
+    
+    <div id="nodes" class="items">
+      <% @slide.nodes.build if @slide.nodes.empty? %>
+      <%= f.fields_for :nodes do |n_f| %>
+        <%= render :partial => 'node', :locals => {
+          :f => n_f, :is_dynamic => false
+        } %>
+      <% end %>
+    </div>
+  </section>
+
+  <div class="add_nested_item">
+    <%= link_to t(:'view.slides.add_text_node'), '#',
+      :'data-template' => :textNode, :'data-container' => '#nodes',
+      :'data-event' => 'addNestedItem' %> |
+    <%= link_to t(:'view.slides.add_code_node'), '#',
+      :'data-template' => :codeNode, :'data-container' => '#nodes',
+      :'data-event' => 'addNestedItem' %>
+  </div>
+  
   <div class="actions">
     <%= f.hidden_field :lock_version %>
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">Util.refreshSortNumbers();</script>

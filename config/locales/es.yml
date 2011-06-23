@@ -41,6 +41,10 @@
       #     login: 'Handle'
       # will translate User attribute 'login' as 'Handle'
     attributes:
+      node:
+        content: 'Contenido'
+        options: 'Opciones'
+        rank: 'Orden'
       slide:
         title: 'Título'
         number: 'Número'
@@ -307,3 +311,6 @@
       correctly_created: 'Diapositiva agregada correctamente.'
       correctly_updated: 'Diapositiva actualizada correctamente.'
       stale_object_error: 'La diapositiva no pudo ser actualizada, intente nuevamente.'
+      nodes: 'Nodos'
+      add_text_node: 'Agregar texto'
+      add_code_node: 'Agregar código'

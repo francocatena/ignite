@@ -10,6 +10,10 @@ body {
   font-size: 12px;
 }
 
+br.break {
+  clear: both;
+}
+
 a.action_link,
 a.remove,
 a[data-event="removeItem"],
@@ -119,6 +123,12 @@ div.actions, div.field {
   margin-bottom: 1em;
 }
 
+div.add_nested_item {
+  clear: both;
+  font-weight: bold;
+  margin: .5em 0em;
+}
+
 div.field input[type="text"], div.field input[type="password"],
 div.field select, div.field textarea {
   font-size: inherit;
@@ -197,6 +207,56 @@ nav.links div.pagination span.disabled {
   padding: 1px 2px;
 }
 
+section.nested_items {
+  display: block;
+  clear: both;
+  padding-left: 1.5em;
+  border-left: 3px solid #999999;
+}
+
+section.nested_items div.headers {
+  clear: both;
+  padding: .5em 0em;
+  border-bottom: 2px dotted #333333;
+}
+
+section.nested_items div.headers h3 {
+  font-size: 1em;
+  float: left;
+  margin-right: 1em;
+}
+
+section.nested_items div.items {
+  clear: both;
+  padding: .5em 0em;
+}
+
+section.nested_items div.nested_item {
+  clear: both;
+}
+
+section.nested_items div.items div.nested_item_field,
+section.nested_items div.items div.nested_item_actions {
+  float: left;
+  margin-right: 1em;
+}
+
+section.nested_items h2 {
+  font-size: 1.2em;
+  margin: 1em 0em .5em -.8em;
+}
+
+section.nested_items input[type="text"],
+section.nested_items input[type="password"],
+section.nested_items select,
+section.nested_items textarea {
+  width: 98%;
+}
+
+section.nested_items textarea {
+  height: 7em;
+}
+
 table.list {
   width: 98%;
   border: 2px solid #333333;
@@ -219,4 +279,20 @@ table.list tbody tr.odd {
 
 table.list tbody tr.odd:hover, table.list tbody tr.even:hover {
   background: #cecece;
+}
+
+/* Custom style for nodes in slides */
+section.nested_items div#nodes_headers h3:nth-child(1),
+section.nested_items div.node div.nested_item_field:nth-child(1) {
+  width: 70%;
+}
+
+section.nested_items div#nodes_headers h3:nth-child(2),
+section.nested_items div.node div.nested_item_field:nth-child(2) {
+  width: 20%;
+}
+
+section.nested_items div#nodes_headers h3:nth-child(3),
+section.nested_items div.node div.nested_item_field:nth-child(3) {
+  width: 5%;
 }
