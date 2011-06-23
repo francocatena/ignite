@@ -8,6 +8,7 @@ body {
   background-color: #ffffff;
   font-family: arial, helvetica, sans-serif;
   font-size: 12px;
+  height: 100%; /* For use percent height in full slides */
 }
 
 br.break {

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def default_stylesheets
-    sheets = ['common', 'coderay']
+    sheets = ['common', 'coderay', 'slide']
     sheets << {:cache => 'main'}
 
     stylesheet_link_tag *sheets
