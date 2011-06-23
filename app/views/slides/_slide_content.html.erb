@@ -10,8 +10,10 @@
     <% end %>
 
     <nav class="links">
-      <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
-      <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+      <div>
+        <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
+        <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+      </div>
     </nav>
   </div>
 </div>

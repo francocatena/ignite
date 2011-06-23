@@ -85,6 +85,30 @@
 
 .slide nav.links {
   position: absolute;
+  display: block;
   bottom: 0px;
+  left: 0px;
+  margin: 0px;
+  width: 100%;
   font-size: .75em;
+  background: #dfdfdf;
+  background: -webkit-gradient(linear, left top, left bottom, from(#cdcdcd), to(#dfdfdf));
+  background: -moz-linear-gradient(#cdcdcd, #dfdfdf);
+  opacity: 0;
+}
+
+.slide nav.links:hover {
+  opacity: 1;
+  transition: 1s opacity;
+  -webkit-transition: 1s opacity;
+  -moz-transition: 1s opacity;
+}
+
+.slide nav.links a, .slide nav.links a:visited {
+  font-weight: bold;
+  color: #666666;
+}
+
+.slide nav.links > div {
+  padding: 1em;
 }
