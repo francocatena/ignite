@@ -1,0 +1,17 @@
+<%= form_for(@lesson) do |f| %>
+  <%= show_error_messages @lesson %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true, :maxlength => 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :sequence %>
+    <%= f.text_field :sequence, :maxlength => 3 %>
+  </div>
+  
+  <div class="actions">
+    <%= f.hidden_field :lock_version %>
+    <%= f.submit %>
+  </div>
+<% end %>

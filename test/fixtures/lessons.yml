@@ -1,0 +1,7 @@
+introduction:
+  name: Introduction
+  sequence: 1
+
+scratching_ruby:
+  name: Scratching Ruby
+  sequence: 2

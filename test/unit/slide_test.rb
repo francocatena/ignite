@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SlideTest < ActiveSupport::TestCase
-  fixtures :slides
+  fixtures :slides, :lessons
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
@@ -13,6 +13,7 @@ class SlideTest < ActiveSupport::TestCase
     assert_kind_of Slide, @slide
     assert_equal slides(:opening).title, @slide.title
     assert_equal slides(:opening).number, @slide.number
+    assert_equal slides(:opening).lesson_id, @slide.lesson_id
   end
 
   # Prueba la creación de una diapositiva
@@ -20,7 +21,8 @@ class SlideTest < ActiveSupport::TestCase
     assert_difference 'Slide.count' do
       @slide = Slide.create(
         :title => 'New title',
-        :number => 3
+        :number => 4,
+        :lesson => lessons(:introduction)
       )
     end
   end
@@ -42,10 +44,13 @@ class SlideTest < ActiveSupport::TestCase
 
   # Prueba que las validaciones del modelo se cumplan como es esperado
   test 'validates blank attributes' do
+    @slide.lesson = nil
     @slide.title = '  '
     @slide.number = '  '
     assert @slide.invalid?
-    assert_equal 2, @slide.errors.count
+    assert_equal 3, @slide.errors.count
+    assert_equal [error_message_from_model(@slide, :lesson, :blank)],
+      @slide.errors[:lesson]
     assert_equal [error_message_from_model(@slide, :title, :blank)],
       @slide.errors[:title]
     assert_equal [error_message_from_model(@slide, :number, :blank)],

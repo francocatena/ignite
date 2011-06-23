@@ -1,0 +1,14 @@
+<p>
+  <b><%= Lesson.human_attribute_name :name %>:</b>
+  <%= @lesson.name %>
+</p>
+
+<p>
+  <b><%= Lesson.human_attribute_name :sequence %>:</b>
+  <%= @lesson.sequence %>
+</p>
+
+<nav class="links">
+  <%= link_to t(:'label.edit'), edit_lesson_path(@lesson) %> |
+  <%= link_to t(:'label.list'), lessons_path %>
+</nav>

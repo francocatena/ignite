@@ -1,3 +1,4 @@
+<h2 class="title"><%= @lesson %></h2>
 <table class="list">
   <thead>
     <tr>
@@ -12,9 +13,9 @@
       <tr>
         <td><%= slide.title %></td>
         <td><%= slide.number %></td>
-        <td><%= link_to t(:'label.show'), slide %></td>
-        <td><%= link_to t(:'label.edit'), edit_slide_path(slide) %></td>
-        <td><%= button_to t(:'label.delete'), slide,
+        <td><%= link_to t(:'label.show'), lesson_slide_path(@lesson, slide) %></td>
+        <td><%= link_to t(:'label.edit'), edit_lesson_slide_path(@lesson, slide) %></td>
+        <td><%= button_to t(:'label.delete'), lesson_slide_path(@lesson, slide),
           :confirm => t(:'messages.confirmation'), :method => :delete %></td>
       </tr>
     <% end %>
@@ -23,5 +24,6 @@
 
 <nav class="links">
   <%= pagination_links(@slides) %>
-  <%= link_to t(:'label.new'), new_slide_path %>
+  <%= link_to t(:'label.new'), new_lesson_slide_path(@lesson) %> |
+  <%= link_to t(:'view.slides.back_to_lessons'), lessons_path %>
 </nav>

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622182806) do
+ActiveRecord::Schema.define(:version => 20110623162816) do
+
+  create_table "lessons", :force => true do |t|
+    t.string   "name"
+    t.integer  "sequence"
+    t.integer  "lock_version", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nodes", :force => true do |t|
     t.string   "type"
@@ -32,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20110622182806) do
     t.integer  "lock_version", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "lesson_id"
   end
+
+  add_index "slides", ["lesson_id"], :name => "index_slides_on_lesson_id"
 
 end

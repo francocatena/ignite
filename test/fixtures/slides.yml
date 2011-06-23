@@ -1,11 +1,14 @@
 opening:
   title: Opening slide
   number: 1
+  lesson: introduction
 
 toc:
   title: Table of content
   number: 2
+  lesson: introduction
   
 content:
   title: Content
   number: 3
+  lesson: introduction
