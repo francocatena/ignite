@@ -82,7 +82,7 @@ class SlidesController < ApplicationController
     
   rescue ActiveRecord::StaleObjectError
     flash.alert = t :'view.slides.stale_object_error'
-    redirect_to edit_slide_url(@slide)
+    redirect_to edit_lesson_slide_url(@lesson, @slide)
   end
 
   # DELETE /slides/1

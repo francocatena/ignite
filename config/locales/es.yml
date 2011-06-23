@@ -323,6 +323,8 @@
       correctly_updated: 'Clase actualizada correctamente.'
       stale_object_error: 'La clase no pudo ser actualizada, intente nuevamente.'
       show_slides: 'Ver diapositivas'
+      without_slides: 'La clase no tiene diapositivas'
+      add_slide: 'Agregar diapositiva'
     slides:
       index_title: 'Listado de diapositivas'
       show_title: 'Detalle de diapositiva'
