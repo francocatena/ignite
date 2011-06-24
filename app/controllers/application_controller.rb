@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter lambda { expires_now }
+  
   # Rescue any exception and show it in a "nice" page
   rescue_from Exception do |exception|
     begin

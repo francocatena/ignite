@@ -1,3 +1,7 @@
+body {
+  height: 100%; /* For use percent height in full slides */
+}
+
 .lesson .slide {
   z-index: 1;
   opacity: 0;
@@ -23,18 +27,7 @@
   height: 100%;
   min-width: 800px;
   min-height: 600px;
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.25, rgb(135,135,135)),
-    color-stop(0.63, rgb(217,217,217))
-  );
-  background-image: -moz-linear-gradient(
-    center bottom,
-    rgb(135,135,135) 25%,
-    rgb(217,217,217) 63%
-  );
+  background-color: #d5e9f6;
 }
 
 .slide div.content {
@@ -44,18 +37,39 @@
 }
 
 .slide div.code_node {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .slide div.text_node h1 {
   text-shadow: 1px 1px 6px #666666;
 }
 
-.slide header {
-  padding: .5em 0em;
+.slide div.text_node, .slide div.code_node {
+  margin: .5em 0em;
+}
+
+.slide div.text_node h1 {
+  font-size: 2em;
+}
+
+.slide div.text_node h2 {
+  font-size: 1.5em;
+}
+
+.slide div.text_node h3 {
   font-size: 1.2em;
+}
+
+.slide div.text_node ul, .slide div.text_node ol {
+  margin-left: 2em;
+  font-size: 2.5em;
+}
+
+.slide header {
+  padding: 1em 0em;
+  font-size: 1.25em;
   color: #ffffff;
-  background-color: #1af;
+  background-color: #c00;
   text-shadow: 0px 0px 3px #fff;
   position: absolute;
   top: 0px;
@@ -91,9 +105,7 @@
   margin: 0px;
   width: 100%;
   font-size: .75em;
-  background: #dfdfdf;
-  background: -webkit-gradient(linear, left top, left bottom, from(#cdcdcd), to(#dfdfdf));
-  background: -moz-linear-gradient(#cdcdcd, #dfdfdf);
+  background-color: #fff9d8;
   opacity: 0;
 }
 
@@ -111,4 +123,38 @@
 
 .slide nav.links > div {
   padding: 1em;
+}
+
+.slide p {
+  font-size: 2.5em;
+}
+
+.slide .big_font {
+  font-size: 1in !important;
+}
+
+.slide .glass_box {
+  background: transparent;
+  padding: .25em;
+  border-radius: .25em;
+  -moz-border-radius: .25em;
+  -webkit-border-radius: .25em;
+  box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
+  -moz-box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
+}
+
+.slide .glow {
+  padding: 0em .25em;
+  color: #ffffff;
+  background: #333;
+  opacity: .5;
+  text-shadow: 0 0 .2em #fff, 0 0 .5em #fff;
+  border-radius: .25em;
+  -moz-border-radius: .25em;
+  -webkit-border-radius: .25em;
+}
+
+.slide .normal_font {
+  font-size: .25in !important;
 }

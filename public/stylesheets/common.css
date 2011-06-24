@@ -8,7 +8,6 @@ body {
   background-color: #ffffff;
   font-family: arial, helvetica, sans-serif;
   font-size: 12px;
-  height: 100%; /* For use percent height in full slides */
 }
 
 br.break {
@@ -149,26 +148,6 @@ div.field > label {
 div.field input[type="checkbox"] + label {
   display: inline;
   margin-left: .5em;
-}
-
-div.text_node, div.code_node {
-  margin: .5em 0em;
-}
-
-div.text_node h1 {
-  font-size: 2em;
-}
-
-div.text_node h2 {
-  font-size: 1.5em;
-}
-
-div.text_node h3 {
-  font-size: 1.2em;
-}
-
-div.text_node ul, div.text_node ol {
-  margin-left: 3em;
 }
 
 form.button_to input[type="submit"] {
