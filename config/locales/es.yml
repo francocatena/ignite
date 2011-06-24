@@ -341,4 +341,7 @@
         ruby: 'Ruby'
         css: 'CSS'
         html: 'HTML'
-        java_scrip: 'JavaScript'
+        java_script: 'JavaScript'
+        yaml: 'YAML'
+        sql: 'SQL'
+        plaintext: 'Texto plano'
