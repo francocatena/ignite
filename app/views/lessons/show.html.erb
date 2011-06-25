@@ -30,8 +30,19 @@ var Slide = {
   },
 
   show: function(number) {
-    window.location.href =
-      window.location.href.replace(/#.+$/, "#slide-" + number);
+    var slide = "#slide-" + number;
+    
+    window.location.href = window.location.href.replace(/#.+$/, '') + slide;
+    
+    Slide.updateTitle();
+  },
+  
+  updateTitle: function() {
+    var number = Slide.currentNumber() || 0;
+    var slide = "#slide-" + number;
+    var title = $('h1', $('header', $(slide))).text();
+    
+    $('head title').text(title + ' (' + number + ')');
   }
 };
 
@@ -39,7 +50,7 @@ jQuery(function($) {
   var firstSlide = '<%= @lesson.slides.first.try(:number) %>';
   
   if(!window.location.href.match(/#/) && firstSlide != '') {
-    window.location.href = window.location.href + '#slide-' + firstSlide;
+    Slide.show(firstSlide);
   }
 
   $(document).keydown(function(e) {
@@ -68,7 +79,8 @@ jQuery(function($) {
       width: 700,
       height: 500
     });
-    //$(this).siblings('.ruby_result').text(data);
   });
+  
+  Slide.updateTitle();
 });
 </script>
