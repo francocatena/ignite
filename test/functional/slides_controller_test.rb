@@ -94,4 +94,16 @@ class SlidesControllerTest < ActionController::TestCase
 
     assert_redirected_to lesson_slides_path(@lesson)
   end
+  
+  test 'execute ruby locally' do
+    @request.remote_addr = '127.0.0.1'
+    xhr :post, :execute_ruby, :code => 'puts "Inside a test!"'
+    assert_equal "Inside a test!\n", @response.body
+  end
+  
+  test 'can not execute ruby from remote hosts' do
+    @request.remote_addr = '192.168.0.1'
+    xhr :post, :execute_ruby, :code => 'puts "Inside a test!"'
+    assert_not_equal "Inside a test!\n", @response.body
+  end
 end

@@ -82,4 +82,9 @@ jQuery(function($) {
       event.stopPropagation();
     }
   });
+  
+  $('#loading_image').bind({
+    ajaxStart: function() {$(this).show();},
+    ajaxStop: function() {$(this).hide();}
+  });
 });

@@ -57,5 +57,15 @@ jQuery(function() {
       e.preventDefault();
     }
   });
+  
+  $('form.ruby_code').live('ajax:success', function(event, data) {
+    $.fancybox({
+      content: '<pre class="code">' + data + '</pre>',
+      autoDimensions: false,
+      width: 700,
+      height: 500
+    });
+    //$(this).siblings('.ruby_result').text(data);
+  });
 });
 </script>

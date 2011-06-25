@@ -2,6 +2,9 @@ Ignite::Application.routes.draw do
   resources :lessons do
     resources :slides
   end
+  
+  match 'slides/execute_ruby' => 'slides#execute_ruby', :as => :execute_ruby,
+    :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

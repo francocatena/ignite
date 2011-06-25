@@ -2,8 +2,10 @@ class SlidesController < ApplicationController
   before_filter :load_lesson
   hide_action :load_lesson
   
-  # GET /slides
-  # GET /slides.xml
+  layout lambda { |controller| controller.request.xhr? ? false : 'application' }
+  
+  # GET /lessons/1/slides
+  # GET /lessons/1/slides.xml
   def index
     @title = t :'view.slides.index_title'
     @slides = @lesson.slides.paginate(
@@ -17,8 +19,8 @@ class SlidesController < ApplicationController
     end
   end
 
-  # GET /slides/1
-  # GET /slides/1.xml
+  # GET /lessons/1/slides/1
+  # GET /lessons/1/slides/1.xml
   def show
     @title = t :'view.slides.show_title'
     @slide = @lesson.slides.find(params[:id])
@@ -29,8 +31,8 @@ class SlidesController < ApplicationController
     end
   end
 
-  # GET /slides/new
-  # GET /slides/new.xml
+  # GET /lessons/1/slides/new
+  # GET /lessons/1/slides/new.xml
   def new
     @title = t :'view.slides.new_title'
     @slide = @lesson.slides.build
@@ -41,14 +43,14 @@ class SlidesController < ApplicationController
     end
   end
 
-  # GET /slides/1/edit
+  # GET /lessons/1/slides/1/edit
   def edit
     @title = t :'view.slides.edit_title'
     @slide = @lesson.slides.find(params[:id])
   end
 
-  # POST /slides
-  # POST /slides.xml
+  # POST /lessons/1/slides
+  # POST /lessons/1/slides.xml
   def create
     @title = t :'view.slides.new_title'
     @slide = @lesson.slides.build(params[:slide])
@@ -64,8 +66,8 @@ class SlidesController < ApplicationController
     end
   end
 
-  # PUT /slides/1
-  # PUT /slides/1.xml
+  # PUT /lessons/1/slides/1
+  # PUT /lessons/1/slides/1.xml
   def update
     @title = t :'view.slides.edit_title'
     @slide = @lesson.slides.find(params[:id])
@@ -85,8 +87,8 @@ class SlidesController < ApplicationController
     redirect_to edit_lesson_slide_url(@lesson, @slide)
   end
 
-  # DELETE /slides/1
-  # DELETE /slides/1.xml
+  # DELETE /lessons/1/slides/1
+  # DELETE /lessons/1/slides/1.xml
   def destroy
     @slide = @lesson.slides.find(params[:id])
     @slide.destroy
@@ -94,6 +96,15 @@ class SlidesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(lesson_slides_url(@lesson)) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # POST /lessons/1/slides/execute_ruby
+  def execute_ruby
+    if request.local?
+      render :inline => eval("begin $stdout = StringIO.new; #{params[:code]}; $stdout.string; ensure $stdout = STDOUT end")
+    else
+      render :inline => ''
     end
   end
   

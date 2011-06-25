@@ -1,0 +1,12 @@
+<div class="code_form" style="display: none;">
+  <%= form_tag execute_ruby_path, :class => 'ruby_code', :remote => true do %>
+    <div class="field">
+      <%= text_area_tag :code, code %>
+    </div>
+    
+    <div class="actions">
+      <%= submit_tag t(:'view.slides.execute') %>
+    </div>
+  <% end %>
+  <pre class="ruby_result"></pre>
+</div>

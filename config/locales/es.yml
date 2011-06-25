@@ -337,6 +337,8 @@
       nodes: 'Nodos'
       add_text_node: 'Agregar texto'
       add_code_node: 'Agregar código'
+      execute: 'Ejecutar'
+      switch_code_view: 'Cambiar vista'
       langs:
         ruby: 'Ruby'
         css: 'CSS'

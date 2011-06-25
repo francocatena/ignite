@@ -6,7 +6,10 @@
   
   <div class="content">
     <% slide.all_nodes.each do |node| %>
-      <%= node.draw %>
+      <div class="node">
+        <%= draw_node_optionals(node) %>
+        <%= node.draw %>
+      </div>
     <% end %>
 
     <nav class="links">

@@ -2,6 +2,15 @@ body {
   height: 100%; /* For use percent height in full slides */
 }
 
+#fancybox-content pre.code {
+  width: 80%;
+  overflow: visible;
+  font-size: 2em;
+  font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  color: #000;
+  padding: 1em;
+}
+
 .lesson .slide {
   z-index: 1;
   opacity: 0;
@@ -31,11 +40,11 @@ body {
 }
 
 .slide a, .slide a:visited {
-  color: #009;
+  color: #006;
   font-weight: bold;
   text-decoration: none;
   padding-bottom: .2em;
-  border-bottom: 4px dotted #009;
+  border-bottom: .1em dotted #006;
 }
 
 .slide div.content {
@@ -143,6 +152,17 @@ body {
   font-size: 1in !important;
 }
 
+.slide .code_form {
+  margin: 1em 0em;
+}
+
+.slide .code_form textarea {
+  font-size: 1.5em;
+  font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  padding: .5em;
+  width: 100%;
+}
+
 .slide .glass_box {
   background: transparent;
   padding: .25em;
@@ -163,6 +183,17 @@ body {
   border-radius: .25em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
+}
+
+.slide .node {
+  position: relative;
+}
+
+.slide .node a.edit_code {
+  position: absolute;
+  font-size: .75em;
+  top: .5em;
+  right: 1.25em;
 }
 
 .slide .normal_font {

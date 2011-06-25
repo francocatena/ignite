@@ -1,13 +1,13 @@
 module ApplicationHelper
   def default_stylesheets
-    sheets = ['common', 'coderay', 'slide']
+    sheets = ['common', 'coderay', 'slide', 'jquery/fancybox']
     sheets << {:cache => 'main'}
 
     stylesheet_link_tag *sheets
   end
 
   def default_javascripts
-    libs = [:defaults]
+    libs = [:defaults, 'jquery.fancybox']
     libs << {:cache => 'main'}
 
     javascript_include_tag *libs
