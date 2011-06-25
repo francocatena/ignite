@@ -1,6 +1,11 @@
 === Ignite
 
-Web application for presentations
+Web application for presentations, inspired by Lea Verou and his presentation
+about CSS3
+
+http://leaverou.me/ft2010/
+
+Really amazing stuff =)
 
 === (The MIT License)
 
