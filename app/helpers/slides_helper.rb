@@ -11,7 +11,7 @@ module SlidesHelper
     if node.kind_of?(CodeNode) && node.lang == 'ruby'
       out = link_to_function(
         t(:'view.slides.switch_code_view'),
-        "$('.CodeRay', $(this).parent('.node')).toggle(); $('.code_form', $(this).parent('.node')).toggle();",
+        "$('.CodeRay', $(this).parent('.node')).toggle(); $('.code_form', $(this).parent('.node')).toggle(); State.limitNavigation = !State.limitNavigation;",
         :class => :edit_code
       )
       

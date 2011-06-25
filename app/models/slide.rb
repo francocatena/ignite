@@ -18,4 +18,8 @@ class Slide < ActiveRecord::Base
   def all_nodes
     (self.code_nodes | self.text_nodes).sort
   end
+  
+  def anchor
+    "slide-#{self.number}"
+  end
 end

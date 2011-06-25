@@ -1,5 +1,6 @@
 var State = {
-  newIdCounter: 0
+  newIdCounter: 0,
+  limitNavigation: false
 }
 
 var EventHandler = {

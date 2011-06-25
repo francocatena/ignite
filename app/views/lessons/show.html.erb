@@ -35,7 +35,7 @@ var Slide = {
   }
 };
 
-jQuery(function() {
+jQuery(function($) {
   var firstSlide = '<%= @lesson.slides.first.try(:number) %>';
   
   if(!window.location.href.match(/#/) && firstSlide != '') {
@@ -44,14 +44,17 @@ jQuery(function() {
 
   $(document).keydown(function(e) {
     var key = e.which;
-
     // 39 = right arrow, 34 = page down, 40 = down arrow, 13 = enter
-    if(key == 39 || key == 34 || key == 40 || key == 13) {
+    var nextKeys = State.limitNavigation ? [] : [39, 34, 40, 13];
+    // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
+    var prevKeys = State.limitNavigation ? [] : [37, 33, 38, 8];
+
+    
+    if($.inArray(key, nextKeys) != -1) {
       if($('#slide-' + Slide.next()).length > 0) { Slide.show(Slide.next()); }
       
       e.preventDefault();
-    // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
-    } else if(key == 37 || key == 33 || key == 38 || key == 8) {
+    } else if($.inArray(key, prevKeys) != -1) {
       if($('#slide-' + Slide.prev()).length > 0) { Slide.show(Slide.prev()); }
       
       e.preventDefault();

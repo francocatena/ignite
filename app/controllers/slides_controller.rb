@@ -74,7 +74,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
-        format.html { redirect_to(lesson_slide_path(@lesson, @slide), :notice => t(:'view.slides.correctly_updated')) }
+        format.html { redirect_to(lesson_path(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => :edit }
