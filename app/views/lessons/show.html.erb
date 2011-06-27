@@ -37,6 +37,12 @@ var Slide = {
     Slide.updateTitle();
   },
   
+  updateTime: function() {
+    $('div.slide footer time').text(new Date().toLocaleTimeString());
+    
+    window.setTimeout(Slide.updateTime, 1000);
+  },
+  
   updateTitle: function() {
     var number = Slide.currentNumber() || 0;
     var slide = "#slide-" + number;
@@ -80,6 +86,8 @@ jQuery(function($) {
       height: 500
     });
   });
+  
+  Slide.updateTime();
   
   Slide.updateTitle();
 });

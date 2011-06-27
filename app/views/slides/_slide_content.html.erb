@@ -11,12 +11,16 @@
         <%= node.draw %>
       </div>
     <% end %>
-
-    <nav class="links">
-      <div>
-        <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
-        <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
-      </div>
-    </nav>
   </div>
+  <footer>
+    <div>
+      <time><%= Time.now.to_s(:time) %></time>
+    </div>
+  </footer>
+  <nav class="links">
+    <div>
+      <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
+      <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+    </div>
+  </nav>
 </div>
