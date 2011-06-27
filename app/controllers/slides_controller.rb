@@ -102,7 +102,17 @@ class SlidesController < ApplicationController
   # POST /lessons/1/slides/execute_ruby
   def execute_ruby
     if request.local?
-      render :inline => eval("begin $stdout = StringIO.new; #{params[:code]}; $stdout.string; ensure $stdout = STDOUT end")
+      code = <<-RUBY
+        begin
+          $stdout = StringIO.new
+          #{params[:code]}
+          $stdout.string
+        ensure
+          $stdout = STDOUT
+        end
+      RUBY
+      
+      render :inline => eval(code)
     else
       render :inline => ''
     end
