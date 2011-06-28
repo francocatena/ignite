@@ -60,7 +60,9 @@
           options: 'Opciones'
           rank: 'Orden'
 
-  app_name: 'Presentaciones'
+  app:
+    name: 'Presentaciones'
+    powered_by: 'Creado con ["Ignite":https://github.com/francocatena/ignite]'
 
   # Active Support
   date:

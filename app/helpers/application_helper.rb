@@ -89,4 +89,11 @@ module ApplicationHelper
 
     result
   end
+  
+  def textilize(text)
+    textilized = RedCloth.new(text, [:hard_breaks])
+    textilized.hard_breaks = true if textilized.respond_to?(:'hard_breaks=')
+    
+    raw textilized.to_html
+  end
 end

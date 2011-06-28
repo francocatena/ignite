@@ -54,11 +54,6 @@ body {
   padding: 1em 2em;
 }
 
-.slide div.content br.spacer {
-  font-size: .5em;
-  height: .5em;
-}
-
 .slide div.code_node {
   font-size: 1.5em;
 }
@@ -81,6 +76,10 @@ body {
 
 .slide div.text_node h3 {
   font-size: 1.2em;
+}
+
+.slide div.text_node p {
+  font-size: 2.5em;
 }
 
 .slide div.text_node ul, .slide div.text_node ol {
@@ -134,9 +133,9 @@ body {
 
 .slide nav.links:hover {
   opacity: 1;
-  transition: 1s opacity;
-  -webkit-transition: 1s opacity;
-  -moz-transition: 1s opacity;
+  transition: 1s .25s opacity;
+  -webkit-transition: 1s .25s opacity;
+  -moz-transition: 1s .25s opacity;
 }
 
 .slide nav.links a, .slide nav.links a:visited {
@@ -161,7 +160,7 @@ body {
   left: 0px;
   margin: 0px;
   width: 100%;
-  opacity: .4;
+  opacity: .5;
   background-color: #333333;
 }
 
@@ -177,8 +176,11 @@ body {
   color: #ffffff;
 }
 
-.slide p {
-  font-size: 2.5em;
+.slide footer .author {
+  float: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .slide .big_font {
