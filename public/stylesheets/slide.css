@@ -129,6 +129,7 @@ body {
   width: 100%;
   background-color: #fff9d8;
   opacity: 0;
+  font-size: 16px;
 }
 
 .slide nav.links:hover {
@@ -147,6 +148,10 @@ body {
 
 .slide nav.links > div {
   padding: 1em;
+}
+
+.slide nav.links .ui_control a {
+  text-decoration: none;
 }
 
 .slide footer {
@@ -177,7 +182,7 @@ body {
 }
 
 .slide .big_font {
-  font-size: .75in !important;
+  font-size: 4em !important;
 }
 
 .slide .code_form {
@@ -225,5 +230,5 @@ body {
 }
 
 .slide .normal_font {
-  font-size: .25in !important;
+  font-size: .5em !important;
 }

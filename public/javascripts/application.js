@@ -61,7 +61,7 @@ var Util = {
   },
   
   refreshSortNumbers: function() {
-    $('input.sort_number').val(function(i) { return i + 1; });
+    $('input.sort_number').val(function(i) {return i + 1;});
   }
 }
 
@@ -82,6 +82,25 @@ jQuery(function($) {
       event.preventDefault();
       event.stopPropagation();
     }
+  });
+  
+  $('a.increase_font_size').live('click', function(event) {
+    if (event.stopped) return;
+    $($(this).data('target')).css({
+      fontSize: function(index, value) { return parseFloat(value) * 1.1 }
+    });
+    
+    event.preventDefault();
+    event.stopPropagation();
+  });
+  
+  $('a.decrease_font_size').live('click', function(event) {
+    $($(this).data('target')).css({
+      fontSize: function(index, value) { return parseFloat(value) / 1.1 }
+    });
+    
+    event.preventDefault();
+    event.stopPropagation();
   });
   
   $('#loading_image').bind({

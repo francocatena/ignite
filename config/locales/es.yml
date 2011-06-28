@@ -339,6 +339,7 @@
       add_code_node: 'Agregar código'
       execute: 'Ejecutar'
       switch_code_view: 'Cambiar vista'
+      adjust_font_size: 'Tamaño de fuente'
       langs:
         ruby: 'Ruby'
         css: 'CSS'
