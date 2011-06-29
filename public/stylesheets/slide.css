@@ -23,6 +23,7 @@ body {
   z-index: 100;
   opacity: 1;
   transition: .5s opacity ease-out;
+  -o-transition: .5s opacity ease-out;
   -webkit-transition: .5s opacity ease-out;
   -moz-transition: .5s opacity ease-out;
 }
@@ -132,6 +133,7 @@ body {
   font-size: 1.25em;
   overflow: hidden;
   transition: 1s opacity ease-in, .75s width ease-out;
+  -o-transition: 1s opacity ease-in, .75s width ease-out;
   -webkit-transition: 1s opacity ease-in, .75s width ease-out;
   -moz-transition: 1s opacity ease-in, .75s width ease-out;
 }
@@ -140,6 +142,7 @@ body {
   padding: .5em 1em;
   opacity: 0;
   transition: .1s opacity ease-in;
+  -o-transition: .1s opacity ease-in;
   -webkit-transition: .1s opacity ease-in;
   -moz-transition: .1s opacity ease-in;
 }
@@ -154,6 +157,7 @@ body {
   opacity: 1;
   width: 40em;
   transition: 1s opacity ease-out, .75s width ease-in;
+  -o-transition: 1s opacity ease-out, .75s width ease-in;
   -webkit-transition: 1s opacity ease-out, .75s width ease-in;
   -moz-transition: 1s opacity ease-out, .75s width ease-in;
 }
@@ -161,6 +165,7 @@ body {
 .slide nav.links:hover > div {
   opacity: 1;
   transition: .1s .9s opacity ease-out;
+  -o-transition: .1s .9s opacity ease-out;
   -webkit-transition: .1s .9s opacity ease-out;
   -moz-transition: .1s .9s opacity ease-out;
 }
