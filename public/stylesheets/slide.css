@@ -123,19 +123,50 @@ body {
   position: absolute;
   display: block;
   bottom: 0px;
-  left: 0px;
+  right: 0px;
   margin: 0px;
-  width: 100%;
+  width: 1em;
+  height: 100%;
   background-color: #fff9d8;
+  opacity: .5;
+  font-size: 1.25em;
+  overflow: hidden;
+  transition: 1s opacity ease-in, .75s width ease-out;
+  -webkit-transition: 1s opacity ease-in, .75s width ease-out;
+  -moz-transition: 1s opacity ease-in, .75s width ease-out;
+}
+
+.slide nav.links > div {
+  padding: .5em 1em;
   opacity: 0;
-  font-size: 16px;
+  transition: .1s opacity ease-in;
+  -webkit-transition: .1s opacity ease-in;
+  -moz-transition: .1s opacity ease-in;
+}
+
+.slide nav.links span.arrow_left {
+  position: absolute;
+  left: 0px;
+  margin-top: .75em;
 }
 
 .slide nav.links:hover {
   opacity: 1;
-  transition: 1s .25s opacity;
-  -webkit-transition: 1s .25s opacity;
-  -moz-transition: 1s .25s opacity;
+  width: 40em;
+  transition: 1s opacity ease-out, .75s width ease-in;
+  -webkit-transition: 1s opacity ease-out, .75s width ease-in;
+  -moz-transition: 1s opacity ease-out, .75s width ease-in;
+}
+
+.slide nav.links:hover > div {
+  opacity: 1;
+  transition: .1s .9s opacity ease-out;
+  -webkit-transition: .1s .9s opacity ease-out;
+  -moz-transition: .1s .9s opacity ease-out;
+}
+
+.slide nav.links:hover span.arrow_left {
+  display: none;
 }
 
 .slide nav.links a, .slide nav.links a:visited {
@@ -145,16 +176,12 @@ body {
   text-decoration: underline;
 }
 
-.slide nav.links > div {
-  padding: 1em;
-}
-
 .slide nav.links .ui_control a {
   text-decoration: none;
 }
 
 .slide footer {
-  position: absolute;
+  position: fixed;
   display: block;
   bottom: 0px;
   left: 0px;
@@ -165,8 +192,8 @@ body {
 }
 
 .slide footer > div {
-  padding: .5em 1em;
-  height: 1.5em;
+  padding: .5em 2em;
+  height: 2em;
 }
 
 .slide footer time {
@@ -179,8 +206,14 @@ body {
 .slide footer .author {
   float: left;
   font-size: 1.5em;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.slide footer .author a {
   font-weight: bold;
   color: #ffffff;
+  border-bottom: 2px solid #ffffff;
 }
 
 .slide .big_font {

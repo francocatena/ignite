@@ -15,22 +15,23 @@
   <footer>
     <div>
       <div class="author"><%= textilize t(:'app.powered_by') %></div>
+      <nav class="links">
+        <span class="arrow_left"></span>
+        <div>
+          <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
+          <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+          <div class="ui_control">
+            <%= t(:'view.slides.adjust_font_size') %>
+            <a class="increase_font_size" data-target=".slide" href="#">
+              <span class="arrow_up"></span>
+            </a> |
+            <a class="decrease_font_size" data-target=".slide" href="#">
+              <span class="arrow_down"></span>
+            </a>
+          </div>
+        </div>
+      </nav>
       <time><%= Time.now.to_s(:time) %></time>
     </div>
   </footer>
-  <nav class="links">
-    <div>
-      <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
-      <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
-      <div class="ui_control">
-        <%= t(:'view.slides.adjust_font_size') %>
-        <a class="increase_font_size" data-target=".slide" href="#">
-          <span class="arrow_up"></span>
-        </a> |
-        <a class="decrease_font_size" data-target=".slide" href="#">
-          <span class="arrow_down"></span>
-        </a>
-      </div>
-    </div>
-  </nav>
 </div>

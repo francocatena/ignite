@@ -266,7 +266,7 @@ section.nested_items textarea {
   height: 7em;
 }
 
-span.arrow_down, span.arrow_up {
+span.arrow_down, span.arrow_left, span.arrow_up {
   border-style: dashed;
   border-color: transparent;
   border-width: .4em;
@@ -281,6 +281,13 @@ span.arrow_down {
   border-top-style: solid;
   border-top-color: #666666;
   top: .25em;
+}
+
+span.arrow_left {
+  border-right-width: .5em;
+  border-right-style: solid;
+  border-right-color: #666666;
+  right: .25em;
 }
 
 span.arrow_up {
