@@ -46,7 +46,13 @@ body {
   font-weight: bold;
   text-decoration: none;
   padding-bottom: .2em;
-  border-bottom: .1em dotted #006;
+  border-bottom: .1em solid #006;
+}
+
+.slide abbr {
+  padding-bottom: .1em;
+  border-bottom: 2px dotted #333;
+  cursor: help;
 }
 
 .slide div.content {
@@ -225,6 +231,10 @@ body {
   font-size: 4em !important;
 }
 
+.slide .caps {
+  font-weight: bold;
+}
+
 .slide .code_form {
   margin: 1em 0em;
 }
@@ -232,7 +242,6 @@ body {
 .slide .code_form textarea {
   font-size: 1.5em;
   font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-  padding: .5em;
   width: 100%;
 }
 
@@ -248,11 +257,9 @@ body {
 }
 
 .slide .glow {
-  padding: 0em .25em;
   color: #ffffff;
-  background: #333;
-  opacity: .5;
-  text-shadow: 0 0 .2em #fff, 0 0 .5em #fff;
+  opacity: .75;
+  text-shadow: 0 0 .2em #333, 0 0 .5em #333;
   border-radius: .25em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
