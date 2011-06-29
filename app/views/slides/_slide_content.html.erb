@@ -18,6 +18,7 @@
       <nav class="links">
         <span class="arrow_left"></span>
         <div>
+          <%= link_to t(:'view.slides.new'), new_lesson_slide_path(lesson) %> |
           <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
           <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
           <div class="ui_control">

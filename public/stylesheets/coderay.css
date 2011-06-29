@@ -3,8 +3,8 @@
   border: 1px solid #CCC;
   font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
   color: #000;
-  padding: 1em 0px 1em 1em;
 }
+
 .CodeRay pre {
   margin: 0px;
 }
@@ -50,6 +50,7 @@ table.CodeRay td {
 
 .CodeRay .no {
   padding: 0px 4px;
+  font-weight: bold;
 }
 
 .CodeRay .code {

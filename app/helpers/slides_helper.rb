@@ -17,7 +17,7 @@ module SlidesHelper
       
       out << render(
         :partial => 'slides/execute_ruby',
-        :locals => { :code => node.content }
+        :locals => { :node => node }
       )
       
       raw(out)

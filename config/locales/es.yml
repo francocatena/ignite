@@ -335,6 +335,7 @@
       correctly_created: 'Diapositiva agregada correctamente.'
       correctly_updated: 'Diapositiva actualizada correctamente.'
       stale_object_error: 'La diapositiva no pudo ser actualizada, intente nuevamente.'
+      new: 'Nueva'
       back_to_lessons: 'Volver a lecciones'
       nodes: 'Nodos'
       add_text_node: 'Agregar texto'

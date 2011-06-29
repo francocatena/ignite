@@ -1,7 +1,7 @@
 <div class="code_form" style="display: none;">
   <%= form_tag execute_ruby_path, :class => 'ruby_code', :remote => true do %>
     <div class="field">
-      <%= text_area_tag :code, code %>
+      <%= text_area_tag :code, node.content, :id => "code_#{node.id}" %>
     </div>
     
     <div class="actions">
