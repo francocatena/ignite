@@ -30,8 +30,8 @@ table.CodeRay td {
 }
 
 .CodeRay .line_numbers, .CodeRay .no {
-  background-color: #ECECEC;
-  color: #AAA;
+  background-color: #ddd;
+  color: #999;
   text-align: right;
 }
 .CodeRay .line_numbers tt {

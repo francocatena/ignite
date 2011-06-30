@@ -14,11 +14,9 @@
 <script type="text/javascript">
 var Slide = {
   currentNumber: function() {
-    if(window.location.href.match(/#\D*\d+$/)) {
-      var number = window.location.href.match(/#\D*(\d+)$/)[1];
-
-      if(number) { return parseInt(number); }
-    }
+    var number = window.location.hash.match(/\d+$/);
+    
+    if(number) { return parseInt(number[0]); }
   },
 
   next: function() {
@@ -30,9 +28,7 @@ var Slide = {
   },
 
   show: function(number) {
-    var slide = "#slide-" + number;
-    
-    window.location.href = window.location.href.replace(/#.+$/, '') + slide;
+    window.location.hash = "#slide-" + number;
     
     Slide.updateTitle();
   },
