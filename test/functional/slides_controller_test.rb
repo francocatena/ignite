@@ -42,7 +42,7 @@ class SlidesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to lesson_slide_path(@lesson, assigns(:slide))
+    assert_redirected_to lesson_path(@lesson, :anchor => assigns(:slide).anchor)
   end
 
   test 'should show slide' do

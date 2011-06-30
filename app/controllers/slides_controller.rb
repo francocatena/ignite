@@ -57,7 +57,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to(lesson_slide_path(@lesson, @slide), :notice => t(:'view.slides.correctly_created')) }
+        format.html { redirect_to(lesson_path(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_created')) }
         format.xml  { render :xml => @slide, :status => :created, :location => @slide }
       else
         format.html { render :action => :new }
@@ -112,7 +112,7 @@ class SlidesController < ApplicationController
         end
       RUBY
       
-      render :inline => eval(code)
+      render :inline => eval(code, ROOT_BINDING)
     else
       render :inline => ''
     end
