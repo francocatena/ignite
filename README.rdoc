@@ -5,6 +5,15 @@ about CSS3
 
 http://leaverou.me/ft2010 -- Really amazing stuff =)
 
+This application is intended for those who give presentations with lots of code
+sinppets and want to highlight them. Also is useful if you have some textile
+knowledge.
+
+If you want something more simple to use take a look at this
+https://github.com/LeaVerou/CSSS.
+
+Contributors are welcomed!
+
 === (The MIT License)
 
 Copyright (c) 2011 Franco Catena

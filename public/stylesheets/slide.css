@@ -227,6 +227,30 @@ body {
   border-bottom: 2px solid #ffffff;
 }
 
+.slide table.summary {
+  width: 80%;
+  margin: 0% auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-size: 1.5em;
+  box-shadow: .5em .5em .5em #999;
+  -moz-box-shadow: .5em .5em .5em #999;
+  -webkit-box-shadow: .5em .5em .5em #999;
+}
+
+.slide table.summary td {
+  padding: .5em 1em;
+}
+
+.slide table.summary th {
+  text-align: left;
+  background-color: #333;
+  color: #fff;
+  padding: .5em 1em;
+  border-bottom: 4px solid #c00;
+  text-shadow: 0 0 .5em #fff;
+}
+
 .slide .big_font {
   font-size: 4em !important;
 }
