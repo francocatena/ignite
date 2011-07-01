@@ -4,7 +4,7 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 gem 'coderay'
-gem 'jquery-rails'
+gem 'jquery-rails', :git => 'https://github.com/francocatena/jquery-rails.git'
 gem 'will_paginate', '~> 3.0.beta'
 gem 'RedCloth'
 

@@ -2,7 +2,11 @@ var Slide = {
   currentNumber: function() {
     var number = window.location.hash.match(/\d+$/);
     
-    if(number) { return parseInt(number[0]); }
+    if(number) {
+      return parseInt(number[0]);
+    } else {
+      return undefined;
+    }
   },
   
   hideDelayed: function() {
@@ -11,8 +15,14 @@ var Slide = {
       $(window.location.hash)
     );
 
-    if(pendings.length > 0) { return pendings.fadeOut(1000); }
+    if(pendings.length > 0) {
+      return pendings.fadeOut(1000);
+    } else {
+      return false;
+    }
   },
+  
+  limitNavigationQueue: [],
 
   next: function() {
     return (Slide.currentNumber() || 0) + 1;
@@ -42,7 +52,25 @@ var Slide = {
       $(window.location.hash)
     );
 
-    if(pendings.length > 0) { return pendings.fadeIn(1000); }
+    if(pendings.length > 0) {
+      return pendings.fadeIn(1000);
+    } else {
+      return false;
+    }
+  },
+  
+  toggleEdition: function(readonlyView, editableView) {
+    if(editableView.is(':visible')) {
+      editableView.hide();
+      readonlyView.show();
+      
+      Slide.limitNavigationQueue.pop();
+    } else {
+      readonlyView.hide();
+      editableView.show();
+      
+      Slide.limitNavigationQueue.push(1);
+    }
   },
   
   updateTime: function() {
@@ -61,45 +89,48 @@ var Slide = {
 };
 
 jQuery(function($) {
-  if(!window.location.hash.match(/#/) && $('#slide-1').length > 0) {
-    Slide.show('#slide-1', true);
-  }
-
-  $(document).keydown(function(e) {
-    var key = e.which;
-    // 39 = right arrow, 34 = page down, 40 = down arrow, 13 = enter
-    var nextKeys = State.limitNavigation ? [] : [39, 34, 40, 13];
-    // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
-    var prevKeys = State.limitNavigation ? [] : [37, 33, 38, 8];
-
-    
-    if($.inArray(key, nextKeys) != -1) {
-      var hasNext = $('#slide-' + Slide.next()).length > 0;
-      
-      if(hasNext && !Slide.showDelayed()) { Slide.show(Slide.next(), true); }
-      
-      e.preventDefault();
-    } else if($.inArray(key, prevKeys) != -1) {
-      var hasPrev = $('#slide-' + Slide.prev()).length > 0;
-      
-      if(hasPrev && !Slide.hideDelayed()) { Slide.show(Slide.prev(), false); }
-      
-      e.preventDefault();
+  if($('.slide').length > 0) {
+    if(!window.location.hash.match(/#/) && $('#slide-1').length > 0) {
+      Slide.show('#slide-1', true);
     }
-  });
-  
-  $('form.ruby_code').live('ajax:success', function(event, data) {
-    $.fancybox({
-      content: '<pre class="code">' + data + '</pre>',
-      autoDimensions: false,
-      width: 700,
-      height: 500
+
+    $(document).keydown(function(e) {
+      var key = e.which;
+      var limitNavigation = Slide.limitNavigationQueue.length > 0;
+      // 39 = right arrow, 34 = page down, 40 = down arrow, 13 = enter
+      var nextKeys = limitNavigation ? [] : [39, 34, 40, 13];
+      // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
+      var prevKeys = limitNavigation ? [] : [37, 33, 38, 8];
+
+
+      if($.inArray(key, nextKeys) != -1) {
+        var hasNext = $('#slide-' + Slide.next()).length > 0;
+
+        if(hasNext && !Slide.showDelayed()) { Slide.show(Slide.next(), true); }
+
+        e.preventDefault();
+      } else if($.inArray(key, prevKeys) != -1) {
+        var hasPrev = $('#slide-' + Slide.prev()).length > 0;
+
+        if(hasPrev && !Slide.hideDelayed()) { Slide.show(Slide.prev(), false); }
+
+        e.preventDefault();
+      }
     });
-  });
-  
-  $('.delayed').hide();
-  
-  Slide.updateTime();
-  
-  Slide.updateTitle();
+
+    $('form.ruby_code').live('ajax:success', function(event, data) {
+      $.fancybox({
+        content: '<pre class="code">' + data + '</pre>',
+        autoDimensions: false,
+        width: 700,
+        height: 500
+      });
+    });
+
+    $('.delayed').hide();
+
+    Slide.updateTime();
+
+    Slide.updateTitle();
+  }
 });

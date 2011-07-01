@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/francocatena/jquery-rails.git
+  revision: dd48a400f045ddb60c55dad565f394ccca71e5b7
+  specs:
+    jquery-rails (1.0.12)
+      railties (~> 3.0)
+      thor (~> 0.14)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -48,9 +56,6 @@ GEM
     gem_plugin (0.2.3)
     highline (1.6.2)
     i18n (0.5.0)
-    jquery-rails (1.0.12)
-      railties (~> 3.0)
-      thor (~> 0.14)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     mail (2.2.19)
@@ -117,7 +122,7 @@ DEPENDENCIES
   RedCloth
   capistrano
   coderay
-  jquery-rails
+  jquery-rails!
   mongrel
   rails (= 3.0.9)
   ruby-debug

@@ -9,9 +9,11 @@ module SlidesHelper
   
   def draw_node_optionals(node)
     if node.kind_of?(CodeNode) && node.lang == 'ruby'
+      readonly = "$('.CodeRay', $(this).parent('.node'))"
+      editable = "$('.code_form', $(this).parent('.node'))"
       out = link_to_function(
         t(:'view.slides.switch_code_view'),
-        "$('.CodeRay', $(this).parent('.node')).toggle(); $('.code_form', $(this).parent('.node')).toggle(); State.limitNavigation = !State.limitNavigation;",
+        "Slide.toggleEdition(#{readonly}, #{editable})",
         :class => :edit_code
       )
       
