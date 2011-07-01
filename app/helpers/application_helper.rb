@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def default_javascripts
-    libs = [:defaults, 'jquery.fancybox']
+    libs = [:defaults, 'jquery.fancybox', 'slides']
     libs << {:cache => 'main'}
 
     javascript_include_tag *libs

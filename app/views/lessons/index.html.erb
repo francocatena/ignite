@@ -3,16 +3,16 @@
     <tr>
       <th><%= Lesson.human_attribute_name :name %></th>
       <th><%= Lesson.human_attribute_name :sequence %></th>
-      <th colspan="4"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.name %></td>
+        <td><%= link_to lesson.name, lesson_slides_path(lesson),
+          :title => t(:'view.lessons.show_slides') %></td>
         <td><%= lesson.sequence %></td>
-        <td><%= link_to t(:'view.lessons.show_slides'), lesson_slides_path(lesson) %></td>
         <td><%= link_to t(:'label.show'), lesson %></td>
         <td><%= link_to t(:'label.edit'), edit_lesson_path(lesson) %></td>
         <td><%= button_to t(:'label.delete'), lesson,
