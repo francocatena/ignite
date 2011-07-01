@@ -18,6 +18,15 @@ var Slide = {
     
     if(number) { return parseInt(number[0]); }
   },
+  
+  hideDelayed: function() {
+    var pendings = $(
+      '.delayed:visible:not(:animated):last',
+      $(window.location.hash)
+    );
+
+    if(pendings.length > 0) { return pendings.fadeOut(1000); }
+  },
 
   next: function() {
     return (Slide.currentNumber() || 0) + 1;
@@ -27,10 +36,27 @@ var Slide = {
     return (Slide.currentNumber() || 0) - 1;
   },
 
-  show: function(number) {
-    window.location.hash = "#slide-" + number;
+  show: function(number, hideDelayed) {
+    var slide = "#slide-" + number;
+    
+    if(hideDelayed) {
+      $('.delayed', $(slide)).hide();
+    } else {
+      $('.delayed', $(slide)).show();
+    }
+    
+    window.location.hash = slide;
     
     Slide.updateTitle();
+  },
+  
+  showDelayed: function() {
+    var pendings = $(
+      '.delayed:not(:visible):not(:animated):first',
+      $(window.location.hash)
+    );
+
+    if(pendings.length > 0) { return pendings.fadeIn(1000); }
   },
   
   updateTime: function() {
@@ -51,8 +77,8 @@ var Slide = {
 jQuery(function($) {
   var firstSlide = '<%= @lesson.slides.first.try(:number) %>';
   
-  if(!window.location.href.match(/#/) && firstSlide != '') {
-    Slide.show(firstSlide);
+  if(!window.location.hash.match(/#/) && firstSlide != '') {
+    Slide.show(firstSlide, true);
   }
 
   $(document).keydown(function(e) {
@@ -64,11 +90,15 @@ jQuery(function($) {
 
     
     if($.inArray(key, nextKeys) != -1) {
-      if($('#slide-' + Slide.next()).length > 0) { Slide.show(Slide.next()); }
+      var hasNext = $('#slide-' + Slide.next()).length > 0;
+      
+      if(hasNext && !Slide.showDelayed()) { Slide.show(Slide.next(), true); }
       
       e.preventDefault();
     } else if($.inArray(key, prevKeys) != -1) {
-      if($('#slide-' + Slide.prev()).length > 0) { Slide.show(Slide.prev()); }
+      var hasPrev = $('#slide-' + Slide.prev()).length > 0;
+      
+      if(hasPrev && !Slide.hideDelayed()) { Slide.show(Slide.prev(), false); }
       
       e.preventDefault();
     }
@@ -82,6 +112,8 @@ jQuery(function($) {
       height: 500
     });
   });
+  
+  $('.delayed').hide();
   
   Slide.updateTime();
   

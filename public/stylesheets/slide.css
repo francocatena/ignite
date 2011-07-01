@@ -327,3 +327,8 @@ body {
   font-size: .5em !important;
   font-weight: normal;
 }
+
+.slide .medium_font {
+  font-size: .75em !important;
+  font-weight: normal;
+}
