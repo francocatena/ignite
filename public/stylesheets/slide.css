@@ -173,10 +173,10 @@ body {
   opacity: .5;
   font-size: 1.25em;
   overflow: hidden;
-  transition: 1s opacity ease-in, .75s width ease-out;
-  -o-transition: 1s opacity ease-in, .75s width ease-out;
-  -webkit-transition: 1s opacity ease-in, .75s width ease-out;
-  -moz-transition: 1s opacity ease-in, .75s width ease-out;
+  transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
+  -o-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
+  -webkit-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
+  -moz-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
 }
 
 .slide nav.links > div {

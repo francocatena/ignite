@@ -347,6 +347,7 @@
         ruby: 'Ruby'
         css: 'CSS'
         html: 'HTML'
+        rhtml: 'ERB + HTML'
         java_script: 'JavaScript'
         yaml: 'YAML'
         sql: 'SQL'

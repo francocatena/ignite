@@ -1,6 +1,6 @@
 class CodeNode < Node
   # Supported languages
-  LANGS = ['ruby', 'css', 'html', 'java_script', 'yaml', 'sql', 'plaintext']
+  LANGS = ['ruby', 'css', 'html', 'rhtml', 'java_script', 'yaml', 'sql', 'plaintext']
   
   validates_each :options do |record, attr, value|
     record.errors.add attr, :invalid unless LANGS.include?(value['lang'].to_s)
