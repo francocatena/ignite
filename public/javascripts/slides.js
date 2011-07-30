@@ -76,7 +76,7 @@ var Slide = {
   updateTime: function() {
     var time = new Date().toLocaleTimeString().match(/^\d+:\d+/)[0];
     
-    $('div.slide footer time').text(time);
+    $('.slide footer time').text(time);
     
     window.setTimeout(Slide.updateTime, 5000);
   },
