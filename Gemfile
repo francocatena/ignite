@@ -9,7 +9,8 @@ gem 'will_paginate', '~> 3.0.beta'
 gem 'RedCloth'
 
 group :production do
-  gem 'smurf'
+  gem 'therubyracer', :require => false
+  gem 'uglifier'
 end
 
 group :development do
