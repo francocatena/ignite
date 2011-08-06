@@ -353,3 +353,7 @@ body {
   font-size: .75em !important;
   font-weight: normal;
 }
+
+.fancybox-in-slide * {
+  font-size: 2.5em;
+}

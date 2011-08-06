@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :require_local
+  
   protect_from_forgery
   
   before_filter lambda { expires_now }
@@ -22,6 +24,18 @@ class ApplicationController < ActionController::Base
       ex.backtrace.each { |l| error << "#{l}\n" }
 
       logger.error(error)
+    end
+  end
+  
+  def require_local
+    if request.local?
+      expires_now
+    else
+      flash.notice = t(:'messages.must_be_a_local_request')
+      
+      redirect_to root_url
+
+      false
     end
   end
 end

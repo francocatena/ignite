@@ -24,7 +24,7 @@ module SlidesHelper
             :locals => { :node => node }
           )
 
-          raw(out)
+          raw(out) if request.local?
         when 'html'
           html_code = "$(this).parent('.node').find('.html_code')"
           out = link_to_function(
@@ -32,9 +32,12 @@ module SlidesHelper
             "Slide.showHtml(#{html_code})",
             :class => :edit_code
           )
+          content = content_tag(
+            :div, raw(node.content), :class => 'fancybox-in-slide'
+          )
           
           out << content_tag(
-            :textarea, raw(node.content), :class => 'html_code',
+            :textarea, raw(content), :class => 'html_code',
             :style => 'display: none;'
           )
           

@@ -3,6 +3,7 @@ require 'test_helper'
 class LessonsControllerTest < ActionController::TestCase
   setup do
     @lesson = lessons(:introduction)
+    @request.remote_addr = '127.0.0.1'
   end
 
   test 'should get index' do

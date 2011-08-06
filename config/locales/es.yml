@@ -204,6 +204,7 @@
     
   messages:
     confirmation: '¿Está seguro?'
+    must_be_a_local_request: 'Debe ser requerido desde una dirección local'
     
   # Action View
   number:

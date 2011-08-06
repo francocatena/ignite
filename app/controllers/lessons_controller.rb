@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_filter :require_local, :except => [:index, :show]
+  
   # GET /lessons
   # GET /lessons.xml
   def index

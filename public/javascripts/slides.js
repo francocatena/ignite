@@ -116,13 +116,13 @@ jQuery(function($) {
       if($.inArray(key, nextKeys) != -1) {
         var hasNext = $('#slide-' + Slide.next()).length > 0;
 
-        if(!Slide.showDelayed() && hasNext) { Slide.show(Slide.next(), true); }
+        if(!Slide.showDelayed() && hasNext) {Slide.show(Slide.next(), true);}
 
         e.preventDefault();
       } else if($.inArray(key, prevKeys) != -1) {
         var hasPrev = $('#slide-' + Slide.prev()).length > 0;
 
-        if(!Slide.hideDelayed() && hasPrev) { Slide.show(Slide.prev(), false); }
+        if(!Slide.hideDelayed() && hasPrev) {Slide.show(Slide.prev(), false);}
 
         e.preventDefault();
       }

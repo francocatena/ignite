@@ -1,4 +1,5 @@
 class SlidesController < ApplicationController
+  before_filter :require_local, :except => [:index, :show]
   before_filter :load_lesson
   hide_action :load_lesson
   
@@ -101,21 +102,17 @@ class SlidesController < ApplicationController
   
   # POST /lessons/1/slides/execute_ruby
   def execute_ruby
-    if request.local?
-      code = <<-RUBY
-        begin
-          $stdout = StringIO.new
-          #{params[:code]}
-          $stdout.string
-        ensure
-          $stdout = STDOUT
-        end
-      RUBY
-      
-      render :inline => eval(code, ROOT_BINDING)
-    else
-      render :inline => ''
-    end
+    code = <<-RUBY
+      begin
+        $stdout = StringIO.new
+        #{params[:code]}
+        $stdout.string
+      ensure
+        $stdout = STDOUT
+      end
+    RUBY
+
+    render :inline => eval(code, ROOT_BINDING)
   end
   
   private

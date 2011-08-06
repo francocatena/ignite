@@ -4,6 +4,7 @@ class SlidesControllerTest < ActionController::TestCase
   setup do
     @slide = slides(:opening)
     @lesson = lessons(:introduction)
+    @request.remote_addr = '127.0.0.1'
   end
 
   test 'should get index' do
@@ -96,7 +97,6 @@ class SlidesControllerTest < ActionController::TestCase
   end
   
   test 'execute ruby locally' do
-    @request.remote_addr = '127.0.0.1'
     xhr :post, :execute_ruby, :code => 'puts "Inside a test!"'
     assert_equal "Inside a test!\n", @response.body
   end
