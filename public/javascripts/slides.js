@@ -9,6 +9,10 @@ var Slide = {
     }
   },
   
+  executeJS: function(jsContainer) {
+    eval(jsContainer.val());
+  },
+  
   hideDelayed: function() {
     var pendings = $(
       '.delayed:visible:not(:animated):last',
@@ -57,6 +61,10 @@ var Slide = {
     } else {
       return false;
     }
+  },
+  
+  showHtml: function(htmlContainer) {
+    $.fancybox({ 'padding': 24, 'content': htmlContainer.val() });
   },
   
   toggleEdition: function(readonlyView, editableView) {

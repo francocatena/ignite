@@ -341,6 +341,7 @@
       add_text_node: 'Agregar texto'
       add_code_node: 'Agregar código'
       execute: 'Ejecutar'
+      show_html: 'Ver resultado'
       switch_code_view: 'Cambiar vista'
       adjust_font_size: 'Tamaño de fuente'
       langs:

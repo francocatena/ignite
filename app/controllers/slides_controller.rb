@@ -57,7 +57,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to(lesson_path(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_created')) }
+        format.html { redirect_to(lesson_url(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_created')) }
         format.xml  { render :xml => @slide, :status => :created, :location => @slide }
       else
         format.html { render :action => :new }
@@ -74,7 +74,7 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
-        format.html { redirect_to(lesson_path(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_updated')) }
+        format.html { redirect_to(lesson_url(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => :edit }
