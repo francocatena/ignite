@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Reenie Beanie';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Reenie Beanie'), url('/fonts/ReenieBeanie.ttf') format('truetype');
+}
+
 body {
   height: 100%; /* For use percent height in full slides */
 }
@@ -333,6 +340,10 @@ body {
   -webkit-border-radius: .25em;
 }
 
+.slide .informal {
+  font-family: 'Reenie Beanie', cursive;
+}
+
 .slide .node {
   position: relative;
 }
@@ -352,8 +363,4 @@ body {
 .slide .medium_font {
   font-size: .75em !important;
   font-weight: normal;
-}
-
-.fancybox-in-slide * {
-  font-size: 2.5em;
 }

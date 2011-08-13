@@ -9,8 +9,9 @@ class CodeNode < Node
   def draw
     div_options = { :line_numbers => :inline, :css => :class }
     marked_code = CodeRay.scan(self.content, self.lang).div(div_options)
+    classes = ['code_node', self.css_class].compact.join(' ')
     
-    "<div class=\"code_node\">#{marked_code}</div>".html_safe
+    "<div class=\"#{classes}\">#{marked_code}</div>".html_safe
   end
   
   def lang

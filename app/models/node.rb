@@ -42,6 +42,18 @@ class Node < ActiveRecord::Base
     end
   end
   
+  def css_class
+    self.options ||= {}
+    
+    self.options['css_class']
+  end
+  
+  def css_class=(css_class)
+    self.options ||= {}
+    
+    self.options['css_class'] = css_class if css_class.present?
+  end
+  
   def draw
     raise 'Must be implemented in the subclass!'
   end

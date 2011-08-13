@@ -7,10 +7,9 @@
     </div>
     <div class="nested_item_field">
       <% if f.object.kind_of?(CodeNode) %>
-        <%= show_options_for_code_node(f) %>
-      <% else %>
-        -
+        <%= show_options_for_code_node(f) %><br />
       <% end %>
+      <%= f.text_field :css_class, :placeholder => t(:css_class, :scope => [:view, :slides]) %>
     </div>
     <div class="nested_item_actions">
       <%= link_to_remove_nested_item(f, :node) %>

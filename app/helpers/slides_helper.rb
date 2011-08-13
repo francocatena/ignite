@@ -16,7 +16,7 @@ module SlidesHelper
           out = link_to_function(
             t(:'view.slides.switch_code_view'),
             "Slide.toggleEdition(#{readonly}, #{editable})",
-            :class => :edit_code
+            :class => [:edit_code, node.css_class].compact.join(' ')
           )
 
           out << render(
@@ -30,7 +30,7 @@ module SlidesHelper
           out = link_to_function(
             t(:'view.slides.show_html'),
             "Slide.showHtml(#{html_code})",
-            :class => :edit_code
+            :class => [:edit_code, node.css_class].compact.join(' ')
           )
           content = content_tag(
             :div, raw(node.content), :class => 'fancybox-in-slide'
@@ -47,7 +47,7 @@ module SlidesHelper
           out = link_to_function(
             t(:'view.slides.execute'),
             "Slide.executeJS(#{js_code})",
-            :class => :edit_code
+            :class => [:edit_code, node.css_class].compact.join(' ')
           )
           
           out << content_tag(
