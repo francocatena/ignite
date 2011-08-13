@@ -364,3 +364,14 @@ body {
   font-size: .75em !important;
   font-weight: normal;
 }
+
+.slide .very_big_font {
+  font-size: 6em !important;
+}
+
+.slide .rotate10deg {
+  -moz-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
