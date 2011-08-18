@@ -106,4 +106,10 @@ jQuery(function($) {
     ajaxStart: function() {$(this).show();},
     ajaxStop: function() {$(this).hide();}
   });
+
+  $('form').submit(function() {
+    $(this).find('input[type="submit"], input[name="utf8"]').attr(
+      'disabled', true
+    );
+  });
 });
