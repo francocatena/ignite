@@ -12,7 +12,7 @@
     <%= yield :js_extra %>
   <% end %>
 </head>
-<body id="<%= "ig_#{controller_name}" %>">
+<body id="<%= "ig_#{controller_name}" %>" data-action="<%= action_name %>">
   <%= render 'shared/menu' if request.local? %>
   <div id="main_container"><%= yield %></div>
   <%= render 'shared/notice' if flash.notice %>

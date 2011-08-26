@@ -18,6 +18,10 @@ body {
   padding: 1em;
 }
 
+#ig_lessons[data-action="show"] #menu {
+  display: none;
+}
+
 .lesson .slide {
   z-index: 1;
   opacity: 0;
