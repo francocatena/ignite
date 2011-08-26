@@ -1,0 +1,25 @@
+<section class="show_item">
+  <header>
+    <h1><%= @image.name %></h1>
+  </header>
+  
+  
+  <% ([:original] + @image.styles.keys).each do |style| %>
+    <section class="image_container">
+      <figure>
+        <%= image_tag @image.image.url(style), alt: @image.caption %>
+        <figcaption><%= @image.caption %></figcaption>
+      </figure>
+      <p><%= link_to @image.image.url(style), @image.image.url(style) %></p>
+    </section>
+  <% end %>
+</section>
+
+<nav class="links">
+  <%= link_to t('label.edit'), edit_image_path(@image) %> |
+  <%= link_to(
+    t('label.delete'), @image,
+    confirm: t('messages.confirmation'), method: :delete
+  ) %> |
+  <%= link_to t('label.back'), images_path %>
+</nav>

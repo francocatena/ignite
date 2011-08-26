@@ -7,6 +7,7 @@ gem 'coderay'
 gem 'jquery-rails'
 gem 'will_paginate'
 gem 'RedCloth'
+gem 'paperclip'
 
 group :production do
   gem 'therubyracer', :require => false

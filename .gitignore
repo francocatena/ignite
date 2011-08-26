@@ -2,4 +2,5 @@
 db/*.sqlite3
 log/*.log
 nbproject/private/
+public/system
 tmp/

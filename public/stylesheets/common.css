@@ -170,6 +170,31 @@ label.field_with_errors {
   border: 2px solid #cc0000;
 }
 
+nav#menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: .25em 1em;
+  font-size: 1.1em;
+  background: #e8e8e8;
+  border-bottom: 2px solid #c00;
+}
+
+nav#menu ul li {
+  display: inline;
+  list-style: none;
+  margin-right: 1em;
+}
+
+nav#menu ul li a {
+  color: #333;
+}
+
+nav#menu ul li a:hover {
+  color: #c00;
+}
+
 nav.links {
   display: block;
   clear: both;

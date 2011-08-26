@@ -1,0 +1,22 @@
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= Image.human_attribute_name :name %></th>
+      <th><%= Image.human_attribute_name :caption %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= link_to image.name, image %></td>
+        <td><%= image.caption %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= link_to t('view.images.new'), new_image_path %>
+  <%= will_paginate @images %>
+</nav>

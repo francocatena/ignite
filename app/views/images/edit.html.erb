@@ -1,0 +1,8 @@
+<%= render 'form' %>
+
+<nav class="links">
+  <%= link_to t('label.show'), @image %> |
+  <%= link_to t('label.delete'), @image, confirm: t('messages.confirmation'),
+    method: :delete %> |
+  <%= link_to t('label.back'), images_path %>
+</nav>

@@ -1,4 +1,6 @@
 Ignite::Application.routes.draw do
+  resources :images
+
   resources :lessons do
     resources :slides
   end

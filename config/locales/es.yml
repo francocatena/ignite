@@ -33,6 +33,7 @@
       # will translate User model name to 'Dude'
     models:
       code_node: 'Nodo de código'
+      image: 'Imagen'
       lesson: 'Clase'
       node: 'Nodo'
       slide: 'Diapositiva'
@@ -45,6 +46,13 @@
       #     login: 'Handle'
       # will translate User attribute 'login' as 'Handle'
     attributes:
+      image:
+        name: 'Nombre'
+        caption: 'Título'
+        image_file_name: 'Imágen (archivo)'
+        image_content_type: 'Imágen (tipo)'
+        image_file_size: 'Imágen (tamaño)'
+        image_updated_at: 'Imágen (actualización)'
       lesson:
         name: 'Nombre'
         sequence: 'Secuencia'
@@ -202,6 +210,10 @@
   lang:
     es: 'Español'
     
+  menu:
+    lessons: 'Lecciones'
+    images: 'Imágenes'
+    
   messages:
     confirmation: '¿Está seguro?'
     must_be_a_local_request: 'Debe ser requerido desde una dirección local'
@@ -317,6 +329,15 @@
     pm: 'pm'
 
   view:
+    images:
+      index_title: 'Listado de imágenes'
+      show_title: 'Detalle de imagen'
+      new_title: 'Nueva imagen'
+      edit_title: 'Modificar imagen'
+      correctly_created: 'Imagen agregada correctamente.'
+      correctly_updated: 'Imagen actualizada correctamente.'
+      stale_object_error: 'La imagen no pudo ser actualizada, intente nuevamente.'
+      new: 'Nueva'
     lessons:
       index_title: 'Listado de clases'
       show_title: 'Detalle de clase'

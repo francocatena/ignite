@@ -1,0 +1,15 @@
+rails:
+  name: Rails logo
+  caption: Ruby on Rails
+  image_file_name: rails.gif
+  image_content_type: 'image/gif'
+  image_file_size: 10
+  image_updated_at: <%= Time.now.to_s(:db) %>
+
+ruby:
+  name: Ruby logo
+  caption: Ruby
+  image_file_name: ruby.gif
+  image_content_type: 'image/gif'
+  image_file_size: 12
+  image_updated_at: <%= Time.now.to_s(:db) %>

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title><%= [t(:'app.name'), @title].compact.join(' | ') %></title>
+  <title><%= [t('app.name'), @title].compact.join(' | ') %></title>
   <%= default_stylesheets %>
   <%= default_javascripts %>
   <%= csrf_meta_tag %>
@@ -12,11 +12,10 @@
     <%= yield :js_extra %>
   <% end %>
 </head>
-<body>
-  <div id="main_container">
-    <%= yield %>
-  </div>
-  <%= render :partial => 'shared/notice' if flash.notice %>
-  <%= render :partial => 'shared/alert' if flash.alert %>
+<body id="<%= "ig_#{controller_name}" %>">
+  <%= render 'shared/menu' if request.local? %>
+  <div id="main_container"><%= yield %></div>
+  <%= render 'shared/notice' if flash.notice %>
+  <%= render 'shared/alert' if flash.alert %>
 </body>
 </html>

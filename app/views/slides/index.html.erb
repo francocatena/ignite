@@ -13,10 +13,10 @@
       <tr>
         <td><%= slide.title %></td>
         <td><%= slide.number %></td>
-        <td><%= link_to t(:'label.show'), lesson_path(@lesson, :anchor => slide.anchor) %></td>
-        <td><%= link_to t(:'label.edit'), edit_lesson_slide_path(@lesson, slide) %></td>
-        <td><%= button_to t(:'label.delete'), lesson_slide_path(@lesson, slide),
-          :confirm => t(:'messages.confirmation'), :method => :delete %></td>
+        <td><%= link_to t('label.show'), lesson_path(@lesson, anchor: slide.anchor) %></td>
+        <td><%= link_to t('label.edit'), edit_lesson_slide_path(@lesson, slide) %></td>
+        <td><%= button_to t('label.delete'), lesson_slide_path(@lesson, slide),
+          confirm: t('messages.confirmation'), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,6 +24,5 @@
 
 <nav class="links">
   <%= pagination_links(@slides) %>
-  <%= link_to t(:'view.slides.new'), new_lesson_slide_path(@lesson) %> |
-  <%= link_to t(:'view.slides.back_to_lessons'), lessons_path %>
+  <%= link_to t(:'view.slides.new'), new_lesson_slide_path(@lesson) %>
 </nav>

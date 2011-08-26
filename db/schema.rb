@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623162816) do
+ActiveRecord::Schema.define(:version => 20110819180655) do
+
+  create_table "images", :force => true do |t|
+    t.string   "name",                              :null => false
+    t.string   "caption",                           :null => false
+    t.string   "image_file_name",                   :null => false
+    t.string   "image_content_type",                :null => false
+    t.integer  "image_file_size",                   :null => false
+    t.datetime "image_updated_at",                  :null => false
+    t.integer  "lock_version",       :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["name"], :name => "index_images_on_name", :unique => true
 
   create_table "lessons", :force => true do |t|
     t.string   "name"
