@@ -4,15 +4,15 @@ class Node < ActiveRecord::Base
   serialize :options, Hash
   
   # Validations
-  validates :content, :rank, :presence => true
-  validates :rank, :allow_nil => true, :allow_blank => true,
-    :numericality => { :greater_than => 0, :only_integer => true }
+  validates :content, :rank, presence: true
+  validates :rank, allow_nil: true, allow_blank: true,
+    numericality: { greater_than: 0, only_integer: true }
   
   # Relations
   belongs_to :slide
   
   class << self
-    def new(attributes = nil)
+    def new(attributes = nil, options = {})
       type = attributes.try :delete, :type
       return super if type.blank?
 
@@ -20,7 +20,7 @@ class Node < ActiveRecord::Base
       
       raise "Unknown type #{type}" unless klass
 
-      klass.new attributes
+      klass.new attributes, options
     end
   end
   

@@ -1,18 +1,4 @@
-module ApplicationHelper
-  def default_stylesheets
-    sheets = ['common', 'coderay', 'slide', 'jquery/fancybox']
-    sheets << {:cache => 'main'}
-
-    stylesheet_link_tag *sheets
-  end
-
-  def default_javascripts
-    libs = [:defaults, 'jquery.fancybox', 'slides']
-    libs << {:cache => 'main'}
-
-    javascript_include_tag *libs
-  end
-  
+module ApplicationHelper  
   # Returns a string with an object identifier
   # 
   # * _prefix_:: The prefix to append in the ID
@@ -26,27 +12,27 @@ module ApplicationHelper
   # * _model_:: The model to inspect for errors
   def show_error_messages(model)
     unless model.errors.empty?
-      render :partial => 'shared/error_messages', :locals => { :model => model }
+      render partial: 'shared/error_messages', locals: { model: model }
     end
   end
   
   def generate_html(form_builder, method, user_options = {})
     options = {
-      :object => form_builder.object.class.reflect_on_association(method).klass.new,
-      :partial => method.to_s.singularize,
-      :form_builder_local => :f,
-      :locals => {},
-      :child_index => 'NEW_RECORD',
-      :is_dynamic => true
+      object: form_builder.object.class.reflect_on_association(method).klass.new,
+      partial: method.to_s.singularize,
+      form_builder_local: :f,
+      locals: {},
+      child_index: 'NEW_RECORD',
+      is_dynamic: true
     }.merge(user_options)
-    form_options = { :child_index => options[:child_index] }
+    form_options = { child_index: options[:child_index] }
 
     form_builder.fields_for(method, options[:object], form_options) do |f|
       render(
-        :partial => options[:partial],
-        :locals => {
+        partial: options[:partial],
+        locals: {
           options[:form_builder_local] => f,
-          :is_dynamic => options[:is_dynamic]
+          is_dynamic: options[:is_dynamic]
         }.merge(options[:locals])
       )
     end
@@ -79,8 +65,8 @@ module ApplicationHelper
     previous_label = "&laquo; #{t :'label.previous'}".html_safe
     next_label = "#{t :'label.next'} &raquo;".html_safe
 
-    result = will_paginate objects, :previous_label => previous_label,
-      :next_label => next_label, :inner_window => 1, :outer_window => 1
+    result = will_paginate objects, previous_label: previous_label,
+      next_label: next_label, inner_window: 1, outer_window: 1
 
     result ||= content_tag(:div, content_tag(:span, previous_label,
         :class => 'disabled prev_page') + content_tag(:em, 1) +

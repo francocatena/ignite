@@ -1,5 +1,5 @@
 class SlidesController < ApplicationController
-  before_filter :require_local, :except => [:index, :show]
+  before_filter :require_local, except: [:index, :show]
   before_filter :load_lesson
   hide_action :load_lesson
   
@@ -8,61 +8,61 @@ class SlidesController < ApplicationController
   # GET /lessons/1/slides
   # GET /lessons/1/slides.xml
   def index
-    @title = t :'view.slides.index_title'
+    @title = t('view.slides.index_title')
     @slides = @lesson.slides.paginate(
-      :page => params[:page],
-      :per_page => APP_LINES_PER_PAGE
+      page: params[:page],
+      per_page: APP_LINES_PER_PAGE
     )
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @slides }
+      format.xml  { render xml: @slides }
     end
   end
 
   # GET /lessons/1/slides/1
   # GET /lessons/1/slides/1.xml
   def show
-    @title = t :'view.slides.show_title'
+    @title = t('view.slides.show_title')
     @slide = @lesson.slides.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @slide }
+      format.xml  { render xml: @slide }
     end
   end
 
   # GET /lessons/1/slides/new
   # GET /lessons/1/slides/new.xml
   def new
-    @title = t :'view.slides.new_title'
+    @title = t('view.slides.new_title')
     @slide = @lesson.slides.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @slide }
+      format.xml  { render xml: @slide }
     end
   end
 
   # GET /lessons/1/slides/1/edit
   def edit
-    @title = t :'view.slides.edit_title'
+    @title = t('view.slides.edit_title')
     @slide = @lesson.slides.find(params[:id])
   end
 
   # POST /lessons/1/slides
   # POST /lessons/1/slides.xml
   def create
-    @title = t :'view.slides.new_title'
+    @title = t('view.slides.new_title')
     @slide = @lesson.slides.build(params[:slide])
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to(lesson_url(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_created')) }
-        format.xml  { render :xml => @slide, :status => :created, :location => @slide }
+        format.html { redirect_to(lesson_url(@lesson, anchor: @slide.anchor), notice: t('view.slides.correctly_created')) }
+        format.xml  { render xml: @slide, status: :created, location: @slide }
       else
-        format.html { render :action => :new }
-        format.xml  { render :xml => @slide.errors, :status => :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.xml  { render xml: @slide.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,21 +70,21 @@ class SlidesController < ApplicationController
   # PUT /lessons/1/slides/1
   # PUT /lessons/1/slides/1.xml
   def update
-    @title = t :'view.slides.edit_title'
+    @title = t('view.slides.edit_title')
     @slide = @lesson.slides.find(params[:id])
 
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
-        format.html { redirect_to(lesson_url(@lesson, :anchor => @slide.anchor), :notice => t(:'view.slides.correctly_updated')) }
+        format.html { redirect_to(lesson_url(@lesson, anchor: @slide.anchor), notice: t('view.slides.correctly_updated')) }
         format.xml  { head :ok }
       else
-        format.html { render :action => :edit }
-        format.xml  { render :xml => @slide.errors, :status => :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.xml  { render xml: @slide.errors, status: :unprocessable_entity }
       end
     end
     
   rescue ActiveRecord::StaleObjectError
-    flash.alert = t :'view.slides.stale_object_error'
+    flash.alert = t('view.slides.stale_object_error')
     redirect_to edit_lesson_slide_url(@lesson, @slide)
   end
 
@@ -112,7 +112,7 @@ class SlidesController < ApplicationController
       end
     RUBY
 
-    render :inline => eval(code, ROOT_BINDING)
+    render inline: eval(code, ROOT_BINDING)
   end
   
   private

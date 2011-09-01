@@ -2,7 +2,7 @@
   font-family: 'Reenie Beanie';
   font-style: normal;
   font-weight: normal;
-  src: local('Reenie Beanie'), url('/fonts/ReenieBeanie.ttf') format('truetype');
+  src: local('Reenie Beanie'), url('/assets/fonts/ReenieBeanie.ttf') format('truetype');
 }
 
 body {

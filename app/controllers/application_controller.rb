@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   # Rescue any exception and show it in a "nice" page
   rescue_from Exception do |exception|
     begin
-      @title = t :'errors.title'
+      @title = t 'errors.title'
       error = "#{exception.class}: #{exception.message}\n\n"
       exception.backtrace.each { |l| error << "#{l}\n" }
 
       logger.error(error)
 
       unless response.redirect_url
-        render :template => 'shared/show_error', :locals => {:error => exception}
+        render template: 'shared/show_error', locals: {error: exception}
       end
 
     # En caso que la presentación misma de la excepción no salga como se espera
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     if request.local?
       expires_now
     else
-      flash.notice = t(:'messages.must_be_a_local_request')
+      flash.notice = t('messages.must_be_a_local_request')
       
       redirect_to root_url
 
