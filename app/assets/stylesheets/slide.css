@@ -237,6 +237,15 @@ body {
   text-decoration: none;
 }
 
+.slide figure img {
+  display: block;
+  margin: 1em auto;
+  border: 2px solid #c00;
+  box-shadow: .25em .25em .5em #333;
+  -moz-box-shadow: .25em .25em .5em #333;
+  -webkit-box-shadow: .25em .25em .5em #333;
+}
+
 .slide footer {
   position: fixed;
   display: block;

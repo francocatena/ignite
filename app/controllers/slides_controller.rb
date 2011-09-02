@@ -1,7 +1,6 @@
 class SlidesController < ApplicationController
   before_filter :require_local, except: [:index, :show]
   before_filter :load_lesson
-  hide_action :load_lesson
   
   layout lambda { |controller| controller.request.xhr? ? false : 'application' }
   
