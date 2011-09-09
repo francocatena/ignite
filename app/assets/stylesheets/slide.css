@@ -87,6 +87,7 @@ body {
   padding: .1em .1em .05em;
   line-height: 1.5em;
   font-weight: bold;
+  white-space: nowrap;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
@@ -295,6 +296,7 @@ body {
 
 .slide table.summary td {
   padding: .3em 1em;
+  vertical-align: top;
 }
 
 .slide table.summary th {
