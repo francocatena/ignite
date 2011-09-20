@@ -37,7 +37,7 @@ var Helper = {
     $(element).stop().slideUp(500, function() {
       $(this).remove();
       
-      if(jQuery.isFunction(callback)) {callback();}
+      if(jQuery.isFunction(callback)) { callback(); }
     });
   },
 
@@ -60,15 +60,12 @@ var Util = {
   },
   
   refreshSortNumbers: function() {
-    $('input.sort_number').val(function(i) {return i + 1;});
+    $('input.sort_number').val(function(i) { return i + 1; });
   }
 }
 
 jQuery(function($) {
-  var eventList = $.map(EventHandler, function(v, k ) {return k;});
-  
-  // For old browsers without HTML5 support
-  //$('*[autofocus]:visible:first').focus();
+  var eventList = $.map(EventHandler, function(v, k ) { return k; });
   
   $('a[data-event]').live('click', function(event) {
     if (event.stopped) return;
@@ -86,7 +83,7 @@ jQuery(function($) {
   $('a.increase_font_size').live('click', function(event) {
     if (event.stopped) return;
     $($(this).data('target')).css({
-      fontSize: function(index, value) { return parseFloat(value) * 1.1 }
+      fontSize: function(index, value) { return parseFloat(value) * 1.1; }
     });
     
     event.preventDefault();
@@ -95,7 +92,7 @@ jQuery(function($) {
   
   $('a.decrease_font_size').live('click', function(event) {
     $($(this).data('target')).css({
-      fontSize: function(index, value) { return parseFloat(value) / 1.1 }
+      fontSize: function(index, value) { return parseFloat(value) / 1.1; }
     });
     
     event.preventDefault();
@@ -103,8 +100,8 @@ jQuery(function($) {
   });
   
   $('#loading_image').bind({
-    ajaxStart: function() {$(this).show();},
-    ajaxStop: function() {$(this).hide();}
+    ajaxStart: function() { $(this).show(); },
+    ajaxStop: function() { $(this).hide(); }
   });
 
   $('form').submit(function() {
@@ -113,3 +110,14 @@ jQuery(function($) {
     );
   });
 });
+
+// click() function behaves like a real click
+if(!HTMLAnchorElement.prototype.click) {
+  HTMLAnchorElement.prototype.click = function() {
+    var ev = document.createEvent('MouseEvents');
+    ev.initEvent('click', true, true);
+    if(this.dispatchEvent(ev) !== false) {
+      document.location.href = this.href;
+    }
+  }
+}

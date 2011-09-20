@@ -14,17 +14,17 @@
   </div>
   <footer>
     <div>
-      <div class="author"><%= textilize t(:'app.powered_by') %></div>
+      <div class="author"><%= textilize t('app.powered_by') %></div>
       <nav class="links">
         <span class="arrow_left"></span>
         <div>
           <% if request.local? %>
-            <%= link_to t(:'view.slides.new'), new_lesson_slide_path(lesson) %> |
-            <%= link_to t(:'label.edit'), edit_lesson_slide_path(lesson, slide) %> |
+            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), :class => 'new' %> |
+            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide), :class => 'edit' %> |
           <% end %>
-          <%= link_to t(:'label.list'), lesson_slides_path(lesson) %>
+          <%= link_to t('label.list'), lesson_slides_path(lesson) %>
           <div class="ui_control">
-            <%= t(:'view.slides.adjust_font_size') %>
+            <%= t('view.slides.adjust_font_size') %>
             <a class="increase_font_size" data-target=".slide" href="#">
               <span class="arrow_up"></span>
             </a> |

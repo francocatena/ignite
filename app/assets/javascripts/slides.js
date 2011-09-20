@@ -14,9 +14,8 @@ var Slide = {
   },
   
   hideDelayed: function() {
-    var pendings = $(
-      '.delayed:visible:not(:animated):last',
-      $(window.location.hash)
+    var pendings = $(window.location.hash).find(
+      '.delayed:visible:not(:animated):last'
     );
 
     if(pendings.length > 0) {
@@ -40,9 +39,9 @@ var Slide = {
     var slide = "#slide-" + number;
     
     if(hideDelayed) {
-      $('.delayed', $(slide)).hide();
+      $(slide).find('.delayed').hide();
     } else {
-      $('.delayed', $(slide)).show();
+      $(slide).find('.delayed').show();
     }
     
     window.location.hash = slide;
@@ -51,9 +50,8 @@ var Slide = {
   },
   
   showDelayed: function() {
-    var pendings = $(
-      '.delayed:not(:visible):not(:animated):first',
-      $(window.location.hash)
+    var pendings = $(window.location.hash).find(
+      '.delayed:not(:visible):not(:animated):first'
     );
 
     if(pendings.length > 0) {
@@ -64,7 +62,7 @@ var Slide = {
   },
   
   showHtml: function(htmlContainer) {
-    $.fancybox({ 'padding': 24, 'content': htmlContainer.val() });
+    $.fancybox({'padding': 24, 'content': htmlContainer.val()});
   },
   
   toggleEdition: function(readonlyView, editableView) {
@@ -92,7 +90,7 @@ var Slide = {
   updateTitle: function() {
     var number = Slide.currentNumber() || 0;
     var slide = "#slide-" + number;
-    var title = $('h1', $('header', $(slide))).text();
+    var title = $(slide).find('header h1').text();
     
     $('head title').text(title + ' (' + number + ')');
   }
@@ -116,14 +114,24 @@ jQuery(function($) {
       if($.inArray(key, nextKeys) != -1) {
         var hasNext = $('#slide-' + Slide.next()).length > 0;
 
-        if(!Slide.showDelayed() && hasNext) {Slide.show(Slide.next(), true);}
+        if(!Slide.showDelayed() && hasNext) { Slide.show(Slide.next(), true); }
 
         e.preventDefault();
       } else if($.inArray(key, prevKeys) != -1) {
         var hasPrev = $('#slide-' + Slide.prev()).length > 0;
 
-        if(!Slide.hideDelayed() && hasPrev) {Slide.show(Slide.prev(), false);}
+        if(!Slide.hideDelayed() && hasPrev) { Slide.show(Slide.prev(), false); }
 
+        e.preventDefault();
+      // CTRL + ALT + n = new slide
+      } else if($.inArray(key, [78, 110]) != -1 && e.ctrlKey && e.altKey) {
+        $('#slide-' + Slide.currentNumber()).find('.links a.new')[0].click();
+        
+        e.preventDefault();
+      // CTRL + ALT + e = edit slide
+      } else if($.inArray(key, [69, 101]) != -1 && e.ctrlKey && e.altKey) {
+        $('#slide-' + Slide.currentNumber()).find('.links a.edit')[0].click();
+        
         e.preventDefault();
       }
     });

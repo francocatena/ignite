@@ -54,7 +54,7 @@ GEM
     columnize (0.3.4)
     daemons (1.0.10)
     erubis (2.7.0)
-    execjs (1.2.6)
+    execjs (1.2.7)
       multi_json (~> 1.0)
     gem_plugin (0.2.3)
     highline (1.6.2)
