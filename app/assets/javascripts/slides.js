@@ -97,6 +97,14 @@ var Slide = {
 };
 
 jQuery(function($) {
+  $('#ig_slides:has(form)').keydown(function(e) {
+    // CTRL + ALT + s = save changes
+    if($.inArray(e.which, [83, 115]) != -1 && e.ctrlKey && e.altKey) {
+      $('#ig_slides form').submit();
+      e.preventDefault();
+    }
+  });
+  
   if($('.slide').length > 0) {
     if(!window.location.hash.match(/#/) && $('#slide-1').length > 0) {
       Slide.show('1', true);
@@ -109,7 +117,6 @@ jQuery(function($) {
       var nextKeys = limitNavigation ? [] : [39, 34, 40, 13];
       // 37 = left arrow, 33 = page up, 38 = up arrow, 8 = backspace
       var prevKeys = limitNavigation ? [] : [37, 33, 38, 8];
-
 
       if($.inArray(key, nextKeys) != -1) {
         var hasNext = $('#slide-' + Slide.next()).length > 0;
