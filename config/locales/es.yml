@@ -63,6 +63,8 @@
       slide:
         title: 'Título'
         number: 'Número'
+        extra_classes: 'Clase(s) CSS'
+        style: 'Estilo en línea'
         nodes:
           content: 'Contenido'
           options: 'Opciones'

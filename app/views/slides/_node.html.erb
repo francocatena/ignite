@@ -9,11 +9,11 @@
       <% if f.object.kind_of?(CodeNode) %>
         <%= show_options_for_code_node(f) %><br />
       <% end %>
-      <%= f.text_field :css_class, :placeholder => t(:css_class, :scope => [:view, :slides]) %>
+      <%= f.text_field :css_class, placeholder: t('view.slides.css_class') %>
     </div>
     <div class="nested_item_actions">
       <%= link_to_remove_nested_item(f, :node) %>
-      <%= f.hidden_field :rank, :class => :sort_number %>
+      <%= f.hidden_field :rank, class: :sort_number %>
       <%= f.hidden_field :type %>
       <%= f.hidden_field :lock_version %>
     </div>

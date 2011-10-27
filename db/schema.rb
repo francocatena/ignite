@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110819180655) do
+ActiveRecord::Schema.define(:version => 20111026184545) do
 
   create_table "images", :force => true do |t|
     t.string   "name",                              :null => false
@@ -52,10 +52,12 @@ ActiveRecord::Schema.define(:version => 20110819180655) do
   create_table "slides", :force => true do |t|
     t.string   "title"
     t.integer  "number"
-    t.integer  "lock_version", :default => 0
+    t.integer  "lock_version",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lesson_id"
+    t.string   "extra_classes"
+    t.string   "style"
   end
 
   add_index "slides", ["lesson_id"], :name => "index_slides_on_lesson_id"

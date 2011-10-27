@@ -1,6 +1,7 @@
 class Slide < ActiveRecord::Base
   # Validations
-  validates :title, :lesson, length: { maximum: 255 }, presence: true
+  validates :title, :lesson, presence: true
+  validates :title, :extra_classes, :style, length: { maximum: 255 }
   validates :number, presence: true
   validates :number, allow_nil: true, allow_blank: true,
     numericality: { greater_than: 0, only_integer: true }

@@ -11,12 +11,12 @@
     <% @lessons.each do |lesson| %>
       <tr>
         <td><%= link_to lesson.name, lesson_slides_path(lesson),
-          :title => t(:'view.lessons.show_slides') %></td>
+          title: t('view.lessons.show_slides') %></td>
         <td><%= lesson.sequence %></td>
-        <td><%= link_to t(:'label.show'), lesson %></td>
-        <td><%= link_to t(:'label.edit'), edit_lesson_path(lesson) %></td>
-        <td><%= button_to t(:'label.delete'), lesson,
-          :confirm => t(:'messages.confirmation'), :method => :delete %></td>
+        <td><%= link_to t('label.show'), lesson %></td>
+        <td><%= link_to t('label.edit'), edit_lesson_path(lesson) %></td>
+        <td><%= button_to t('label.delete'), lesson,
+          confirm: t('messages.confirmation'), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,5 +24,5 @@
 
 <nav class="links">
   <%= pagination_links(@lessons) %>
-  <%= link_to t(:'label.new'), new_lesson_path %>
+  <%= link_to t('label.new'), new_lesson_path %>
 </nav>

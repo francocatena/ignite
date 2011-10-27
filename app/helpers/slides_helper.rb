@@ -1,10 +1,8 @@
 module SlidesHelper
   def show_options_for_code_node(form)
-    langs = CodeNode::LANGS.map do |l|
-      [t(l, :scope => [:view, :slides, :langs]), l]
-    end
+    langs = CodeNode::LANGS.map { |l| [t("view.slides.langs.#{l}"), l] }
     
-    form.select :lang, langs, :prompt => true
+    form.select :lang, langs, prompt: true
   end
   
   def draw_node_optionals(node)
@@ -14,45 +12,45 @@ module SlidesHelper
           readonly = "$(this).parent('.node').find('.CodeRay')"
           editable = "$(this).parent('.node').find('.code_form')"
           out = link_to_function(
-            t(:'view.slides.switch_code_view'),
+            t('view.slides.switch_code_view'),
             "Slide.toggleEdition(#{readonly}, #{editable})",
-            :class => [:edit_code, node.css_class].compact.join(' ')
+            class: ['edit_code', node.css_class].compact.join(' ')
           )
 
           out << render(
-            :partial => 'slides/execute_ruby',
-            :locals => { :node => node }
+            partial: 'slides/execute_ruby',
+            locals: { node: node }
           )
 
           raw(out) if request.local?
         when 'html'
           html_code = "$(this).parent('.node').find('.html_code')"
           out = link_to_function(
-            t(:'view.slides.show_html'),
+            t('view.slides.show_html'),
             "Slide.showHtml(#{html_code})",
-            :class => [:edit_code, node.css_class].compact.join(' ')
+            class: ['edit_code', node.css_class].compact.join(' ')
           )
           content = content_tag(
-            :div, raw(node.content), :class => 'fancybox-in-slide'
+            :div, raw(node.content), class: 'fancybox-in-slide'
           )
           
           out << content_tag(
-            :textarea, raw(content), :class => 'html_code',
-            :style => 'display: none;'
+            :textarea, raw(content), class: 'html_code',
+            style: 'display: none;'
           )
           
           raw(out)
         when 'java_script'
           js_code = "$(this).parent('.node').find('.js_code')"
           out = link_to_function(
-            t(:'view.slides.execute'),
+            t('view.slides.execute'),
             "Slide.executeJS(#{js_code})",
-            :class => [:edit_code, node.css_class].compact.join(' ')
+            class: ['edit_code', node.css_class].compact.join(' ')
           )
           
           out << content_tag(
-            :textarea, raw(node.content), :class => 'js_code',
-            :style => 'display: none;'
+            :textarea, raw(node.content), class: 'js_code',
+            style: 'display: none;'
           )
           
           raw(out)

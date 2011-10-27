@@ -49,11 +49,11 @@ module ApplicationHelper
   def link_to_remove_nested_item(fields = nil, class_for_remove = nil)
     new_record = fields.nil? || fields.object.new_record?
     out = String.new
-    out << fields.hidden_field(:_destroy, :class => :destroy,
-      :value => fields.object.marked_for_destruction? ? 1 : 0) unless new_record
-    out << link_to('X', '#', :title => t(:'label.delete'),
-      :'data-target' => ".#{class_for_remove || fields.object.class.name.underscore}",
-      :'data-event' => (new_record ? 'removeItem' : 'hideItem'))
+    out << fields.hidden_field(:_destroy, class: :destroy,
+      value: fields.object.marked_for_destruction? ? 1 : 0) unless new_record
+    out << link_to('X', '#', title: t('label.delete'),
+      'data-target' => ".#{class_for_remove || fields.object.class.name.underscore}",
+      'data-event' => (new_record ? 'removeItem' : 'hideItem'))
 
     raw out
   end
@@ -62,16 +62,16 @@ module ApplicationHelper
   #
   # * _objects_:: The collection objects
   def pagination_links(objects)
-    previous_label = "&laquo; #{t :'label.previous'}".html_safe
-    next_label = "#{t :'label.next'} &raquo;".html_safe
+    previous_label = "&laquo; #{t 'label.previous'}".html_safe
+    next_label = "#{t 'label.next'} &raquo;".html_safe
 
     result = will_paginate objects, previous_label: previous_label,
       next_label: next_label, inner_window: 1, outer_window: 1
 
     result ||= content_tag(:div, content_tag(:span, previous_label,
-        :class => 'disabled prev_page') + content_tag(:em, 1) +
-        content_tag(:span, next_label, :class => 'disabled next_page'),
-      :class => :pagination)
+        class: 'disabled prev_page') + content_tag(:em, 1) +
+        content_tag(:span, next_label, class: 'disabled next_page'),
+      class: :pagination)
 
     result
   end

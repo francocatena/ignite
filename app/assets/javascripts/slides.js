@@ -14,12 +14,13 @@ var Slide = {
   },
   
   hideDelayed: function() {
-    var pendings = $(window.location.hash).find(
-      '.delayed:visible:not(:animated):last'
-    );
+    var restriction = '.delayed:visible:not(:animated):last';
+    var pendings = $(window.location.hash).find(restriction);
 
     if(pendings.length > 0) {
-      return pendings.fadeOut(1000);
+      return pendings.removeClass('current').fadeOut(500, function() {
+        $(window.location.hash).find(restriction).addClass('current');
+      });
     } else {
       return false;
     }
@@ -50,12 +51,12 @@ var Slide = {
   },
   
   showDelayed: function() {
-    var pendings = $(window.location.hash).find(
-      '.delayed:not(:visible):not(:animated):first'
-    );
+    var restriction = '.delayed:not(:visible):not(:animated):first';
+    var pendings = $(window.location.hash).find(restriction);
 
     if(pendings.length > 0) {
-      return pendings.fadeIn(1000);
+      $(window.location.hash).find('.delayed').removeClass('current');
+      return pendings.addClass('current').fadeIn(500);
     } else {
       return false;
     }

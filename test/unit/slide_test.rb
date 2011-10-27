@@ -20,9 +20,11 @@ class SlideTest < ActiveSupport::TestCase
   test 'create' do
     assert_difference 'Slide.count' do
       @slide = Slide.create(
-        :title => 'New title',
-        :number => 4,
-        :lesson => lessons(:introduction)
+        title: 'New title',
+        number: 4,
+        extra_classes: 'test-class',
+        style: 'color: pink',
+        lesson: lessons(:introduction)
       )
     end
   end
@@ -30,7 +32,7 @@ class SlideTest < ActiveSupport::TestCase
   # Prueba de actualización de una diapositiva
   test 'update' do
     assert_no_difference 'Slide.count' do
-      assert @slide.update_attributes(:title => 'Updated title'),
+      assert @slide.update_attributes(title: 'Updated title'),
         @slide.errors.full_messages.join('; ')
     end
 
@@ -60,10 +62,19 @@ class SlideTest < ActiveSupport::TestCase
   # Prueba que las validaciones del modelo se cumplan como es esperado
   test 'validates length of attributes' do
     @slide.title = 'abcde' * 52
+    @slide.extra_classes = 'abcde' * 52
+    @slide.style = 'abcde' * 52
     assert @slide.invalid?
-    assert_equal 1, @slide.errors.count
-    assert_equal [error_message_from_model(@slide, :title, :too_long,
-      :count => 255)], @slide.errors[:title]
+    assert_equal 3, @slide.errors.count
+    assert_equal [
+      error_message_from_model(@slide, :title, :too_long, count: 255)
+    ], @slide.errors[:title]
+    assert_equal [
+      error_message_from_model(@slide, :extra_classes, :too_long, count: 255)
+    ], @slide.errors[:extra_classes]
+    assert_equal [
+      error_message_from_model(@slide, :style, :too_long, count: 255)
+    ], @slide.errors[:style]
   end
   
   # Prueba que las validaciones del modelo se cumplan como es esperado
@@ -90,7 +101,7 @@ class SlideTest < ActiveSupport::TestCase
     assert @slide.invalid?
     assert_equal 1, @slide.errors.count
     assert_equal [error_message_from_model(@slide, :number, :greater_than,
-        :count => 0)], @slide.errors[:number]
+        count: 0)], @slide.errors[:number]
 
     @slide.reload
     @slide.number = '1.2'

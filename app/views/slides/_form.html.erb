@@ -1,23 +1,31 @@
 <%= form_for([@lesson, @slide]) do |f| %>
   <%= content_for :js_extra do -%>
     <%= raw "var textNode='#{generate_template(f, :nodes,
-      :locals => {:disabled => false}, :object => TextNode.new)}';" %>
+      locals: {disabled: false}, object: TextNode.new)}';" %>
     <%= raw "var codeNode='#{generate_template(f, :nodes,
-      :locals => {:disabled => false}, :object => CodeNode.new)}';" %>
+      locals: {disabled: false}, object: CodeNode.new)}';" %>
   <% end -%>
   <%= show_error_messages @slide %>
   
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title, :autofocus => true, :maxlength => 255 %>
+    <%= f.text_field :title, autofocus: true, maxlength: 255 %>
   </div>
   <div class="field">
     <%= f.label :number %>
-    <%= f.text_field :number, :maxlength => 3 %>
+    <%= f.text_field :number, maxlength: 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :extra_classes %>
+    <%= f.text_field :extra_classes, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :style %>
+    <%= f.text_field :style, maxlength: 255 %>
   </div>
   
   <section class="nested_items">
-    <h2><%= t :nodes, :scope => [:view, :slides] %></h2>
+    <h2><%= t 'view.slides.nodes' %></h2>
     
     <div id="nodes_headers" class="headers">
       <h3><%= Node.human_attribute_name :content %></h3>
@@ -27,20 +35,20 @@
     
     <div id="nodes" class="items">
       <%= f.fields_for :nodes do |n_f| %>
-        <%= render :partial => 'node', :locals => {
-          :f => n_f, :is_dynamic => false
+        <%= render partial: 'node', locals: {
+          f: n_f, is_dynamic: false
         } %>
       <% end %>
     </div>
   </section>
 
   <div class="add_nested_item">
-    <%= link_to t(:'view.slides.add_text_node'), '#',
-      :'data-template' => :textNode, :'data-container' => '#nodes',
-      :'data-event' => 'addNestedItem' %> |
-    <%= link_to t(:'view.slides.add_code_node'), '#',
-      :'data-template' => :codeNode, :'data-container' => '#nodes',
-      :'data-event' => 'addNestedItem' %>
+    <%= link_to t('view.slides.add_text_node'), '#',
+      'data-template' => 'textNode', 'data-container' => '#nodes',
+      'data-event' => 'addNestedItem' %> |
+    <%= link_to t('view.slides.add_code_node'), '#',
+      'data-template' => 'codeNode', 'data-container' => '#nodes',
+      'data-event' => 'addNestedItem' %>
   </div>
   
   <div class="actions">

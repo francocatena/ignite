@@ -1,13 +1,13 @@
 <% if @lesson.slides.empty? %>
-  <p><%= t(:'view.lessons.without_slides') %></p>
+  <p><%= t('view.lessons.without_slides') %></p>
   <nav class="links">
-    <%= link_to t(:'view.lessons.add_slide'), new_lesson_slide_path(@lesson) %>
+    <%= link_to t('view.lessons.add_slide'), new_lesson_slide_path(@lesson) %>
   </nav>
 <% end %>
 <div class="lesson">
   <% @lesson.slides.each do |slide| %>
-    <%= render :partial => 'slides/slide_content', :locals => {
-      :slide => slide, :lesson => @lesson
+    <%= render partial: 'slides/slide_content', locals: {
+      slide: slide, lesson: @lesson
     } %>
   <% end %>
 </div>

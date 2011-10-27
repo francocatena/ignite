@@ -3,9 +3,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   
-  before_filter lambda {
-    response.headers['Cache-Control'] = 'no-cache, no-store'
-  }
+  after_filter -> { expires_now }
   
   # Rescue any exception and show it in a "nice" page
   rescue_from Exception do |exception|
