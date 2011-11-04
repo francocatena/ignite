@@ -140,8 +140,7 @@ body {
 
 .slide div.text_node ul li.delayed,
 .slide div.text_node ol li.delayed {
-  color: #999;
-  transition: .4s all ease-in;
+  opacity: .4;
   -o-transition: .4s all ease-in;
   -webkit-transition: .4s all ease-in;
   -moz-transition: .4s all ease-in;
@@ -149,8 +148,7 @@ body {
 
 .slide div.text_node ul li.delayed.current,
 .slide div.text_node ol li.delayed.current {
-  color: #333;
-  text-shadow: .1em .1em .4em rgba(150, 150, 150, .7);
+  opacity: 1;
   transition: .4s all ease-out;
   -o-transition: .4s all ease-out;
   -webkit-transition: .4s all ease-out;
