@@ -1,11 +1,12 @@
 require 'test_helper'
 
 class LessonTest < ActiveSupport::TestCase
-  fixtures :lessons
+  fixtures :lessons, :courses
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
     @lesson = Lesson.find lessons(:introduction).id
+    @course = Course.find courses(:ignite)
   end
 
   # Prueba que se realicen las búsquedas como se espera
@@ -13,14 +14,16 @@ class LessonTest < ActiveSupport::TestCase
     assert_kind_of Lesson, @lesson
     assert_equal lessons(:introduction).name, @lesson.name
     assert_equal lessons(:introduction).sequence, @lesson.sequence
+    assert_equal lessons(:introduction).course_id, @lesson.course_id
   end
 
   # Prueba la creación de una clase
   test 'create' do
     assert_difference 'Lesson.count' do
       @lesson = Lesson.create(
-        :name => 'New name',
-        :sequence => 4
+        name: 'New name',
+        sequence: 4,
+        course: @course
       )
     end
   end
@@ -28,7 +31,7 @@ class LessonTest < ActiveSupport::TestCase
   # Prueba de actualización de una clase
   test 'update' do
     assert_no_difference 'Lesson.count' do
-      assert @lesson.update_attributes(:name => 'Updated name'),
+      assert @lesson.update_attributes(name: 'Updated name'),
         @lesson.errors.full_messages.join('; ')
     end
 
@@ -44,12 +47,15 @@ class LessonTest < ActiveSupport::TestCase
   test 'validates blank attributes' do
     @lesson.name = '  '
     @lesson.sequence = '  '
+    @lesson.course = nil
     assert @lesson.invalid?
-    assert_equal 2, @lesson.errors.count
+    assert_equal 3, @lesson.errors.count
     assert_equal [error_message_from_model(@lesson, :name, :blank)],
       @lesson.errors[:name]
     assert_equal [error_message_from_model(@lesson, :sequence, :blank)],
       @lesson.errors[:sequence]
+    assert_equal [error_message_from_model(@lesson, :course, :blank)],
+      @lesson.errors[:course]
   end
 
   # Prueba que las validaciones del modelo se cumplan como es esperado
@@ -58,7 +64,7 @@ class LessonTest < ActiveSupport::TestCase
     assert @lesson.invalid?
     assert_equal 1, @lesson.errors.count
     assert_equal [error_message_from_model(@lesson, :name, :too_long,
-      :count => 255)], @lesson.errors[:name]
+      count: 255)], @lesson.errors[:name]
   end
 
   # Prueba que las validaciones del modelo se cumplan como es esperado
@@ -72,14 +78,16 @@ class LessonTest < ActiveSupport::TestCase
     @lesson.sequence = '-1'
     assert @lesson.invalid?
     assert_equal 1, @lesson.errors.count
-    assert_equal [error_message_from_model(@lesson, :sequence, :greater_than,
-        :count => 0)], @lesson.errors[:sequence]
+    assert_equal [
+      error_message_from_model(@lesson, :sequence, :greater_than, count: 0)
+    ], @lesson.errors[:sequence]
 
     @lesson.reload
     @lesson.sequence = '1.2'
     assert @lesson.invalid?
     assert_equal 1, @lesson.errors.count
-    assert_equal [error_message_from_model(@lesson, :sequence, :not_an_integer)],
-      @lesson.errors[:sequence]
+    assert_equal [
+      error_message_from_model(@lesson, :sequence, :not_an_integer)
+    ], @lesson.errors[:sequence]
   end
 end

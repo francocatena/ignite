@@ -45,7 +45,7 @@ class SlidesControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to lesson_path(@lesson, anchor: assigns(:slide).anchor)
+    assert_redirected_to course_lesson_path(@lesson.course, @lesson, anchor: assigns(:slide).anchor)
   end
 
   test 'should show slide' do
@@ -87,7 +87,7 @@ class SlidesControllerTest < ActionController::TestCase
       }
     end
     
-    assert_redirected_to lesson_path(@lesson, anchor: assigns(:slide).anchor)
+    assert_redirected_to course_lesson_path(@lesson.course, @lesson, anchor: assigns(:slide).anchor)
     assert_equal 'Updated title', @slide.reload.title
     assert_equal 'h1. Updated sample title', @slide.text_nodes.first.content
   end

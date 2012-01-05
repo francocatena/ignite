@@ -1,15 +1,15 @@
-<%= form_for([@course, @lesson]) do |f| %>
-  <%= show_error_messages @lesson %>
+<%= form_for(@course) do |f| %>
+  <%= show_error_messages @course %>
 
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, maxlength: 255 %>
   </div>
   <div class="field">
-    <%= f.label :sequence %>
-    <%= f.text_field :sequence, maxlength: 3 %>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
   </div>
-  
+
   <div class="actions">
     <%= f.hidden_field :lock_version %>
     <%= f.submit %>

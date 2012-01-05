@@ -1,7 +1,9 @@
 introduction:
   name: Introduction
   sequence: 1
+  course: ignite
 
 scratching_ruby:
   name: Scratching Ruby
   sequence: 2
+  course: ignite

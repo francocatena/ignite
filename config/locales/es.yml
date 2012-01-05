@@ -33,6 +33,7 @@
       # will translate User model name to 'Dude'
     models:
       code_node: 'Nodo de código'
+      course: 'Curso'
       image: 'Imagen'
       lesson: 'Clase'
       node: 'Nodo'
@@ -46,6 +47,9 @@
       #     login: 'Handle'
       # will translate User attribute 'login' as 'Handle'
     attributes:
+      course:
+        name: 'Nombre'
+        notes: 'Notas'
       image:
         name: 'Nombre'
         caption: 'Título'
@@ -213,7 +217,7 @@
     es: 'Español'
     
   menu:
-    lessons: 'Lecciones'
+    courses: 'Cursos'
     images: 'Imágenes'
     
   messages:
@@ -331,6 +335,17 @@
     pm: 'pm'
 
   view:
+    courses:
+      index_title: 'Listado de cursos'
+      show_title: 'Detalle de curso'
+      new_title: 'Nuevo curso'
+      edit_title: 'Modificar curso'
+      correctly_created: 'Curso agregado correctamente.'
+      correctly_updated: 'Curso actualizado correctamente.'
+      stale_object_error: 'El curso no pudo ser actualizado, intente nuevamente.'
+      show_lessons:
+        one: 'Ver lección'
+        other: 'Ver %{count} lecciones'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'
@@ -351,6 +366,8 @@
       show_slides: 'Ver diapositivas'
       without_slides: 'La clase no tiene diapositivas'
       add_slide: 'Agregar diapositiva'
+      course: 'Clases del curso "%{course}"'
+      new: 'Nueva'
     slides:
       index_title: 'Listado de diapositivas'
       show_title: 'Detalle de diapositiva'

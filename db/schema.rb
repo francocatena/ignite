@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026184545) do
+ActiveRecord::Schema.define(:version => 20120104164234) do
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.integer  "lock_version", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["name"], :name => "index_courses_on_name", :unique => true
 
   create_table "images", :force => true do |t|
     t.string   "name",                              :null => false
@@ -33,7 +43,10 @@ ActiveRecord::Schema.define(:version => 20111026184545) do
     t.integer  "lock_version", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
+
+  add_index "lessons", ["course_id"], :name => "index_lessons_on_course_id"
 
   create_table "nodes", :force => true do |t|
     t.string   "type"

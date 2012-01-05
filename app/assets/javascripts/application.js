@@ -7,6 +7,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require vendor/jquery.fancybox
 //= require common
-//= require jquery.fancybox
 //= require slides

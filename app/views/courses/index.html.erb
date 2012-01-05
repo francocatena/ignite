@@ -1,0 +1,28 @@
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= Course.human_attribute_name 'name' %></th>
+      <th><%= Course.human_attribute_name 'notes' %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.name, course_lessons_path(course),
+          title: t('view.courses.show_lessons', count: course.lessons.count) %></td>
+        <td><%= truncate course.notes, length: 30, omission: '...' %></td>
+        <td><%= link_to t('label.show'), course %></td>
+        <td><%= link_to t('label.edit'), edit_course_path(course) %></td>
+        <td><%= link_to t('label.delete'), course,
+          confirm: t('messages.confirmation'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= pagination_links(@courses) %>
+  <%= link_to t('label.new'), new_course_path %>
+</nav>

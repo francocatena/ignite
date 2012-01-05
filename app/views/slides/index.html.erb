@@ -13,7 +13,7 @@
       <tr>
         <td><%= slide.title %></td>
         <td><%= slide.number %></td>
-        <td><%= link_to t('label.show'), lesson_path(@lesson, anchor: slide.anchor) %></td>
+        <td><%= link_to t('label.show'), course_lesson_path(@lesson.course, @lesson, anchor: slide.anchor) %></td>
         <td><%= link_to t('label.edit'), edit_lesson_slide_path(@lesson, slide) %></td>
         <td><%= button_to t('label.delete'), lesson_slide_path(@lesson, slide),
           confirm: t('messages.confirmation'), method: :delete %></td>

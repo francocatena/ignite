@@ -1,0 +1,14 @@
+<p>
+  <b><%= Course.human_attribute_name 'name' %></b>:
+  <%= @course.name %>
+</p>
+
+<p>
+  <b><%= Course.human_attribute_name 'name' %></b>:
+  <%= simple_format @course.notes %>
+</p>
+
+<nav class="links">
+  <%= link_to t('label.edit'), edit_course_path(@course) %> |
+  <%= link_to t('label.list'), courses_path %>
+</nav>
