@@ -343,9 +343,10 @@
       correctly_created: 'Curso agregado correctamente.'
       correctly_updated: 'Curso actualizado correctamente.'
       stale_object_error: 'El curso no pudo ser actualizado, intente nuevamente.'
+      add_lesson: 'Agregar clase'
       show_lessons:
-        one: 'Ver lección'
-        other: 'Ver %{count} lecciones'
+        one: 'Ver clase'
+        other: 'Ver %{count} clases'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'
