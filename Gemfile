@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.2'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -18,7 +18,7 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'mongrel', '1.2.0.pre2'
+  gem 'thin'
   gem 'ruby-debug19', require: 'ruby-debug'
 end
 
