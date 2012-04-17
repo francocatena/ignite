@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'paperclip'
+gem 'capistrano'
 
 group :assets do
   gem 'sass-rails'
@@ -17,9 +18,7 @@ group :assets do
 end
 
 group :development do
-  gem 'capistrano'
   gem 'thin'
-  gem 'ruby-debug19', require: 'ruby-debug'
 end
 
 group :test do

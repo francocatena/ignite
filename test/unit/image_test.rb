@@ -46,13 +46,11 @@ class ImageTest < ActiveSupport::TestCase
     @image.caption = '  '
     @image.image = nil
     assert @image.invalid?
-    assert_equal 4, @image.errors.count
+    assert_equal 3, @image.errors.count
     assert_equal [error_message_from_model(@image, :name, :blank)],
       @image.errors[:name]
     assert_equal [error_message_from_model(@image, :caption, :blank)],
       @image.errors[:caption]
-    assert_equal [error_message_from_model(@image, :image_file_name, :blank)],
-      @image.errors[:image_file_name]
     assert_equal [error_message_from_model(@image, :image, :blank)],
       @image.errors[:image]
   end
