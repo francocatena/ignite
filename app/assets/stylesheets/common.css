@@ -366,3 +366,10 @@ section.nested_items div#nodes_headers h3:nth-child(3),
 section.nested_items div.node div.nested_item_field:nth-child(3) {
   width: 5%;
 }
+
+.iconic {
+  font-family: "IconicStroke";
+  display: inline-block;
+  font-size: 1em;
+  text-decoration: none !important;
+}

@@ -1,12 +1,13 @@
 .CodeRay {
   background-color: #FFF;
   border: 1px solid #CCC;
-  font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  font-family: "UbuntuMono", monospace;
   color: #000;
 }
 
 .CodeRay pre {
   margin: 0px;
+  font-family: "UbuntuMono", monospace;
 }
 
 div.CodeRay {
