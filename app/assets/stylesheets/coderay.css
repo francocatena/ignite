@@ -8,9 +8,7 @@
 .CodeRay pre {
   margin: 0px;
   font-family: "UbuntuMono", monospace;
-}
-
-div.CodeRay {
+  line-height: 1.1em;
 }
 
 span.CodeRay {
@@ -22,12 +20,10 @@ span.CodeRay {
 table.CodeRay {
   border-collapse: collapse;
   width: 100%;
-  padding: 2px;
 }
 
-table.CodeRay td, table.CodeRay td.line-numbers {
-  padding: .5em;
-  vertical-align: top;
+table.CodeRay td.code, table.CodeRay td.line-numbers {
+  padding: 0em .5em;
 }
 
 .CodeRay .line-numbers {
@@ -130,6 +126,7 @@ ol.CodeRay li {
 
 .CodeRay .class-variable {
   color:#369;
+  font-style: italic;
 }
 
 .CodeRay .delimiter {
