@@ -41,5 +41,11 @@ module Ignite
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    # Enable static assets
+    config.serve_static_assets = true
+    
+    # Add audio assets
+    config.assets.paths << Rails.root.join('app', 'assets', 'audio')
   end
 end
