@@ -1,0 +1,437 @@
+.CodeRay {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  font-family: "UbuntuMono", monospace;
+  color: #000;
+
+  pre {
+    margin: 0px;
+    font-family: "UbuntuMono", monospace;
+    line-height: 1.1em;
+  }
+
+  .line-numbers {
+    background-color: #ddd;
+    color: #999;
+    text-align: right;
+    padding: 0px 4px;
+    font-weight: bold;
+    margin-right: .5em;
+  }
+
+  .line-numbers .highlighted {
+    color: red;
+  }
+
+  .line-numbers {
+    a {
+      color: #999;
+      text-decoration: none;
+      border: none;
+    }
+  }
+
+  .line {
+    display: block;
+    float: left;
+    width: 100%;
+  }
+
+  .code {
+    width: 100%;
+  }
+
+  .code pre {
+    overflow: auto;
+  }
+
+  .debug {
+    color:white ! important;
+    background:blue ! important;
+  }
+
+  .annotation {
+    color:#007;
+  }
+
+  .attribute-name {
+    color:#f08;
+  }
+
+  .attribute-value {
+    color:#700;
+  }
+
+  .binary {
+    color:#509;
+    font-weight:bold;
+  }
+
+  .comment  {
+    color:#998;
+    font-style: italic;
+  }
+
+  .char {
+    color:#04D;
+  }
+
+  .char {
+    content {
+      color:#04D;
+    }
+  }
+
+  .char {
+    .delimiter {
+      color:#039;
+    }
+  }
+
+  .class {
+    color:#458;
+    font-weight:bold;
+  }
+
+  .complex {
+    color:#A08;
+    font-weight:bold;
+  }
+
+  .constant {
+    color:teal;
+  }
+
+  .color {
+    color:#0A0;
+  }
+
+  .class-variable {
+    color:#369;
+    font-style: italic;
+  }
+
+  .delimiter {
+    color:#B0B;
+  }
+
+  .definition {
+    color:#099;
+    font-weight:bold;
+  }
+
+  .directive {
+    color:#088;
+    font-weight:bold;
+  }
+
+  .delimiter {
+    color:black;
+  }
+
+  .doc {
+    color:#970;
+  }
+
+  .doctype {
+    color:#34b;
+  }
+
+  .doc-string {
+    color:#D42;
+    font-weight:bold;
+  }
+
+  .escape  {
+    color:#666;
+    font-weight:bold;
+  }
+
+  .entity {
+    color:#800;
+    font-weight:bold;
+  }
+
+  .error {
+    color:#F00;
+    background-color:#FAA;
+  }
+
+  .exception {
+    color:#C00;
+    font-weight:bold;
+  }
+
+  .float {
+    color:#099;
+  }
+
+  .function {
+    color:#900;
+    font-weight:bold;
+  }
+
+  .global-variable {
+    color:teal;
+    font-weight:bold;
+  }
+
+  .hex {
+    color:#058;
+    font-weight:bold;
+  }
+
+  .integer {
+    color:#099;
+  }
+
+  .include {
+    color:#B44;
+    font-weight:bold;
+  }
+
+  .inline {
+    color: black;
+    
+    .inline {
+      background: #ccc;
+      
+      .inline {
+        background: #bbb;
+      }
+    }
+    
+    .inline-delimiter {
+      color: #D14;
+    }
+  }
+  
+  .inline-delimiter {
+    color: #D14;
+  }
+
+  .imaginary {
+    color:#f00;
+  }
+
+  .instance-variable {
+    color:teal;
+  }
+
+  .label {
+    color:#970;
+    font-weight:bold;
+  }
+
+  .local-variable {
+    color:#963;
+  }
+
+  .octal {
+    color:#40E;
+    font-weight:bold;
+  }
+
+  .operator {
+  }
+
+  .predefined-class {
+    font-weight:bold;
+  }
+
+  .predefined-constant {
+    font-weight:bold;
+  }
+
+  .predefined {
+    color:#369;
+    font-weight:bold;
+  }
+
+  .preprocessor {
+    color:#579;
+  }
+
+  .pseudo-class {
+    color:#00C;
+    font-weight:bold;
+  }
+
+  .predefined-type {
+    color:#074;
+    font-weight:bold;
+  }
+
+  .reserved, .keyword  {
+    color:#000;
+    font-weight:bold;
+  }
+
+  .key {
+    color: #808;
+    
+    .delimiter {
+      color: #606;
+    }
+    
+    .char {
+      color: #80f;
+    }
+  }
+
+  .value {
+    color: #088;
+  }
+
+  .regexp {
+    background-color:#fff0ff;
+    
+    .content {
+      color:#808;
+    }
+    
+    .delimiter {
+      color:#404;
+    }
+    
+    .mod {
+      color:#C2C;
+    }
+    
+    .function  {
+      color:#404;
+      font-weight: bold;
+    }
+  }
+
+  .string {
+    color: #D20;
+    
+    .string {
+      .string {
+        background-color:#ffd0d0;
+      }
+    }
+    
+    .content {
+      color: #D14;
+    }
+    
+    .char {
+      color: #D14;
+    }
+    
+    .delimiter {
+      color: #D14;
+    }
+  }
+
+  .shell {
+    color:#D14;
+    
+    .content {
+    }
+    
+    .delimiter {
+      color:#D14;
+    }
+  }
+
+  .symbol {
+    color:#990073;
+    
+    .content {
+      color:#A60;
+    }
+    
+    .delimiter {
+      color:#630;
+    }
+  }
+
+  .tag {
+    color:#070;
+  }
+
+  .type {
+    color:#339;
+    font-weight:bold;
+  }
+
+  .variable  {
+    color:#036;
+  }
+
+  .xt {
+    color:#444;
+  }
+
+  .insert {
+    background: #afa;
+  }
+
+  .delete {
+    background: #faa;
+  }
+
+  .change {
+    color: #aaf;
+    background: #007;
+  }
+
+  .head {
+    color: #f8f;
+    background: #505;
+  }
+
+  .insert {
+    .insert {
+      color: #080;
+      font-weight:bold;
+    }
+  }
+
+  .delete {
+    .delete {
+      color: #800;
+      font-weight:bold;
+    }
+  }
+
+  .change {
+    .change {
+      color: #66f;
+    }
+  }
+
+  .head {
+    .head {
+      color: #f4f;
+    }
+  }
+}
+
+ol.CodeRay {
+  font-size: 10pt;
+}
+
+ol.CodeRay {
+  li {
+    white-space: pre;
+  }
+}
+
+span.CodeRay {
+  white-space: pre;
+  border: 0px;
+  padding: 2px;
+}
+
+table.CodeRay {
+  border-collapse: collapse;
+  width: 100%;
+  
+  td.code, td.line-numbers {
+    padding: 0em .5em;
+  }
+}

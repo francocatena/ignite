@@ -1,8 +1,8 @@
 <table class="list">
   <thead>
     <tr>
-      <th><%= Image.human_attribute_name :name %></th>
-      <th><%= Image.human_attribute_name :caption %></th>
+      <th><%= Image.human_attribute_name 'name' %></th>
+      <th><%= Image.human_attribute_name 'caption' %></th>
     </tr>
   </thead>
 
@@ -17,6 +17,6 @@
 </table>
 
 <nav class="links">
+  <%= pagination_links @images %>
   <%= link_to t('view.images.new'), new_image_path %>
-  <%= will_paginate @images %>
 </nav>

@@ -209,8 +209,6 @@
     hide: 'Ocultar'
     list: 'Listado'
     new: 'Nuevo'
-    next: 'Siguiente'
-    previous: 'Anterior'
     show: 'Ver'
 
   lang:
