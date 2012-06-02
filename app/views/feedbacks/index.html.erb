@@ -1,0 +1,28 @@
+<table class="list">
+  <thead>
+    <tr>
+      <th><%= Feedback.human_attribute_name 'lesson_id' %></th>
+      <th><%= Feedback.human_attribute_name 'rate' %></th>
+      <th><%= Feedback.human_attribute_name 'ip' %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td><%= feedback.lesson %></td>
+        <td><%= feedback.rate %></td>
+        <td><%= feedback.ip %></td>
+        <td><%= link_to t('label.show'), feedback %></td>
+        <td><%= link_to t('label.edit'), edit_feedback_path(feedback) %></td>
+        <td><%= link_to t('label.delete'), feedback,
+          confirm: t('messages.confirmation'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<nav class="links">
+  <%= pagination_links(@feedbacks) %>
+</nav>

@@ -1,0 +1,19 @@
+<%= form_for(@feedback) do |f| %>
+  <%= show_error_messages @feedback %>
+
+  <div class="field">
+    <%= f.label :rate %>
+    <%= f.number_field :rate, autofocus: true, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip, maxlength: 255 %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

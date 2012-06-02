@@ -11,6 +11,13 @@
         <%= node.draw %>
       </div>
     <% end %>
+    <% if last %>
+      <% if has_not_voted? %>
+        <%= render template: 'feedbacks/new' %>
+      <% elsif !request.local? %>
+        <div class="feedback"><%= render template: 'feedbacks/show' %></div>
+      <% end %>
+    <% end %>
   </div>
   <footer>
     <div>
@@ -19,8 +26,8 @@
         <span class="arrow_left"></span>
         <div>
           <% if request.local? %>
-            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), :class => 'new' %> |
-            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide), :class => 'edit' %> |
+            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), class: 'new' %> |
+            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide), class: 'edit' %> |
           <% end %>
           <%= link_to t('label.list'), lesson_slides_path(lesson) %>
           <div class="ui_control">

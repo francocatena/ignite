@@ -17,7 +17,7 @@
         <td><%= link_to t('label.show'), [@course, lesson] %></td>
         <td><%= link_to t('label.edit'),
           edit_course_lesson_path(@course, lesson) %></td>
-        <td><%= button_to t('label.delete'), [@course, lesson],
+        <td><%= link_to t('label.delete'), [@course, lesson],
           confirm: t('messages.confirmation'), method: :delete %></td>
       </tr>
     <% end %>

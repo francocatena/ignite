@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @title = t('view.images.index_title')
-    @images = Image.paginate(page: params[:page], per_page: APP_LINES_PER_PAGE)
+    @images = Image.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

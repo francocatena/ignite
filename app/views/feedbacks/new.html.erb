@@ -1,0 +1,17 @@
+<% lesson = @feedback.try(:lesson) || @lesson %>
+<div class="feedback clearfix">
+  <ul>
+    <% (1..5).reverse_each do |i| %>
+      <li>
+        <%= link_to(
+          '&#x2605;'.html_safe,
+          feedbacks_path(feedback: { lesson_id: lesson.try(:id), rate: i }),
+          title: t("view.feedbacks.rate.#{i}"),
+          class: "iconic vote is-a-#{i}",
+          method: :post,
+          remote: true
+        ) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

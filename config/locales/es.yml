@@ -34,6 +34,7 @@
     models:
       code_node: 'Nodo de código'
       course: 'Curso'
+      feedback: 'Retroalimentación'
       image: 'Imagen'
       lesson: 'Clase'
       node: 'Nodo'
@@ -50,6 +51,11 @@
       course:
         name: 'Nombre'
         notes: 'Notas'
+      feedback:
+        rate: 'Calificación'
+        ip: 'IP'
+        comments: 'Comentarios'
+        lesson_id: 'Clase'
       image:
         name: 'Nombre'
         caption: 'Título'
@@ -345,6 +351,23 @@
       show_lessons:
         one: 'Ver clase'
         other: 'Ver %{count} clases'
+    feedbacks:
+      index_title: 'Listado de retroalimentaciones'
+      show_title: 'Detalle de retroalimentación'
+      new_title: 'Nueva retroalimentación'
+      edit_title: 'Modificar retroalimentación'
+      correctly_created: 'Retroalimentación agregada correctamente.'
+      correctly_updated: 'Retroalimentación actualizada correctamente.'
+      vote:
+        html:
+          one: 'Gracias por tu voto <strong>triste</strong> =)'
+          other: 'Tu voto de <strong>%{count}</strong> estrellas ya fue registrado, gracias'
+      rate:
+        '1': 'Apesta'
+        '2': 'Triste'
+        '3': 'Ehh'
+        '4': 'Lindo'
+        '5': 'Conmovedor'
     images:
       index_title: 'Listado de imágenes'
       show_title: 'Detalle de imagen'

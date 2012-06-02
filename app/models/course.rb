@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  default_scope order("#{table_name}.name ASC")
+  
   # Validations
   validates :name, presence: true, length: { maximum: 255 },
     uniqueness: { case_sensitive: false }

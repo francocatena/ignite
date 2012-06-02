@@ -1,0 +1,11 @@
+good:
+  rate: 5
+  ip: '192.168.10.10'
+  comments: Very good indeed
+  lesson: introduction
+
+bad:
+  rate: 1
+  ip: '192.168.10.5'
+  comments: Very bad presentation
+  lesson: introduction

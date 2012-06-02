@@ -5,9 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @title = t('view.courses.index_title')
-    @courses = Course.order('name ASC').paginate(
-      page: params[:page], per_page: APP_LINES_PER_PAGE
-    )
+    @courses = Course.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

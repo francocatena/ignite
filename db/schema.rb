@@ -11,17 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104164234) do
+ActiveRecord::Schema.define(:version => 20120530002034) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.text     "notes"
     t.integer  "lock_version", :default => 0
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "courses", ["name"], :name => "index_courses_on_name", :unique => true
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "rate"
+    t.string   "ip"
+    t.text     "comments"
+    t.integer  "lesson_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feedbacks", ["lesson_id"], :name => "index_feedbacks_on_lesson_id"
 
   create_table "images", :force => true do |t|
     t.string   "name",                              :null => false
@@ -31,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120104164234) do
     t.integer  "image_file_size",                   :null => false
     t.datetime "image_updated_at",                  :null => false
     t.integer  "lock_version",       :default => 0
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "images", ["name"], :name => "index_images_on_name", :unique => true

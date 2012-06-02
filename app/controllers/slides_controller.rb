@@ -5,41 +5,38 @@ class SlidesController < ApplicationController
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
   
   # GET /lessons/1/slides
-  # GET /lessons/1/slides.xml
+  # GET /lessons/1/slides.json
   def index
     @title = t('view.slides.index_title')
-    @slides = @lesson.slides.paginate(
-      page: params[:page],
-      per_page: APP_LINES_PER_PAGE
-    )
+    @slides = @lesson.slides.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render xml: @slides }
+      format.json  { render json: @slides }
     end
   end
 
   # GET /lessons/1/slides/1
-  # GET /lessons/1/slides/1.xml
+  # GET /lessons/1/slides/1.json
   def show
     @title = t('view.slides.show_title')
     @slide = @lesson.slides.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render xml: @slide }
+      format.json  { render json: @slide }
     end
   end
 
   # GET /lessons/1/slides/new
-  # GET /lessons/1/slides/new.xml
+  # GET /lessons/1/slides/new.json
   def new
     @title = t('view.slides.new_title')
     @slide = @lesson.slides.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render xml: @slide }
+      format.json  { render json: @slide }
     end
   end
 
@@ -50,7 +47,7 @@ class SlidesController < ApplicationController
   end
 
   # POST /lessons/1/slides
-  # POST /lessons/1/slides.xml
+  # POST /lessons/1/slides.json
   def create
     @title = t('view.slides.new_title')
     @slide = @lesson.slides.build(params[:slide])
@@ -58,16 +55,16 @@ class SlidesController < ApplicationController
     respond_to do |format|
       if @slide.save
         format.html { redirect_to(course_lesson_url(@lesson.course, @lesson, anchor: @slide.anchor), notice: t('view.slides.correctly_created')) }
-        format.xml  { render xml: @slide, status: :created, location: @slide }
+        format.json  { render json: @slide, status: :created, location: @slide }
       else
         format.html { render action: 'new' }
-        format.xml  { render xml: @slide.errors, status: :unprocessable_entity }
+        format.json  { render json: @slide.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /lessons/1/slides/1
-  # PUT /lessons/1/slides/1.xml
+  # PUT /lessons/1/slides/1.json
   def update
     @title = t('view.slides.edit_title')
     @slide = @lesson.slides.find(params[:id])
@@ -75,10 +72,10 @@ class SlidesController < ApplicationController
     respond_to do |format|
       if @slide.update_attributes(params[:slide])
         format.html { redirect_to(course_lesson_url(@lesson.course, @lesson, anchor: @slide.anchor), notice: t('view.slides.correctly_updated')) }
-        format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render action: 'edit' }
-        format.xml  { render xml: @slide.errors, status: :unprocessable_entity }
+        format.json  { render json: @slide.errors, status: :unprocessable_entity }
       end
     end
     
@@ -88,14 +85,14 @@ class SlidesController < ApplicationController
   end
 
   # DELETE /lessons/1/slides/1
-  # DELETE /lessons/1/slides/1.xml
+  # DELETE /lessons/1/slides/1.json
   def destroy
     @slide = @lesson.slides.find(params[:id])
     @slide.destroy
 
     respond_to do |format|
       format.html { redirect_to(lesson_slides_url(@lesson)) }
-      format.xml  { head :ok }
+      format.json  { head :ok }
     end
   end
   

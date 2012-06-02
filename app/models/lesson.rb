@@ -1,4 +1,6 @@
 class Lesson < ActiveRecord::Base
+  default_scope order("#{table_name}.sequence ASC")
+  
   # Validations
   validates :name, length: { maximum: 255 }, presence: true
   validates :course, presence: true

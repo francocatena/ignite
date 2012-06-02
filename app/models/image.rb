@@ -1,6 +1,8 @@
 class Image < ActiveRecord::Base
   has_attached_file :image, styles: ->(attachment) {attachment.instance.styles}
   
+  default_scope order("#{table_name}.name ASC")
+  
   # Restricciones
   validates :name, :caption, presence: true, length: { maximum: 255 }
   validates :name, uniqueness: true
