@@ -9,13 +9,8 @@
 </div>
 
 <% unless Rails.env.production? %>
-  <%= link_to_function t('errors.show_details'),
-    "$('#error_details').slideDown(); $(this).fadeOut()", id: 'show_link' %>
-  <div style="display: none;" id="error_details">
+  <div id="error_details">
     <div>
-      <%= link_to_function t(:'errors.hide_details'),
-        "$('#error_details').slideUp(); $('#show_link').fadeIn()" %>
-      <!-- Final -->
       <h2 style="margin: 1em 0em;"><%= error.message %></h2>
       <h3>Backtrace:</h3>
       <pre style="margin-top: .5em;"><%= error.backtrace.join("\n") %></pre>
