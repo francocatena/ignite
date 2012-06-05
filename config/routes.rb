@@ -1,5 +1,5 @@
 Ignite::Application.routes.draw do
-  resources :feedbacks, path: 'f', except: [:destroy]
+  resources :feedbacks, path: 'f'
 
   resources :images, path: 'i'
 

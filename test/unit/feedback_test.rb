@@ -36,9 +36,14 @@ class FeedbackTest < ActiveSupport::TestCase
 
     assert_equal 'Updated comments', @feedback.reload.comments
   end
-
+  
   test 'destroy' do
-    # Can not be destroyed
+    @feedback = feedbacks(:local)
+    
+    assert_difference('Feedback.count', -1) { @feedback.destroy }
+  end
+
+  test 'can not destroy remote feedback' do
     assert_no_difference('Feedback.count') { @feedback.destroy }
   end
 

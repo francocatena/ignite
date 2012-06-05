@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_filter :require_local, only: [:index, :edit, :update]
+  before_filter :require_local, only: [:index, :edit, :update, :destroy]
   hide_action :default_args, :find_feedback
   
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
@@ -77,6 +77,17 @@ class FeedbacksController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @feedback.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  # DELETE /feedbacks/1.json
+  def destroy
+    @feedback = find_feedback
+    @feedback.destroy
+
+    respond_to do |format|
+      format.html { redirect_to feedbacks_url }
+      format.json { head :ok }
     end
   end
   

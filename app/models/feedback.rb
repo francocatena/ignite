@@ -1,10 +1,14 @@
 class Feedback < ActiveRecord::Base
   attr_accessible :comments, :rate, :ip, :lesson_id
   
+  LOCALHOST = ['127.0.0.1', '::1']
+  
   default_scope order("#{table_name}.created_at ASC")
+  scope :remote, where("#{table_name}.ip NOT IN (?)", LOCALHOST)
+  scope :local, where("#{table_name}.ip" => LOCALHOST)
   
   # Callbacks
-  before_destroy :avoid_destruction
+  before_destroy :can_be_destroyed?
   
   # Validations
   validates :rate, presence: true, inclusion: { in: 1..5 }
@@ -13,7 +17,7 @@ class Feedback < ActiveRecord::Base
   # Relations
   belongs_to :lesson
   
-  def avoid_destruction
-    false
+  def can_be_destroyed?
+    LOCALHOST.include?(self.ip)
   end
 end

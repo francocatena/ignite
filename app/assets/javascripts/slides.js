@@ -122,13 +122,13 @@ jQuery(function($) {
       if($.inArray(key, nextKeys) != -1) {
         var hasNext = $('#slide-' + Slide.next()).length > 0;
 
-        if(!Slide.showDelayed() && hasNext) { Slide.show(Slide.next(), true); }
+        if(!Slide.showDelayed() && hasNext) {Slide.show(Slide.next(), true);}
 
         e.preventDefault();
       } else if($.inArray(key, prevKeys) != -1) {
         var hasPrev = $('#slide-' + Slide.prev()).length > 0;
 
-        if(!Slide.hideDelayed() && hasPrev) { Slide.show(Slide.prev(), false); }
+        if(!Slide.hideDelayed() && hasPrev) {Slide.show(Slide.prev(), false);}
 
         e.preventDefault();
       // CTRL + ALT + n = new slide
@@ -141,6 +141,18 @@ jQuery(function($) {
         $('#slide-' + Slide.currentNumber()).find('.links a.edit')[0].click();
         
         e.preventDefault();
+      // F or f = Full screen mode
+      } else if($.inArray(key, [70, 102]) != -1 && !limitNavigation) {
+        // Full screen request
+        (function(e) {
+          if (e.requestFullScreen) {  
+            e.requestFullScreen();  
+          } else if(e.mozRequestFullScreen) {  
+            e.mozRequestFullScreen();  
+          } else if (e.webkitRequestFullScreen) {  
+            e.webkitRequestFullScreen();  
+          }
+        })(document.body);
       }
     });
 

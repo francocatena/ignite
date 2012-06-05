@@ -9,3 +9,9 @@ bad:
   ip: '192.168.10.5'
   comments: Very bad presentation
   lesson: introduction
+
+local:
+  rate: 3
+  ip: '127.0.0.1'
+  comments: So so
+  lesson: scratching_ruby

@@ -62,4 +62,14 @@ class FeedbacksControllerTest < ActionController::TestCase
     assert_equal 'Updated comments', @feedback.reload.comments
     assert_equal @request.remote_addr, assigns(:feedback).ip
   end
+  
+  test 'should destroy feedback' do
+    @feedback = feedbacks(:local)
+    
+    assert_difference 'Feedback.count', -1 do
+      delete :destroy, id: @feedback.to_param
+    end
+
+    assert_redirected_to feedbacks_path
+  end
 end
