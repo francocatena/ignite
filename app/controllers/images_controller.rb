@@ -77,8 +77,7 @@ class ImagesController < ApplicationController
     end
     
   rescue ActiveRecord::StaleObjectError
-    flash.alert = t('view.images.stale_object_error')
-    redirect_to edit_image_url(@app, @hint)
+    redirect_to edit_image_url(@app, @hint), alert: t('view.images.stale_object_error')
   end
 
   # DELETE /images/1

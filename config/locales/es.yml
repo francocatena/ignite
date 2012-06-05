@@ -155,8 +155,6 @@
   errors:
     title: 'Error'
     header_message: 'Se ha encontrado un problema'
-    hide_details: 'Ocultar detalles'
-    show_details: 'Ver detalles'
     apologies_for_the_inconvenience: 'Disculpe las molestias'
     
     # The default format to use in full error messages.

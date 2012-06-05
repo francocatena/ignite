@@ -77,8 +77,7 @@ class CoursesController < ApplicationController
     end
     
   rescue ActiveRecord::StaleObjectError
-    flash.alert = t('view.courses.stale_object_error')
-    redirect_to edit_lesson_url(@lesson)
+    redirect_to edit_lesson_url(@lesson), alert: t('view.courses.stale_object_error')
   end
 
   # DELETE /courses/1
