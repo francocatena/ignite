@@ -9,11 +9,9 @@ module SlidesHelper
     if node.kind_of?(CodeNode)
       case node.lang
         when 'ruby'
-          readonly = "$(this).parent('.node').find('.CodeRay')"
-          editable = "$(this).parent('.node').find('.code_form')"
-          out = link_to_function(
-            t('view.slides.switch_code_view'),
-            "Slide.toggleEdition(#{readonly}, #{editable})",
+          out = link_to(
+            t('view.slides.switch_code_view'), '#',
+            data: { 'toggle-edition' => true },
             class: ['edit_code', node.css_class].compact.join(' ')
           )
 
@@ -24,33 +22,27 @@ module SlidesHelper
 
           raw(out) if request.local?
         when 'html'
-          html_code = "$(this).parent('.node').find('.html_code')"
-          out = link_to_function(
-            t('view.slides.show_html'),
-            "Slide.showHtml(#{html_code})",
+          out = link_to(
+            t('view.slides.show_html'), '#',
+            data: { 'show-html' => true },
             class: ['edit_code', node.css_class].compact.join(' ')
           )
           content = content_tag(
             :div, raw(node.content), class: 'fancybox-in-slide'
           )
           
-          out << content_tag(
-            :textarea, raw(content), class: 'html_code',
-            style: 'display: none;'
-          )
+          out << content_tag(:textarea, raw(content), class: 'html_code hidden')
           
           raw(out)
         when 'java_script'
-          js_code = "$(this).parent('.node').find('.js_code')"
-          out = link_to_function(
-            t('view.slides.execute'),
-            "Slide.executeJS(#{js_code})",
+          out = link_to(
+            t('view.slides.execute'), '#',
+            data: { 'execute-js' => true },
             class: ['edit_code', node.css_class].compact.join(' ')
           )
           
           out << content_tag(
-            :textarea, raw(node.content), class: 'js_code',
-            style: 'display: none;'
+            :textarea, raw(node.content), class: 'js_code hidden'
           )
           
           raw(out)

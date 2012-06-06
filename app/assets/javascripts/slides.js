@@ -164,6 +164,30 @@ jQuery(function($) {
         height: 500
       });
     });
+    
+    $(document).on('click', 'a[data-toggle-edition]', function(e) {
+      Slide.toggleEdition(
+        $(this).parent('.node').find('.CodeRay'),
+        $(this).parent('.node').find('.code_form')
+      );
+
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    
+    $(document).on('click', 'a[data-show-html]', function(e) {
+      Slide.showHtml($(this).parent('.node').find('.html_code'));
+      
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    
+    $(document).on('click', 'a[data-execute-js]', function(e) {
+      Slide.executeJS($(this).parent('.node').find('.js_code'));
+      
+      e.preventDefault();
+      e.stopPropagation();
+    });
 
     $('.delayed').hide();
 

@@ -376,6 +376,10 @@ section.nested_items div.node div.nested_item_field:nth-child(3) {
   clear: both;
 }
 
+.hidden {
+  display: none;
+}
+
 .iconic {
   font-family: "IconicStroke";
   display: inline-block;
