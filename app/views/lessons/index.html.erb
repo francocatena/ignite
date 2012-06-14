@@ -14,11 +14,9 @@
         <td><%= link_to lesson.name, lesson_slides_path(lesson),
           title: t('view.lessons.show_slides') %></td>
         <td><%= lesson.sequence %></td>
-        <td><%= link_to t('label.show'), [@course, lesson] %></td>
-        <td><%= link_to t('label.edit'),
-          edit_course_lesson_path(@course, lesson) %></td>
-        <td><%= link_to t('label.delete'), [@course, lesson],
-          confirm: t('messages.confirmation'), method: :delete %></td>
+        <td><%= link_to_show [@course, lesson] %></td>
+        <td><%= link_to_edit edit_course_lesson_path(@course, lesson) %></td>
+        <td><%= link_to_destroy [@course, lesson] %></td>
       </tr>
     <% end %>
   </tbody>

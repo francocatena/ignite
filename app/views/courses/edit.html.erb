@@ -2,6 +2,6 @@
 
 <nav class="links">
   <%= link_to t('view.courses.add_lesson'), new_course_lesson_path(@course) %> |
-  <%= link_to t('label.show'), @course %> |
+  <%= link_to_show @course %> |
   <%= link_to t('label.list'), courses_path %>
 </nav>

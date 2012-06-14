@@ -81,4 +81,30 @@ module ApplicationHelper
     
     raw textilized.to_html
   end
+  
+  def link_to_show(*args)
+    options = args.extract_options!
+    
+    options['title'] ||= t('label.show')
+    
+    link_to t('label.show'), *args, options
+  end
+  
+  def link_to_edit(*args)
+    options = args.extract_options!
+    
+    options['title'] ||= t('label.edit')
+    
+    link_to t('label.edit'), *args, options
+  end
+  
+  def link_to_destroy(*args)
+    options = args.extract_options!
+    
+    options['title'] ||= t('label.delete')
+    options['method'] ||= :delete
+    options['data-confirm'] ||= t('messages.confirmation')
+    
+    link_to t('label.delete'), *args, options
+  end
 end

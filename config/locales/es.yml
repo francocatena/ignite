@@ -357,9 +357,7 @@
       correctly_created: 'Retroalimentación agregada correctamente.'
       correctly_updated: 'Retroalimentación actualizada correctamente.'
       vote:
-        html:
-          one: 'Gracias por tu voto <strong>triste</strong> =)'
-          other: 'Tu voto de <strong>%{count}</strong> estrellas ya fue registrado, gracias'
+        html: 'Tu voto fue registrado, <strong>muchas gracias</strong>'
       rate:
         '1': 'Apesta'
         '2': 'Triste'

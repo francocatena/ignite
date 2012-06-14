@@ -1,6 +1,6 @@
 <%= render 'form' %>
 
 <nav class="links">
-  <%= link_to t('label.show'), [@course, @lesson] %> |
+  <%= link_to_show [@course, @lesson] %> |
   <%= link_to t('label.list'), course_lessons_path(@course) %>
 </nav>

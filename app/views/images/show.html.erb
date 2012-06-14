@@ -16,10 +16,7 @@
 </section>
 
 <nav class="links">
-  <%= link_to t('label.edit'), edit_image_path(@image) %> |
-  <%= link_to(
-    t('label.delete'), @image,
-    confirm: t('messages.confirmation'), method: :delete
-  ) %> |
+  <%= link_to_edit edit_image_path(@image) %> |
+  <%= link_to_destroy @image %> |
   <%= link_to t('label.back'), images_path %>
 </nav>

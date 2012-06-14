@@ -1,9 +1,9 @@
 <%= form_for([@lesson, @slide]) do |f| %>
   <%= content_for :js_extra do -%>
     <%= raw "var textNode='#{generate_template(f, :nodes,
-      locals: {disabled: false}, object: TextNode.new)}';" %>
+      locals: { disabled: false }, object: TextNode.new)}';" %>
     <%= raw "var codeNode='#{generate_template(f, :nodes,
-      locals: {disabled: false}, object: CodeNode.new)}';" %>
+      locals: { disabled: false }, object: CodeNode.new)}';" %>
   <% end -%>
   <%= show_error_messages @slide %>
   
@@ -13,7 +13,7 @@
   </div>
   <div class="field">
     <%= f.label :number %>
-    <%= f.text_field :number, maxlength: 3 %>
+    <%= f.text_field :number, maxlength: 3, autocomplete: 'off' %>
   </div>
   <div class="field">
     <%= f.label :extra_classes %>

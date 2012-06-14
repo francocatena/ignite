@@ -14,15 +14,9 @@
         <td><%= feedback.lesson %></td>
         <td><%= feedback.rate %></td>
         <td><%= feedback.ip %></td>
-        <td><%= link_to t('label.show'), feedback %></td>
-        <td><%= link_to t('label.edit'), edit_feedback_path(feedback) %></td>
-        <td>
-          <%= link_to(
-            t('label.delete'), feedback,
-            confirm: t('messages.confirmation'), method: :delete
-          ) if feedback.can_be_destroyed?
-        %>
-        </td>
+        <td><%= link_to_show feedback %></td>
+        <td><%= link_to_edit edit_feedback_path(feedback) %></td>
+        <td><%= link_to_destroy(feedback) if feedback.can_be_destroyed? %></td>
       </tr>
     <% end %>
   </tbody>

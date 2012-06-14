@@ -13,10 +13,9 @@
         <td><%= link_to course.name, course_lessons_path(course),
           title: t('view.courses.show_lessons', count: course.lessons.count) %></td>
         <td><%= truncate course.notes, length: 30, omission: '...' %></td>
-        <td><%= link_to t('label.show'), course %></td>
-        <td><%= link_to t('label.edit'), edit_course_path(course) %></td>
-        <td><%= link_to t('label.delete'), course,
-          confirm: t('messages.confirmation'), method: :delete %></td>
+        <td><%= link_to_show course %></td>
+        <td><%= link_to_edit edit_course_path(course) %></td>
+        <td><%= link_to_destroy course %></td>
       </tr>
     <% end %>
   </tbody>

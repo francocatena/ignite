@@ -11,6 +11,7 @@ class Lesson < ActiveRecord::Base
   # Relations
   belongs_to :course
   has_many :slides, dependent: :destroy, order: "#{Slide.table_name}.number ASC"
+  has_many :feedbacks
   
   def to_s
     self.name

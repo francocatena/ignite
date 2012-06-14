@@ -31,9 +31,7 @@ class ApplicationController < ActionController::Base
     if request.local?
       expires_now
     else
-      flash.notice = t('messages.must_be_a_local_request')
-      
-      redirect_to root_url
+      redirect_to root_url, notice: t('messages.must_be_a_local_request')
 
       false
     end
