@@ -14,7 +14,7 @@
         <td><%= feedback.lesson %></td>
         <td><%= feedback.rate %></td>
         <td><%= feedback.ip %></td>
-        <td><%= link_to_show feedback %></td>
+        <td><%= link_to_show feedback_path(feedback, details: true) %></td>
         <td><%= link_to_edit edit_feedback_path(feedback) %></td>
         <td><%= link_to_destroy(feedback) if feedback.can_be_destroyed? %></td>
       </tr>

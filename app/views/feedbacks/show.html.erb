@@ -1,3 +1,36 @@
-<p>
-  <span class="glass_box"><%= t('view.feedbacks.vote.html') %></span>
-</p>
+<% if params[:details] %>
+  <h1><%= @feedback.lesson %></h1>
+  
+  <br />
+  
+  <div>
+    <strong><%= Feedback.human_attribute_name 'rate' %></strong>:
+    <%= @feedback.rate %>
+  </div>
+  
+  <br />
+  
+  <div>
+    <strong><%= Feedback.human_attribute_name 'ip' %></strong>:
+    <%= @feedback.ip %>
+  </div>
+  
+  <br />
+  
+  <div>
+    <strong><%= Feedback.human_attribute_name 'comments' %></strong>:
+    <%= simple_format @feedback.comments %>
+  </div>
+  
+  <nav class="links">
+    <%= link_to_edit edit_feedback_path(@feedback) %> |
+    <% if @feedback.can_be_destroyed? %>
+      <%= link_to_destroy @feedback %> |
+    <% end %>
+    <%= link_to t('label.back'), feedbacks_path %>
+  </nav>
+<% else %>
+  <p>
+    <span class="glass_box"><%= t('view.feedbacks.vote.html') %></span>
+  </p>
+<% end %>
