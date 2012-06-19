@@ -14,7 +14,7 @@
     <% if last %>
       <% if has_not_voted? %>
         <%= render template: 'feedbacks/new' %>
-      <% elsif !request.local? %>
+      <% elsif !local? %>
         <div class="feedback"><%= render template: 'feedbacks/show' %></div>
       <% end %>
     <% end %>
@@ -25,7 +25,7 @@
       <nav class="links">
         <span class="arrow_left"></span>
         <div>
-          <% if request.local? %>
+          <% if local? %>
             <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), class: 'new' %> |
             <%= link_to_edit edit_lesson_slide_path(lesson, slide), class: 'edit' %> |
           <% end %>

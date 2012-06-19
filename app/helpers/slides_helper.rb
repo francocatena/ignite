@@ -20,7 +20,7 @@ module SlidesHelper
             locals: { node: node }
           )
 
-          raw(out) if request.local?
+          raw(out) if local?
         when 'html'
           out = link_to(
             t('view.slides.show_html'), '#',

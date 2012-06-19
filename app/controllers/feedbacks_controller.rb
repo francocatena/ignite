@@ -98,7 +98,7 @@ class FeedbacksController < ApplicationController
   end
   
   def find_feedback
-    request.local? ?
+    local? ?
       Feedback.find(params[:id]) :
       Feedback.find_by_id_and_ip(params[:id], request.remote_ip)
   end
