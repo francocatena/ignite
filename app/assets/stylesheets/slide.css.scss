@@ -116,6 +116,10 @@ body {
         margin-left: .25em;
       }
     }
+    
+    p.normal {
+      font-size: 1.75em;
+    }
 
     p.footnote {
       position: fixed;
@@ -126,9 +130,11 @@ body {
     }
     
     ul, ol {
-      margin-left: 1.5em;
-      font-size: 2.5em;
-      line-height: 1.25em;
+      li {
+        margin-left: 1.5em;
+        font-size: 2.5em;
+        line-height: 1.25em;
+      }
       
       li.delayed {
         opacity: .4;
@@ -143,6 +149,10 @@ body {
         -o-transition: .4s all ease-out;
         -webkit-transition: .4s all ease-out;
         -moz-transition: .4s all ease-out;
+      }
+      
+      li.normal {
+        font-size: 1.75em;
       }
     }
   }
