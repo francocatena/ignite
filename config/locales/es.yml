@@ -59,6 +59,7 @@
       image:
         name: 'Nombre'
         caption: 'Título'
+        image: 'Imágen (archivo)'
         image_file_name: 'Imágen (archivo)'
         image_content_type: 'Imágen (tipo)'
         image_file_size: 'Imágen (tamaño)'
@@ -222,6 +223,7 @@
     
   menu:
     courses: 'Cursos'
+    feedbacks: 'Encuestas'
     images: 'Imágenes'
     
   messages:
@@ -375,6 +377,11 @@
       correctly_updated: 'Imagen actualizada correctamente.'
       stale_object_error: 'La imagen no pudo ser actualizada, intente nuevamente.'
       new: 'Nueva'
+      styles:
+        original: 'Original'
+        large: 'Grande'
+        medium: 'Mediano'
+        thumb: 'Pequeño'
     lessons:
       index_title: 'Listado de clases'
       show_title: 'Detalle de clase'

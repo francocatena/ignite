@@ -31,6 +31,8 @@ GEM
       multi_json (~> 1.0)
     ansi (1.4.2)
     arel (3.0.2)
+    bourbon (2.1.0)
+      sass (>= 3.1)
     builder (3.0.0)
     capistrano (2.12.0)
       highline
@@ -112,6 +114,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.2)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -141,6 +146,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth
+  bourbon
   capistrano
   coderay
   coffee-rails
@@ -149,6 +155,7 @@ DEPENDENCIES
   paperclip
   rails (= 3.2.6)
   sass-rails
+  simple_form
   sqlite3
   therubyracer
   thin

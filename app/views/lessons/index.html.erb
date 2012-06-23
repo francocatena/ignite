@@ -1,5 +1,7 @@
-<table class="list">
-  <caption><%= t('view.lessons.course', course: @course.to_s) %></caption>
+<table class="table table-striped">
+  <caption>
+    <h3><%= t('view.lessons.course', course: @course.to_s) %></h3>
+  </caption>
   <thead>
     <tr>
       <th><%= Lesson.human_attribute_name 'name' %></th>
@@ -11,8 +13,12 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= link_to lesson.name, lesson_slides_path(lesson),
-          title: t('view.lessons.show_slides') %></td>
+        <td>
+          <%= link_to(
+            lesson.name, lesson_slides_path(lesson),
+            title: t('view.lessons.show_slides'), data: { 'show-tooltip' => true }
+          ) %>
+        </td>
         <td><%= lesson.sequence %></td>
         <td><%= link_to_show [@course, lesson] %></td>
         <td><%= link_to_edit edit_course_lesson_path(@course, lesson) %></td>
@@ -22,7 +28,8 @@
   </tbody>
 </table>
 
-<nav class="links">
-  <%= pagination_links(@lessons) %>
-  <%= link_to t('view.lessons.new'), new_course_lesson_path(@course) %>
+<%= pagination_links(@lessons) %>
+
+<nav class="form-actions">
+  <%= link_to t('view.lessons.new'), new_course_lesson_path(@course), class: 'btn btn-primary' %>
 </nav>

@@ -1,23 +1,20 @@
 <% id = dynamic_object_id('node', f) %>
 <% hide = is_dynamic || f.object.marked_for_destruction? %>
-<div class="node nested_item" id="<%= id %>" <%= raw 'style="display: none;"' if hide %>>
-  <div>
-    <div class="nested_item_field">
-      <%= f.text_area :content %>
-    </div>
-    <div class="nested_item_field">
-      <% if f.object.kind_of?(CodeNode) %>
-        <%= show_options_for_code_node(f) %><br />
-      <% end %>
-      <%= f.text_field :css_class, placeholder: t('view.slides.css_class') %>
-    </div>
-    <div class="nested_item_actions">
-      <%= link_to_remove_nested_item(f, :node) %>
-      <%= f.hidden_field :rank, class: :sort_number %>
-      <%= f.hidden_field :type %>
-      <%= f.hidden_field :lock_version %>
-    </div>
-    <br class="break" />
+<div class="node nested_item row-fluid" id="<%= id %>" <%= raw 'style="display: none;"' if hide %>>
+  <div class="span8">
+    <%= f.input :content, label: false, input_html: { rows: 4 } %>
+  </div>
+  <div class="span2">
+    <% if f.object.kind_of?(CodeNode) %>
+      <%= show_options_for_code_node(f) %><br />
+    <% end %>
+    <%= f.input :css_class, label: false, input_html: { placeholder: t('view.slides.css_class') } %>
+  </div>
+  <div class="span2">
+    <%= link_to_remove_nested_item(f, 'node') %>
+    <%= f.input :rank, as: :hidden, input_html: { class: :sort_number } %>
+    <%= f.input :type, as: :hidden %>
+    <%= f.input :lock_version, as: :hidden %>
   </div>
 </div>
 <% if is_dynamic %>

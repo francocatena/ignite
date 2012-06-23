@@ -2,7 +2,7 @@ module SlidesHelper
   def show_options_for_code_node(form)
     langs = CodeNode::LANGS.map { |l| [t("view.slides.langs.#{l}"), l] }
     
-    form.select :lang, langs, prompt: true
+    form.input :lang, label: false, collection: langs, prompt: true
   end
   
   def draw_node_optionals(node)

@@ -1,15 +1,13 @@
-<p>
-  <b><%= Course.human_attribute_name 'name' %></b>:
-  <%= @course.name %>
-</p>
+<div class="page-header">
+  <h1><%= @course.name %></h1>
+</div>
 
-<p>
-  <b><%= Course.human_attribute_name 'notes' %></b>:
+<blockquote>
   <%= simple_format @course.notes %>
-</p>
+</blockquote>
 
-<nav class="links">
-  <%= link_to t('view.courses.add_lesson'), new_course_lesson_path(@course) %> |
+<nav class="form-actions">
   <%= link_to_edit edit_course_path(@course) %> |
+  <%= link_to t('view.courses.add_lesson'), new_course_lesson_path(@course) %> |
   <%= link_to t('label.list'), courses_path %>
 </nav>

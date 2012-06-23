@@ -1,4 +1,4 @@
-<table class="list">
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= Image.human_attribute_name 'name' %></th>
@@ -16,7 +16,8 @@
   </tbody>
 </table>
 
-<nav class="links">
-  <%= pagination_links @images %>
-  <%= link_to t('view.images.new'), new_image_path %>
+<%= pagination_links @images %>
+
+<nav class="form-actions">
+  <%= link_to t('view.images.new'), new_image_path, class: 'btn btn-primary' %>
 </nav>

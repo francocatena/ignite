@@ -7,15 +7,6 @@ module ApplicationHelper
     "#{prefix}_#{form_builder.object_name.to_s.gsub(/[_\]\[]+/, '_')}"
   end
   
-  # Return the error messages from a model in HTML format
-  # 
-  # * _model_:: The model to inspect for errors
-  def show_error_messages(model)
-    unless model.errors.empty?
-      render partial: 'shared/error_messages', locals: { model: model }
-    end
-  end
-  
   def generate_html(form_builder, method, user_options = {})
     options = {
       object: form_builder.object.class.reflect_on_association(method).klass.new,
@@ -27,7 +18,7 @@ module ApplicationHelper
     }.merge(user_options)
     form_options = { child_index: options[:child_index] }
 
-    form_builder.fields_for(method, options[:object], form_options) do |f|
+    form_builder.simple_fields_for(method, options[:object], form_options) do |f|
       render(
         partial: options[:partial],
         locals: {
@@ -51,9 +42,14 @@ module ApplicationHelper
     out = String.new
     out << fields.hidden_field(:_destroy, class: :destroy,
       value: fields.object.marked_for_destruction? ? 1 : 0) unless new_record
-    out << link_to('X', '#', title: t('label.delete'),
-      'data-target' => ".#{class_for_remove || fields.object.class.name.underscore}",
-      'data-event' => (new_record ? 'removeItem' : 'hideItem'))
+    out << link_to(
+      '&times;'.html_safe, '#', title: t('label.delete'),
+      class: 'btn btn-mini btn-danger',
+      data: {
+        target: ".#{class_for_remove || fields.object.class.name.underscore}",
+        event: (new_record ? 'removeItem' : 'hideItem')
+      }
+    )
 
     raw out
   end
@@ -61,18 +57,40 @@ module ApplicationHelper
   # Returns the pagination links for the objects collection
   #
   # * _objects_:: The collection objects
-  def pagination_links(objects)
-    previous_label = t('will_paginate.previous_label').html_safe
-    next_label = t('will_paginate.next_label').html_safe
+  def pagination_links(objects, params = nil)
+    result = will_paginate objects,
+      inner_window: 1, outer_window: 1, params: params,
+      renderer: BootstrapPaginationHelper::LinkRenderer,
+      class: 'pagination pagination-right'
+    page_entries = content_tag(
+      :blockquote,
+      content_tag(
+        :small,
+        page_entries_info(objects),
+        class: 'page-entries hidden-desktop pull-right'
+      )
+    )
+    
+    unless result
+      previous_tag = content_tag(
+        :li,
+        content_tag(:a, t('will_paginate.previous_label').html_safe),
+        class: 'previous_page disabled'
+      )
+      next_tag = content_tag(
+        :li,
+        content_tag(:a, t('will_paginate.next_label').html_safe),
+        class: 'next disabled'
+      )
+      
+      result = content_tag(
+        :div,
+        content_tag(:ul, previous_tag + next_tag),
+        class: 'pagination pagination-right'
+      )
+    end
 
-    result = will_paginate objects, inner_window: 1, outer_window: 1
-
-    result ||= content_tag(:div, content_tag(:span, previous_label,
-        class: 'disabled prev_page') + content_tag(:em, 1) +
-        content_tag(:span, next_label, class: 'disabled next_page'),
-      class: :pagination)
-
-    result
+    result + page_entries
   end
   
   def textilize(text)
@@ -85,26 +103,32 @@ module ApplicationHelper
   def link_to_show(*args)
     options = args.extract_options!
     
+    options['class'] ||= 'iconic'
     options['title'] ||= t('label.show')
+    options['data-show-tooltip'] = true
     
-    link_to t('label.show'), *args, options
+    link_to '&#xe074;'.html_safe, *args, options
   end
   
   def link_to_edit(*args)
     options = args.extract_options!
     
+    options['class'] ||= 'iconic'
     options['title'] ||= t('label.edit')
+    options['data-show-tooltip'] = true
     
-    link_to t('label.edit'), *args, options
+    link_to '&#x270e;'.html_safe, *args, options
   end
   
   def link_to_destroy(*args)
     options = args.extract_options!
     
+    options['class'] ||= 'iconic'
     options['title'] ||= t('label.delete')
     options['method'] ||= :delete
     options['data-confirm'] ||= t('messages.confirmation')
+    options['data-show-tooltip'] = true
     
-    link_to t('label.delete'), *args, options
+    link_to '&#xe05a;'.html_safe, *args, options
   end
 end

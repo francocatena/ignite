@@ -1,6 +1,6 @@
 .bundle
 app/assets/audio/
-db/*.sqlite3
+db/*.sqlite3*
 log/*.log
 nbproject/private/
 public/system

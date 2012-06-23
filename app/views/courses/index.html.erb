@@ -1,4 +1,4 @@
-<table class="list">
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= Course.human_attribute_name 'name' %></th>
@@ -21,7 +21,8 @@
   </tbody>
 </table>
 
-<nav class="links">
-  <%= pagination_links(@courses) %>
-  <%= link_to t('label.new'), new_course_path %>
+<%= pagination_links(@courses) %>
+
+<nav class="form-actions">
+  <%= link_to t('label.new'), new_course_path, class: 'btn btn-primary' %>
 </nav>

@@ -13,7 +13,7 @@
 </head>
 <body id="<%= "ig_#{controller_name}" %>" data-action="<%= action_name %>">
   <%= render 'shared/menu' if local? %>
-  <div id="main_container"><%= yield %></div>
+  <div class="container"><%= yield %></div>
   <%= render 'shared/notice' if flash.notice %>
   <%= render 'shared/alert' if flash.alert %>
 </body>

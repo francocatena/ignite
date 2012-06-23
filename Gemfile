@@ -8,10 +8,12 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'paperclip'
+gem 'simple_form'
 gem 'capistrano'
 
 group :assets do
   gem 'sass-rails'
+  gem 'bourbon'
   gem 'coffee-rails'
   gem 'therubyracer', require: false
   gem 'uglifier'

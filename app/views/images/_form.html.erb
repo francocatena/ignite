@@ -1,21 +1,18 @@
-<%= form_for(@image, html: { multipart: true }) do |f| %>
-  <%= show_error_messages @image %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, size: nil, maxlength: 255, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :caption %>
-    <%= f.text_field :caption, size: nil, maxlength: 255 %>
-  </div>
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+<%= simple_form_for(@image, defaults: { input_html: { class: 'span11' } }) do |f| %>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= f.input :name, input_html: { maxlength: 255, autofocus: true } %>
+    </div>
+    <div class="span6">
+      <%= f.input :caption, input_html: { maxlength: 255 } %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.hidden_field :lock_version %>
-    <%= f.submit %>
+  <%= f.input :image %>
+
+  <div class="form-actions">
+    <%= f.input :lock_version, as: :hidden %>
+    <%= f.button :submit, class: 'btn-primary' %>
+    <div class="pull-right"><%= yield :form_actions %></div>
   </div>
 <% end %>

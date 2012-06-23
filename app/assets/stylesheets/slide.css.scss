@@ -14,7 +14,7 @@ body {
 }
 
 #ig_lessons[data-action="show"] {
-  #menu {
+  .navbar {
     display: none;
   }
 }
@@ -23,17 +23,12 @@ body {
   .slide {
     z-index: 1;
     opacity: 0;
-    transition: .5s opacity ease-in;
-    -webkit-transition: .5s opacity ease-in;
-    -moz-transition: .5s opacity ease-in;
+    @include transition(.5s opacity ease-in);
     
     &:target {
       z-index: 100;
       opacity: 1;
-      transition: .5s opacity ease-out;
-      -o-transition: .5s opacity ease-out;
-      -webkit-transition: .5s opacity ease-out;
-      -moz-transition: .5s opacity ease-out;
+      @include transition(.5s opacity ease-out);
     }
   }
 }
@@ -65,18 +60,23 @@ body {
   }
   
   code {
+    font-size: 1em;
+    line-height: 1em;
     font-family: "UbuntuMono", monospace;
+    border: none;
   }
   
   div.content {
     font-size: 1.5em;
-    margin-top: 4em;
+    line-height: 1em;
+    margin-top: 2.5em;
     padding: 1em 2em;
     z-index: 1;
   }
   
   div.code_node {
     font-size: 1.5em;
+    line-height: 1em;
     overflow: auto;
   }
   
@@ -85,40 +85,45 @@ body {
       color: #fff;
       background: #c00;
       padding: .1em .25em;
+      margin: 0em;
       line-height: 1.5em;
       font-weight: bold;
       white-space: nowrap;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-      -moz-border-radius: .25em;
-      -webkit-border-radius: .25em;
-      border-radius: .25em;
-      box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset;
+      @include border-radius(.25em);
+      @include box-shadow(0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset);
     }
     
     h1 {
       text-shadow: 1px 1px 6px #666666;
       font-size: 2em;
+      line-height: 1em;
     }
     
     h2 {
       font-size: 1.5em;
+      line-height: 1em;
     }
 
     h3 {
       font-size: 1.2em;
+      line-height: 1em;
     }
 
     p {
-      font-size: 2.5em;
+      font-size: 2em;
+      line-height: 1em;
       
       sup.footnote {
         font-size: .5em;
+        line-height: 1em;
         margin-left: .25em;
       }
     }
     
     p.normal {
-      font-size: 1.75em;
+      font-size: 1.5em;
+      line-height: 1em;
     }
 
     p.footnote {
@@ -126,33 +131,30 @@ body {
       bottom: 3.5em;
       left: 1em;
       font-size: .75em;
+      line-height: 1em;
       font-style: italic;
     }
     
     ul, ol {
       li {
         margin-left: 1.5em;
-        font-size: 2.5em;
+        font-size: 2em;
         line-height: 1.25em;
       }
       
       li.delayed {
         opacity: .4;
-        -o-transition: .4s all ease-in;
-        -webkit-transition: .4s all ease-in;
-        -moz-transition: .4s all ease-in;
+        @include transition(.4s all ease-in);
       }
       
       li.delayed.current {
         opacity: 1;
-        transition: .4s all ease-out;
-        -o-transition: .4s all ease-out;
-        -webkit-transition: .4s all ease-out;
-        -moz-transition: .4s all ease-out;
+        @include transition(.4s all ease-out);
       }
       
       li.normal {
         font-size: 1.75em;
+        line-height: 1em;
       }
     }
   }
@@ -164,17 +166,19 @@ body {
   header {
     position: fixed;
     padding: 1em 0em;
-    font-size: 1.25em;
+    font-size: 1.1em;
+    line-height: 1em;
     color: #ffffff;
     background-color: #c00;
     text-shadow: 0px 0px 3px #fff;
     top: 0px;
     width: 100%;
     z-index: 50;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, .3);
+    @include box-shadow(0px 10px 15px rgba(0, 0, 0, .3));
     
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
+      line-height: 1em;
       float: left;
       font-weight: bold;
       margin-left: 1em;
@@ -184,15 +188,14 @@ body {
     p.number {
       position: absolute;
       font-size: 1.5em;
-      top: 1em;
+      line-height: 1em;
+      top: .75em;
       right: 1em;
       font-weight: bold;
       padding: .1em .5em;
       background: hsla(0, 100%, 100%, .4);
       border: .2em solid rgba(255, 255, 255, .2);
-      border-radius: 2em;
-      -moz-border-radius: 2em;
-      -webkit-border-radius: 2em;
+      @include border-radius(2em);
     }
   }
   
@@ -208,19 +211,14 @@ body {
     background-color: #fff9d8;
     opacity: .5;
     font-size: 1.25em;
+    line-height: 1em;
     overflow: hidden;
-    transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
-    -o-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
-    -webkit-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
-    -moz-transition: 1s 1s opacity ease-in, 2s .75s width ease-out;
+    @include transition(1s 1s opacity ease-in, 2s .75s width ease-out);
     
     > div {
       padding: .5em 1em;
       opacity: 0;
-      transition: .1s opacity ease-in;
-      -o-transition: .1s opacity ease-in;
-      -webkit-transition: .1s opacity ease-in;
-      -moz-transition: .1s opacity ease-in;
+      @include transition(.1s opacity ease-in);
     }
     
     a, a:visited {
@@ -239,17 +237,11 @@ body {
     &:hover {
       opacity: 1;
       width: 40em;
-      transition: 1s opacity ease-out, .75s width ease-in;
-      -o-transition: 1s opacity ease-out, .75s width ease-in;
-      -webkit-transition: 1s opacity ease-out, .75s width ease-in;
-      -moz-transition: 1s opacity ease-out, .75s width ease-in;
+      @include transition(1s opacity ease-out, .75s width ease-in);
       
       > div {
         opacity: 1;
-        transition: .1s .9s opacity ease-out;
-        -o-transition: .1s .9s opacity ease-out;
-        -webkit-transition: .1s .9s opacity ease-out;
-        -moz-transition: .1s .9s opacity ease-out;
+        @include transition(.1s .9s opacity ease-out);
       }
       
       span.arrow_left {
@@ -269,9 +261,7 @@ body {
       display: block;
       margin: 1em auto;
       border: 2px solid #c00;
-      box-shadow: .25em .25em .5em #333;
-      -moz-box-shadow: .25em .25em .5em #333;
-      -webkit-box-shadow: .25em .25em .5em #333;
+      @include box-shadow(.25em .25em .5em #333);
     }
   }
   
@@ -293,6 +283,7 @@ body {
     time {
       float: right;
       font-size: 1.5em;
+      line-height: 1em;
       font-weight: bold;
       color: #ffffff;
     }
@@ -300,6 +291,7 @@ body {
     .author {
       float: left;
       font-size: 1.5em;
+      line-height: 1em;
       color: #ffffff;
       opacity: 1;
       
@@ -316,10 +308,9 @@ body {
     margin: 0% auto;
     border-collapse: collapse;
     background-color: #fff;
-    font-size: 1.5em;
-    box-shadow: .5em .5em .5em #999;
-    -moz-box-shadow: .5em .5em .5em #999;
-    -webkit-box-shadow: .5em .5em .5em #999;
+    font-size: 1.25em;
+    line-height: 1em;
+    @include box-shadow(.5em .5em .5em #999);
     
     td {
       padding: .3em 1em;
@@ -338,7 +329,7 @@ body {
   }
   
   .big_font {
-    font-size: 4em !important;
+    font-size: 3.5em !important;
   }
   
   .caps {
@@ -349,7 +340,7 @@ body {
     margin: 1em 0em;
     
     textarea {
-      font-size: 1.5em;
+      font-size: 1.25em;
       font-family: "UbuntuMono", monospace;
       width: 100%;
     }
@@ -366,21 +357,15 @@ body {
   .glass_box {
     background: transparent;
     padding: .25em;
-    border-radius: .25em;
-    -moz-border-radius: .25em;
-    -webkit-border-radius: .25em;
-    box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
-    -moz-box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
-    -webkit-box-shadow: 0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3);
+    @include border-radius(.25em);
+    @include box-shadow(0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3));
   }
   
   .glow {
     color: #ffffff;
     opacity: .75;
     text-shadow: 0 0 .2em #333, 0 0 .5em #222;
-    border-radius: .25em;
-    -moz-border-radius: .25em;
-    -webkit-border-radius: .25em;
+    @include border-radius(.25em);
   }
   
   .informal {
@@ -394,6 +379,7 @@ body {
     a.edit_code {
       position: absolute;
       font-size: .75em;
+      line-height: 1em;
       top: .5em;
       right: 1.25em;
     }
@@ -401,23 +387,22 @@ body {
   
   .normal_font {
     font-size: .5em !important;
+    line-height: 1em;
     font-weight: normal;
   }
   
   .medium_font {
     font-size: .75em !important;
+    line-height: 1em;
     font-weight: normal;
   }
   
   .very_big_font {
-    font-size: 6em !important;
+    font-size: 5em !important;
   }
   
   .rotate10deg {
-    -moz-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
-    transform: rotate(-10deg);
+    @include transform(rotate(-10deg));
   }
 }
 
@@ -439,7 +424,7 @@ body {
   h1 {
     padding: .2em 0em;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.2em;
     color: #fff;
     background: rgba(0, 0, 0, .4);
     text-shadow: .03em .03em .05em black;

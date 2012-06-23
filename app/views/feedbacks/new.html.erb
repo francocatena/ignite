@@ -1,23 +1,23 @@
 <div class="feedback">
-  <%= form_for(@feedback, remote: true) do |f| %>
+  <%= simple_form_for(@feedback, remote: true) do |f| %>
     <div class="rating">
       <% (1..5).reverse_each do |i| %>
         <%= f.radio_button :rate, i.to_s, id: "star#{i}" %>
         <%= f.label(
-          :rate, t("view.feedbacks.rate.#{i}"),
+          :rate, '&#x2605;'.html_safe,
           for: "star#{i}", class: "for-#{i}-stars iconic",
           title: t("view.feedbacks.rate.#{i}")
         ) %>
       <% end %>
     </div>
   
-    <div class="fields">
-      <%= f.text_area :comments, rows: 3, placeholder: Feedback.human_attribute_name('comments') %>
-    </div>
+    <%= f.input :comments, label: false, input_html: {
+      rows: 3, placeholder: Feedback.human_attribute_name('comments')
+    } %>
 
     <div class="actions">
-      <%= f.hidden_field :lesson_id %>
-      <%= f.submit %>
+      <%= f.input :lesson_id, as: :hidden %>
+      <%= f.button :submit %>
     </div>
   <% end %>
 </div>

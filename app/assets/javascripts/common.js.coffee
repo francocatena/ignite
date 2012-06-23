@@ -45,6 +45,8 @@ window.Util =
   refreshSortNumbers: -> $('input.sort_number').val((i)-> i + 1)
 
 jQuery ($)->
+  $('*[data-show-tooltip]').tooltip()
+  
   eventList = $.map EventHandler, (v, k)-> k
   
   $('a[data-event]').live 'click', (event)->
@@ -75,9 +77,9 @@ jQuery ($)->
     event.preventDefault()
     event.stopPropagation()
   
-  $('#loading_image').bind
-    ajaxStart: `function() { $(this).show(); }`
-    ajaxStop: `function() { $(this).hide(); }`
+  $('#loading-caption').bind
+    ajaxStart: `function() { $(this).stop(true, true).fadeIn(100) }`
+    ajaxStop: `function() { $(this).stop(true, true).fadeOut(100) }`
 
   $('form').submit ->
     $(this).find(

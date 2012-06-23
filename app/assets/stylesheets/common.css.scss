@@ -1,0 +1,46 @@
+body[data-action="index"] {
+  .pagination, .page-entries {
+    margin-right: 20px;
+  }
+  
+  .page-entries {
+    font-size: .8em;
+    margin-top: -18px;
+  }
+  
+  .table {
+    margin-top: 1em;
+    
+    .iconic {
+      font-size: 1.5em;
+    }
+  }
+}
+
+body[data-action="index"], body[data-action="show"] {
+  .form-actions {
+    padding-left: 20px;
+  }
+}
+
+footer.alert {
+  position: fixed;
+  bottom: 0em;
+  left: 4em;
+  right: 4em;
+}
+
+form {
+  margin-top: 1em;
+}
+
+.iconic {
+  font-family: "IconicStroke";
+  display: inline-block;
+  font-size: 1em;
+  text-decoration: none !important;
+}
+
+.readonly-data {
+  margin: 0px 20px;
+}

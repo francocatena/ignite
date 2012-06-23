@@ -1,9 +1,12 @@
-<h2 class="title"><%= @lesson %></h2>
-<table class="list">
+<table class="table table-striped">
+  <caption>
+    <h3><%= @lesson %></h3>
+  </caption>
+  
   <thead>
     <tr>
-      <th><%= Slide.human_attribute_name :title %></th>
-      <th><%= Slide.human_attribute_name :number %></th>
+      <th><%= Slide.human_attribute_name 'title' %></th>
+      <th><%= Slide.human_attribute_name 'number' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +24,8 @@
   </tbody>
 </table>
 
-<nav class="links">
-  <%= pagination_links(@slides) %>
-  <%= link_to t('view.slides.new'), new_lesson_slide_path(@lesson) %>
+<%= pagination_links(@slides) %>
+
+<nav class="form-actions">
+  <%= link_to t('view.slides.new'), new_lesson_slide_path(@lesson), class: 'btn btn-primary' %>
 </nav>

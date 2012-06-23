@@ -1,6 +1,6 @@
-<%= render 'form' %>
-
-<nav class="links">
-  <%= link_to_show @feedback %> |
+<%= content_for :form_actions do %>
+  <%= link_to_show feedback_path(@feedback, details: true) %> |
   <%= link_to t('label.list'), feedbacks_path %>
-</nav>
+<% end %>
+
+<%= render 'form' %>

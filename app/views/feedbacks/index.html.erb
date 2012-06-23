@@ -1,4 +1,4 @@
-<table class="list">
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= Feedback.human_attribute_name 'lesson_id' %></th>
@@ -22,6 +22,7 @@
   </tbody>
 </table>
 
-<nav class="links">
-  <%= pagination_links(@feedbacks) %>
+<%= pagination_links(@feedbacks) %>
+
+<nav class="form-actions">  
 </nav>

@@ -1,21 +1,27 @@
-<section class="show_item">
-  <header>
-    <h1><%= @image.name %></h1>
-  </header>
-  
-  
-  <% ([:original] + @image.styles.keys).each do |style| %>
-    <section class="image_container">
-      <figure>
-        <%= image_tag @image.image.url(style), alt: @image.caption %>
-        <figcaption><%= @image.caption %></figcaption>
-      </figure>
-      <p><%= link_to @image.image.url(style), @image.image.url(style) %></p>
-    </section>
-  <% end %>
-</section>
+<div class="page-header">
+  <h1><%= @image.name %></h1>
+</div>
 
-<nav class="links">
+<div class="row">
+  <div class="span6">
+    <%= image_tag @image.image.url(:medium), alt: @image.caption %>
+  </div>
+  <div class="span6">
+    <dl>
+      <% ([:original] + @image.styles.keys).each do |style| %>
+        <dt>
+          <%= t("view.images.styles.#{style}") %>
+          (<%= link_to t('label.show'), @image.image.url(style) %>)
+        </dt>
+        <dd>
+          <%= @image.image.url(style) %>
+        </dd>
+      <% end %>
+    </dl>
+  </div>
+</div>
+
+<nav class="form-actions">
   <%= link_to_edit edit_image_path(@image) %> |
   <%= link_to_destroy @image %> |
   <%= link_to t('label.back'), images_path %>

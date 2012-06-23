@@ -6,8 +6,12 @@
 
   pre {
     margin: 0px;
+    padding: 0px;
     font-family: "UbuntuMono", monospace;
+    font-size: .9em;
     line-height: 1.1em;
+    border: none;
+    background-color: inherit;
   }
 
   .line-numbers {

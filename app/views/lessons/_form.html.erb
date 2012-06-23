@@ -1,17 +1,10 @@
-<%= form_for([@course, @lesson]) do |f| %>
-  <%= show_error_messages @lesson %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, maxlength: 255 %>
-  </div>
-  <div class="field">
-    <%= f.label :sequence %>
-    <%= f.text_field :sequence, maxlength: 3 %>
-  </div>
+<%= simple_form_for([@course, @lesson], defaults: { input_html: { class: 'span6' } }) do |f| %>
+  <%= f.input :name, input_html: { autofocus: true, maxlength: 255 } %>
+  <%= f.input :sequence, input_html: { maxlength: 3 } %>
   
-  <div class="actions">
-    <%= f.hidden_field :lock_version %>
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.input :lock_version, as: :hidden %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <div class="pull-right"><%= yield :form_actions %></div>
   </div>
 <% end %>

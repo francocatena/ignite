@@ -41,17 +41,13 @@
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 375%;
+      font-size: 350%;
       line-height: 1.25em;
       color: #d5e9f6;
       text-shadow: 1px 1px #999, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
       transition: .2s all ease-in;
       -webkit-transition: .2s all ease-in;
       -moz-transition: .2s all ease-in;
-      
-      &:before {
-        content: '★ ·';
-      }
     }
     
     > label:hover,

@@ -1,19 +1,10 @@
-<%= form_for(@feedback) do |f| %>
-  <%= show_error_messages @feedback %>
-
-  <div class="field">
-    <%= f.label :rate %>
-    <%= f.number_field :rate, autofocus: true, maxlength: 255 %>
-  </div>
-  <div class="field">
-    <%= f.label :ip %>
-    <%= f.text_field :ip, maxlength: 255 %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %>
-    <%= f.text_area :comments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for(@feedback, defaults: { input_html: { class: 'span6' } }) do |f| %>
+  <%= f.input :rate, input_html: { autofocus: true, min:1, max: 5 } %>
+  <%= f.input :ip, input_html: { maxlength: 255 } %>
+  <%= f.input :comments, input_html: { rows: 4 } %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+    <div class="pull-right"><%= yield :form_actions %></div>
   </div>
 <% end %>
