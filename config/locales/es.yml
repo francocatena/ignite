@@ -83,7 +83,8 @@
 
   app:
     name: 'Presentaciones'
-    powered_by: 'Creado con ["Ignite":https://github.com/francocatena/ignite]'
+    powered_by:
+      html: 'Creado con <a href="https://github.com/francocatena/ignite">Ignite</a>'
 
   # Active Support
   date:
@@ -412,7 +413,8 @@
       execute: 'Ejecutar'
       show_html: 'Ver resultado'
       switch_code_view: 'Cambiar vista'
-      adjust_font_size: 'Tamaño de fuente'
+      increase_font_size: 'Aumentar fuente'
+      decrease_font_size: 'Reducir fuente'
       langs:
         ruby: 'Ruby'
         css: 'CSS'

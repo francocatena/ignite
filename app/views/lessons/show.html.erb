@@ -1,8 +1,15 @@
 <% if @lesson.slides.empty? %>
-  <p><%= t('view.lessons.without_slides') %></p>
-  <nav class="links">
-    <%= link_to t('view.lessons.add_slide'), new_lesson_slide_path(@lesson) %>
-  </nav>
+  <div class="alert">
+    <h3 class="alert-heading">
+      <%= t('view.lessons.without_slides') %>
+    </h3>
+    
+    <br />
+    <%= link_to(
+      t('view.lessons.add_slide'), new_lesson_slide_path(@lesson),
+      class: 'btn btn-warning'
+    ) %>
+  </div>
 <% end %>
 <div class="lesson">
   <% @lesson.slides.each_with_index do |slide, i| %>

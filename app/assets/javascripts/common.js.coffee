@@ -61,17 +61,17 @@ jQuery ($)->
       event.preventDefault()
       event.stopPropagation()
   
-  $('a.increase_font_size').live 'click', (event)->
+  $(document).on 'click', 'a[data-increase-font-size]', (event)->
     return if event.stopped
     
-    $($(this).data('target')).css
+    $("#{$(this).data('target')} *").css
       fontSize: (index, value)-> parseFloat(value) * 1.1
     
     event.preventDefault()
     event.stopPropagation()
   
-  $('a.decrease_font_size').live 'click', (event)->
-    $($(this).data('target')).css
+  $(document).on 'click', 'a[data-decrease-font-size]', (event)->
+    $("#{$(this).data('target')} *").css
       fontSize: (index, value)-> parseFloat(value) / 1.1
     
     event.preventDefault()

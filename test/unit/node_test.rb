@@ -106,15 +106,15 @@ class NodeTest < ActiveSupport::TestCase
     
     assert @node.invalid?
     assert_equal 1, @node.errors.count
-    assert_equal [error_message_from_model(@node, :options, :invalid)],
-      @node.errors[:options]
+    assert_equal [error_message_from_model(@node, :lang, :invalid)],
+      @node.errors[:lang]
     
     @node.options['lang'] = nil
     
     assert @node.invalid?
     assert_equal 1, @node.errors.count
-    assert_equal [error_message_from_model(@node, :options, :invalid)],
-      @node.errors[:options]
+    assert_equal [error_message_from_model(@node, :lang, :invalid)],
+      @node.errors[:lang]
     
     @node.options['lang'] = 'ruby'
     

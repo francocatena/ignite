@@ -1,17 +1,16 @@
 .CodeRay {
   background-color: #FFF;
   border: 1px solid #CCC;
-  font-family: "UbuntuMono", monospace;
   color: #000;
 
   pre {
     margin: 0px;
     padding: 0px;
-    font-family: "UbuntuMono", monospace;
-    font-size: .9em;
+    font-size: 1.75em;
     line-height: 1.1em;
     border: none;
     background-color: inherit;
+    white-space: pre;
   }
 
   .line-numbers {
@@ -104,6 +103,10 @@
 
   .constant {
     color:teal;
+  }
+
+  .content {
+    padding: 0px !important;
   }
 
   .color {

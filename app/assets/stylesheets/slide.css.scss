@@ -7,15 +7,20 @@ body {
     width: 80%;
     overflow: visible;
     font-size: 2em;
-    font-family: "UbuntuMono", monospace;
     color: #000;
     padding: 1em;
   }
 }
 
 #ig_lessons[data-action="show"] {
-  .navbar {
+  .navbar.not-printable {
     display: none;
+  }
+
+  .slide.image {
+    .navbar {
+      display: none;
+    }
   }
 }
 
@@ -43,366 +48,64 @@ body {
   min-width: 1000px;
   min-height: 700px;
   overflow: hidden;
-  background-color: #d5e9f6;
-  
-  a, a:visited {
-    color: #006;
-    font-weight: bold;
-    text-decoration: none;
-    padding-bottom: .2em;
-    border-bottom: .1em solid #006;
-  }
-  
-  abbr {
-    padding-bottom: .1em;
-    border-bottom: 2px dotted #222;
-    cursor: help;
-  }
-  
+  background-color: #fff;
+
   code {
-    font-size: 1em;
-    line-height: 1em;
-    font-family: "UbuntuMono", monospace;
-    border: none;
+    font-size: 24px;
   }
-  
-  div.content {
-    font-size: 1.5em;
-    line-height: 1em;
-    margin-top: 2.5em;
-    padding: 1em 2em;
-    z-index: 1;
-  }
-  
-  div.code_node {
-    font-size: 1.5em;
-    line-height: 1em;
-    overflow: auto;
-  }
-  
-  div.text_node {
-    code {
-      color: #fff;
-      background: #c00;
-      padding: .1em .25em;
-      margin: 0em;
-      line-height: 1.5em;
-      font-weight: bold;
-      white-space: nowrap;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-      @include border-radius(.25em);
-      @include box-shadow(0 2px 2px -1px rgba(0, 0, 0, .4), 0 .9em .5em -0.2em rgba(255, 255, 255, .2) inset);
-    }
-    
-    h1 {
-      text-shadow: 1px 1px 6px #666666;
-      font-size: 2em;
-      line-height: 1em;
-    }
-    
-    h2 {
-      font-size: 1.5em;
-      line-height: 1em;
-    }
 
-    h3 {
-      font-size: 1.2em;
-      line-height: 1em;
-    }
-
-    p {
-      font-size: 2em;
-      line-height: 1em;
-      
-      sup.footnote {
-        font-size: .5em;
-        line-height: 1em;
-        margin-left: .25em;
-      }
-    }
-    
-    p.normal {
-      font-size: 1.5em;
-      line-height: 1em;
-    }
-
-    p.footnote {
-      position: fixed;
-      bottom: 3.5em;
-      left: 1em;
-      font-size: .75em;
-      line-height: 1em;
-      font-style: italic;
-    }
-    
-    ul, ol {
-      li {
-        margin-left: 1.5em;
-        font-size: 2em;
-        line-height: 1.25em;
-      }
-      
-      li.delayed {
-        opacity: .4;
-        @include transition(.4s all ease-in);
-      }
-      
-      li.delayed.current {
-        opacity: 1;
-        @include transition(.4s all ease-out);
-      }
-      
-      li.normal {
-        font-size: 1.75em;
-        line-height: 1em;
-      }
-    }
-  }
-  
-  div.text_node, div.code_node {
-    margin: .5em 0em;
-  }
-  
-  header {
+  footer.alert {
     position: fixed;
-    padding: 1em 0em;
-    font-size: 1.1em;
-    line-height: 1em;
-    color: #ffffff;
-    background-color: #c00;
-    text-shadow: 0px 0px 3px #fff;
-    top: 0px;
-    width: 100%;
-    z-index: 50;
-    @include box-shadow(0px 10px 15px rgba(0, 0, 0, .3));
-    
-    h1 {
-      font-size: 2.5em;
-      line-height: 1em;
-      float: left;
-      font-weight: bold;
-      margin-left: 1em;
-      white-space: nowrap;
-    }
-    
-    p.number {
-      position: absolute;
-      font-size: 1.5em;
-      line-height: 1em;
-      top: .75em;
-      right: 1em;
-      font-weight: bold;
-      padding: .1em .5em;
-      background: hsla(0, 100%, 100%, .4);
-      border: .2em solid rgba(255, 255, 255, .2);
-      @include border-radius(2em);
-    }
-  }
-  
-  nav.links {
-    position: absolute;
-    display: block;
-    bottom: 0px;
-    right: 0px;
     margin: 0px;
-    width: 1em;
-    height: 100%;
-    color: #222;
-    background-color: #fff9d8;
-    opacity: .5;
-    font-size: 1.25em;
-    line-height: 1em;
-    overflow: hidden;
-    @include transition(1s 1s opacity ease-in, 2s .75s width ease-out);
-    
-    > div {
-      padding: .5em 1em;
-      opacity: 0;
-      @include transition(.1s opacity ease-in);
-    }
-    
-    a, a:visited {
-      font-weight: bold;
-      color: #666666;
-      border: none;
-      text-decoration: underline;
-    }
-    
-    span.arrow_left {
-      position: absolute;
-      left: 0px;
-      margin-top: .75em;
-    }
-    
-    &:hover {
-      opacity: 1;
-      width: 40em;
-      @include transition(1s opacity ease-out, .75s width ease-in);
-      
-      > div {
-        opacity: 1;
-        @include transition(.1s .9s opacity ease-out);
-      }
-      
-      span.arrow_left {
-        display: none;
-      }
-    }
-    
-    .ui_control {
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-  
-  figure {
-    img {
-      display: block;
-      margin: 1em auto;
-      border: 2px solid #c00;
-      @include box-shadow(.25em .25em .5em #333);
-    }
-  }
-  
-  footer {
-    position: fixed;
-    display: block;
     bottom: 0px;
     left: 0px;
-    margin: 0px;
-    width: 100%;
-    opacity: .75;
-    background-color: #222;
-    
-    > div {
-      padding: .5em 2em;
-      height: 2em;
-    }
-    
-    time {
-      float: right;
-      font-size: 1.5em;
-      line-height: 1em;
-      font-weight: bold;
-      color: #ffffff;
-    }
-    
-    .author {
-      float: left;
-      font-size: 1.5em;
-      line-height: 1em;
-      color: #ffffff;
-      opacity: 1;
-      
-      a {
-        font-weight: bold;
-        color: #ee3f3f;
-        border-bottom: 2px solid #ee3f3f;
-      }
-    }
+    right: 0px;
   }
-  
-  table.summary {
-    width: 80%;
-    margin: 0% auto;
-    border-collapse: collapse;
-    background-color: #fff;
-    font-size: 1.25em;
-    line-height: 1em;
-    @include box-shadow(.5em .5em .5em #999);
-    
-    td {
-      padding: .3em 1em;
-      vertical-align: top;
-    }
-    
-    th {
-      font-weight: bold;
-      text-align: left;
-      background-color: #222;
-      color: #fff;
-      padding: .5em 1em;
-      border-bottom: 4px solid #c00;
-      text-shadow: 0 0 .5em #fff;
-    }
+
+  h1 {
+    font-size: 60px;
+    line-height: 72px;
   }
-  
-  .big_font {
-    font-size: 3.5em !important;
+
+  li {
+    line-height: 36px;
   }
-  
-  .caps {
-    font-weight: bold;
+
+  p, ul, ol {
+    font-size: 26px;
+    line-height: 36px;
   }
-  
-  .code_form {
-    margin: 1em 0em;
-    
-    textarea {
-      font-size: 1.25em;
-      font-family: "UbuntuMono", monospace;
-      width: 100%;
-    }
+
+  ul, ol {
+    margin: 0 0 18px 50px;
   }
-  
-  .fire {
-    text-shadow: 0 0 4px #fff,
-      0 -5px 4px #ff3,
-      2px -10px 6px #fd3,
-      -2px -15px 11px #f80,
-      2px -25px 18px #f20;
-  }
-  
-  .glass_box {
-    background: transparent;
-    padding: .25em;
-    @include border-radius(.25em);
-    @include box-shadow(0 2px 6px rgba(0,0,0, .5), 0 1px rgba(255,255,255, .3) inset, 0 10px rgba(255,255,255, .2) inset, 0 10px 20px rgba(255,255,255, .25) inset, 0 -15px 30px rgba(0,0,0, .3));
-  }
-  
-  .glow {
-    color: #ffffff;
-    opacity: .75;
-    text-shadow: 0 0 .2em #333, 0 0 .5em #222;
-    @include border-radius(.25em);
+
+  .content {
+    padding: 60px 20px;
   }
   
   .informal {
     font-family: 'Reenie Beanie', cursive;
     text-rendering: optimizeLegibility;
   }
-  
-  .node {
-    position: relative;
-    
-    a.edit_code {
-      position: absolute;
-      font-size: .75em;
-      line-height: 1em;
-      top: .5em;
-      right: 1.25em;
+
+  .navbar {
+    .badge {
+      font-size: 18px;
+      line-height: 18px;
+      padding: 3px 9px;
+      margin-top: 6px;
     }
   }
-  
-  .normal_font {
-    font-size: .5em !important;
-    line-height: 1em;
-    font-weight: normal;
-  }
-  
-  .medium_font {
-    font-size: .75em !important;
-    line-height: 1em;
-    font-weight: normal;
-  }
-  
-  .very_big_font {
-    font-size: 5em !important;
-  }
-  
-  .rotate10deg {
-    @include transform(rotate(-10deg));
+
+  .node {
+    position: relative;
+
+    .edit-code {
+      position: absolute;
+      top: .5em;
+      right: .5em;
+    }
   }
 }
 
@@ -424,7 +127,9 @@ body {
   h1 {
     padding: .2em 0em;
     text-align: center;
-    line-height: 1.2em;
+    font-size: 60px;
+    line-height: 1em;
+    letter-spacing: -1px;
     color: #fff;
     background: rgba(0, 0, 0, .4);
     text-shadow: .03em .03em .05em black;

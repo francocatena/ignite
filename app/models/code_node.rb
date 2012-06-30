@@ -3,7 +3,7 @@ class CodeNode < Node
   LANGS = ['ruby', 'css', 'html', 'rhtml', 'java_script', 'yaml', 'sql', 'plaintext']
   
   validates_each :options do |record, attr, value|
-    record.errors.add attr, :invalid unless LANGS.include?(value['lang'].to_s)
+    record.errors.add :lang, :invalid unless LANGS.include?(value['lang'].to_s)
   end
   
   def draw

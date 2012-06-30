@@ -12,7 +12,9 @@ module SlidesHelper
           out = link_to(
             t('view.slides.switch_code_view'), '#',
             data: { 'toggle-edition' => true },
-            class: ['edit_code', node.css_class].compact.join(' ')
+            class: [
+              'edit-code', 'btn', 'btn-mini', 'btn-inverse', node.css_class
+          ].compact.join(' ')
           )
 
           out << render(
@@ -25,7 +27,9 @@ module SlidesHelper
           out = link_to(
             t('view.slides.show_html'), '#',
             data: { 'show-html' => true },
-            class: ['edit_code', node.css_class].compact.join(' ')
+            class: [
+              'edit-code', 'btn', 'btn-mini', 'btn-inverse', node.css_class
+          ].compact.join(' ')
           )
           content = content_tag(
             :div, raw(node.content), class: 'fancybox-in-slide'
@@ -38,7 +42,9 @@ module SlidesHelper
           out = link_to(
             t('view.slides.execute'), '#',
             data: { 'execute-js' => true },
-            class: ['edit_code', node.css_class].compact.join(' ')
+            class: [
+              'edit-code', 'btn', 'btn-mini', 'btn-inverse', node.css_class
+          ].compact.join(' ')
           )
           
           out << content_tag(

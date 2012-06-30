@@ -1,8 +1,12 @@
 <section class="slide <%= raw slide.extra_classes %>" id="<%= slide.anchor %>" style="<%= raw slide.style %>">
-  <header>
-    <h1><%= slide.title %></h1>
-    <p class="number"><%= slide.number %></p>
-  </header>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="brand"><%= slide.title %></div>
+        <div class="badge pull-right"><%= slide.number %></div>
+      </div>
+    </div>
+  </div>
   
   <div class="content">
     <% slide.all_nodes.each do |node| %>
@@ -19,29 +23,38 @@
       <% end %>
     <% end %>
   </div>
-  <footer>
-    <div>
-      <div class="author"><%= textilize t('app.powered_by') %></div>
-      <nav class="links">
-        <span class="arrow_left"></span>
-        <div>
-          <% if local? %>
-            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), class: 'new' %> |
-            <%= link_to_edit edit_lesson_slide_path(lesson, slide), class: 'edit' %> |
-          <% end %>
-          <%= link_to t('label.list'), lesson_slides_path(lesson) %>
-          <div class="ui_control">
-            <%= t('view.slides.adjust_font_size') %>
-            <a class="increase_font_size" data-target=".slide" href="#">
-              <span class="arrow_up"></span>
-            </a> |
-            <a class="decrease_font_size" data-target=".slide" href="#">
-              <span class="arrow_down"></span>
-            </a>
-          </div>
-        </div>
-      </nav>
-      <time><%= Time.now.to_s(:time) %></time>
+  <footer class="alert alert-info">
+    <h4 class="alert-heading pull-left"><%= t('app.powered_by.html') %></h4>
+    <div class="btn-group dropup pull-right">
+      <%= link_to(
+        '&#x2699;'.html_safe, '#', class: 'btn btn-mini dropdown-toggle iconic',
+        data: { toggle: 'dropdown' }
+      ) %>
+
+      <ul class="dropdown-menu">
+        <% if local? %>
+          <li>
+            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson) %>
+          </li>
+          <li>
+            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide) %>
+          </li>
+        <% end %>
+        <li><%= link_to t('label.list'), lesson_slides_path(lesson) %></li>
+        <li>
+          <%= link_to(
+            t('view.slides.increase_font_size'), '#',
+            data: { 'increase-font-size' => true, 'target' => '.slide' }
+          ) %>
+        </li>
+        <li>
+          <%= link_to(
+            t('view.slides.decrease_font_size'), '#',
+            data: { 'decrease-font-size' => true, 'target' => '.slide' }
+          ) %>
+        </li>
+      </ul>
     </div>
+    <time class="pull-right badge"><%= Time.now.to_s(:time) %></time>
   </footer>
 </section>
