@@ -64,15 +64,15 @@ jQuery ($)->
   $(document).on 'click', 'a[data-increase-font-size]', (event)->
     return if event.stopped
     
-    $("#{$(this).data('target')} *").css
-      fontSize: (index, value)-> parseFloat(value) * 1.1
+    $($(this).data('target')).css
+      zoom: (index, value)-> parseFloat(value) * 1.1
     
     event.preventDefault()
     event.stopPropagation()
   
   $(document).on 'click', 'a[data-decrease-font-size]', (event)->
-    $("#{$(this).data('target')} *").css
-      fontSize: (index, value)-> parseFloat(value) / 1.1
+    $($(this).data('target')).css
+      zoom: (index, value)-> parseFloat(value) / 1.1
     
     event.preventDefault()
     event.stopPropagation()
@@ -83,7 +83,7 @@ jQuery ($)->
 
   $('form').submit ->
     $(this).find(
-      'input[type="submit"], input[name="utf8"]'
+      'input[type="submit"]:not(.avoid-disable), input[name="utf8"]'
     ).attr 'disabled', true
 
 # click() function behaves like a real click

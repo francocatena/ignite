@@ -100,7 +100,7 @@ class SlidesController < ApplicationController
     code = <<-RUBY
       begin
         $stdout = StringIO.new
-        #{params[:code]}
+        #{params[:code_node][:code]}
         $stdout.string
       ensure
         $stdout = STDOUT

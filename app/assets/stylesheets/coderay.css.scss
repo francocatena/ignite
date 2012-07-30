@@ -1,7 +1,7 @@
 .CodeRay {
-  background-color: #FFF;
-  border: 1px solid #CCC;
+  background-color: #fff;
   color: #000;
+  border: none;
 
   pre {
     margin: 0px;
@@ -20,18 +20,16 @@
     padding: 0px 4px;
     font-weight: bold;
     margin-right: .5em;
-  }
 
-  .line-numbers .highlighted {
-    color: red;
-  }
-
-  .line-numbers {
     a {
       color: #999;
       text-decoration: none;
       border: none;
     }
+  }
+
+  .line-numbers .highlighted {
+    color: red;
   }
 
   .line {
@@ -42,10 +40,6 @@
 
   .code {
     width: 100%;
-  }
-
-  .code pre {
-    overflow: auto;
   }
 
   .debug {

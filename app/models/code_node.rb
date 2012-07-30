@@ -11,7 +11,7 @@ class CodeNode < Node
       line_numbers: :table, line_number_anchors: false, css: :class, hint: :info
     }
     marked_code = CodeRay.scan(self.content, self.lang).div(div_options)
-    classes = ['code_node', self.css_class].compact.join(' ')
+    classes = ['code-node', self.css_class].compact.join(' ')
     
     "<div class=\"#{classes}\">#{marked_code}</div>".html_safe
   end

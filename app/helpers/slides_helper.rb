@@ -35,7 +35,7 @@ module SlidesHelper
             :div, raw(node.content), class: 'fancybox-in-slide'
           )
           
-          out << content_tag(:textarea, raw(content), class: 'html_code hidden')
+          out << content_tag(:textarea, raw(content), class: 'html-code hidden')
           
           raw(out)
         when 'java_script'
@@ -48,7 +48,7 @@ module SlidesHelper
           )
           
           out << content_tag(
-            :textarea, raw(node.content), class: 'js_code hidden'
+            :textarea, raw(node.content), class: 'js-code hidden'
           )
           
           raw(out)

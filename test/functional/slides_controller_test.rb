@@ -101,13 +101,19 @@ class SlidesControllerTest < ActionController::TestCase
   end
   
   test 'execute ruby locally' do
-    xhr :post, :execute_ruby, code: 'puts "Inside a test!"'
+    xhr :post, :execute_ruby, code_node: {
+      code: 'puts "Inside a test!"'
+    }
+
     assert_equal "Inside a test!\n", @response.body
   end
   
   test 'can not execute ruby from remote hosts' do
     @request.remote_addr = '192.168.0.1'
-    xhr :post, :execute_ruby, code: 'puts "Inside a test!"'
+    xhr :post, :execute_ruby, code_node: { 
+      code: 'puts "Inside a test!"'
+    }
+
     assert_not_equal "Inside a test!\n", @response.body
   end
 end

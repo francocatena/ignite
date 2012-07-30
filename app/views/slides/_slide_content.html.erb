@@ -34,10 +34,10 @@
       <ul class="dropdown-menu">
         <% if local? %>
           <li>
-            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson) %>
+            <%= link_to t('view.slides.new'), new_lesson_slide_path(lesson), data: { action: 'new' } %>
           </li>
           <li>
-            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide) %>
+            <%= link_to t('label.edit'), edit_lesson_slide_path(lesson, slide), data: { action: 'edit' } %>
           </li>
         <% end %>
         <li><%= link_to t('label.list'), lesson_slides_path(lesson) %></li>

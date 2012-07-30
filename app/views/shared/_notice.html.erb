@@ -1,9 +1,4 @@
-<div id="notice">
-  <p><%= flash.notice %></p>
-  <div id="close_notice">
-    <%= link_to 'X', '#', title: t('label.close'), data: {
-      event: 'removeItem', target: '#notice'
-    } %>
-  </div>
-</div>
-<%= javascript_tag "$('#notice').delay(7000).fadeOut();" %>
+<footer class="alert alert-info fade in" data-dismiss="alert" data-close-after="10000">
+  <a class="close">&times;</a>
+  <strong><%= flash.notice %></strong>
+</footer>
