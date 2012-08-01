@@ -1,4 +1,4 @@
-=== Ignite
+= Ignite
 
 Web application for presentations, inspired by Lea Verou and his presentation
 about CSS3
@@ -18,7 +18,7 @@ Contributors are welcomed!
 
 == Dependency Status {<img src="https://gemnasium.com/francocatena/ignite.png?travis"/>}[https://gemnasium.com/francocatena/ignite]
 
-=== (The MIT License)
+== (The MIT License)
 
 Copyright (c) 2011 Franco Catena
 
