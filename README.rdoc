@@ -14,6 +14,10 @@ https://github.com/LeaVerou/CSSS.
 
 Contributors are welcomed!
 
+== Build Status {<img src="https://secure.travis-ci.org/francocatena/ignite.png"/>}[http://travis-ci.org/francocatena/ignite]
+
+== Dependency Status {<img src="https://gemnasium.com/francocatena/ignite.png?travis"/>}[https://gemnasium.com/francocatena/ignite]
+
 === (The MIT License)
 
 Copyright (c) 2011 Franco Catena
