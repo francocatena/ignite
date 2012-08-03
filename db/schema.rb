@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20120530002034) do
     t.string   "name"
     t.text     "notes"
     t.integer  "lock_version", :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   add_index "courses", ["name"], :name => "index_courses_on_name", :unique => true
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120530002034) do
     t.integer  "image_file_size",                   :null => false
     t.datetime "image_updated_at",                  :null => false
     t.integer  "lock_version",       :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "images", ["name"], :name => "index_images_on_name", :unique => true
