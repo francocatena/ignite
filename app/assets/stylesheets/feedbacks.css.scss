@@ -1,25 +1,9 @@
 .feedback {
   text-align: center;
-  width: 350px;
   margin: 2em auto;
-  
-  textarea {
-    width: 100%;
-    font-family: inherit;
-    background-color: #eee;
-    padding: .25em;
-    border: 1px solid #999;
-    -moz-border-radius: .25em;
-    -webkit-border-radius: .25em;
-    border-radius: .25em;
-  }
   
   .actions {
     margin-top: 1em;
-    
-    input[type="submit"] {
-      font-size: 2em;
-    }
   }
 }
 
@@ -41,38 +25,30 @@
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 350%;
-      line-height: 1.25em;
-      color: #d5e9f6;
-      text-shadow: 1px 1px #999, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
-      transition: .2s all ease-in;
-      -webkit-transition: .2s all ease-in;
-      -moz-transition: .2s all ease-in;
+      font-size: 475%;
+      line-height: 1.25;
+      color: #e1e1e8;
+//      text-shadow: 1px 1px #999, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+      @include transition(.2s all ease-in);
     }
     
     > label:hover,
     > label:hover ~ label {
-      color: #c00;
-      text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
-      transition: .3s all ease-out;
-      -webkit-transition: .3s all ease-out;
-      -moz-transition: .3s all ease-out;
+      color: #bd362f;
+//      text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
+      @include transition(.3s all ease-out);
     }
   }
   
   > label.for-5-stars:hover {
     text-shadow: 0 0 4px white, 0 -2px 3px #ffff33, 2px -4px 6px #ffdd33, -2px -6px 9px #ff8800, 2px -8px 12px #ff2200;
-    transition: .3s all ease-out;
-    -webkit-transition: .3s all ease-out;
-    -moz-transition: .3s all ease-out;
+    @include transition(.3s all ease-out);
   }
   
   > input:checked ~ label {
-    color: #c00;
-    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
-    transition: .3s all ease-out;
-    -webkit-transition: .3s all ease-out;
-    -moz-transition: .3s all ease-out;
+    color: #bd362f;
+//    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
+    @include transition(.3s all ease-out);
   }
   
   > input:checked + label:hover,
@@ -80,8 +56,8 @@
   > input:checked ~ label:hover,
   > input:checked ~ label:hover ~ label,
   > label:hover ~ input:checked ~ label {
-    color: #c00;
-    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
+    color: #bd362f;
+//    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
   }
   
   > label:active {

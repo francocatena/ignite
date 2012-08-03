@@ -17,7 +17,12 @@
     <% end %>
     <% if last %>
       <% if has_not_voted? %>
-        <%= render template: 'feedbacks/new' %>
+        <div class="row-fluid">
+          <div class="span4">&nbsp;</div>
+          <div class="span4">
+            <%= render template: 'feedbacks/new' %>
+          </div>
+        </div>
       <% elsif !local? %>
         <div class="feedback"><%= render template: 'feedbacks/show' %></div>
       <% end %>

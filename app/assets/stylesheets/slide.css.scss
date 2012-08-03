@@ -32,12 +32,12 @@ body {
   .slide {
     z-index: 1;
     opacity: 0;
-    @include transition(.5s opacity ease-in);
+    @include transition(.5s all ease-in);
     
     &:target {
       z-index: 100;
       opacity: 1;
-      @include transition(.5s opacity ease-out);
+      @include transition(.5s all ease-out);
     }
   }
 }
@@ -53,10 +53,6 @@ body {
   min-height: 700px;
   overflow: hidden;
   background-color: #fff;
-
-  code {
-    font-size: 24px;
-  }
 
   footer.alert {
     position: fixed;
@@ -82,8 +78,12 @@ body {
   h1 {
     font-size: 81px;
     line-height: 1;
-    margin: 36px 0px 18px 0px;
+    margin: 36px 0px;
     text-align: center;
+
+    code {
+      font-size: 81px;
+    }
 
     small {
       font-size: 24px;
@@ -94,10 +94,28 @@ body {
     line-height: 1.25;
   }
 
-  p, ul, ol {
+  p, ul, ol, code, table {
     font-size: 40px;
     font-weight: 200;
     line-height: 1.25;
+  }
+
+  p.footnote {
+    position: fixed;
+    bottom: 3.5em;
+    left: 1em;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  sup.footnote {
+    font-size: .5em;
+  }
+
+  table {
+    td, th {
+      line-height: inherit;
+    }
   }
 
   ul, ol {
@@ -122,6 +140,7 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
   }
+
   
   .informal {
     font-family: 'Reenie Beanie', cursive;
