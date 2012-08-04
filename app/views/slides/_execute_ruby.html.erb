@@ -13,3 +13,10 @@
     </div>
   </div>
 </div>
+<% unless @modal_code_displayed %>
+  <% @modal_code_displayed = true %>
+
+  <%= content_for :content_bottom do %>
+    <%= render partial: 'slides/modal_for_result', locals: { id: 'modal-code' } %>
+  <% end %>
+<% end %>

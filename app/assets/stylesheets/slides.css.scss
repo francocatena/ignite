@@ -2,17 +2,10 @@ body {
   height: 100%; /* For use percent height in full slides */
 }
 
-#fancybox-content {
-  pre.code {
-    margin-left: 4%;
-    width: 80%;
-    overflow: visible;
-    font-size: 2em;
+#modal-code {
+  pre {
+    font-size: 1.75em;
     line-height: 1.25;
-    color: #000;
-    padding: 1em;
-    border: none;
-    background: #fff;
   }
 }
 
@@ -90,6 +83,11 @@ body {
     }
   }
 
+  h1.informal {
+    font-size: 96px;
+    font-weight: normal;
+  }
+
   li {
     line-height: 1.25;
   }
@@ -127,6 +125,10 @@ body {
   }
 
   .code-form {
+    form {
+      margin-top: 0px;
+    }
+
     textarea {
       font-size: 1.75em;
       line-height: 1.25;

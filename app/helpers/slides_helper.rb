@@ -31,11 +31,19 @@ module SlidesHelper
               'edit-code', 'btn', 'btn-mini', 'btn-inverse', node.css_class
           ].compact.join(' ')
           )
-          content = content_tag(
-            :div, raw(node.content), class: 'fancybox-in-slide'
-          )
+          content = content_tag :div, raw(node.content)
           
           out << content_tag(:textarea, raw(content), class: 'html-code hidden')
+
+          unless @modal_html_displayed
+            @modal_html_displayed = true
+
+            content_for :content_bottom do
+              render partial: 'slides/modal_for_result', locals: {
+                id: 'modal-html'
+              }
+            end
+          end
           
           raw(out)
         when 'java_script'

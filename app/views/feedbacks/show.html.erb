@@ -30,7 +30,8 @@
     <%= link_to t('label.back'), feedbacks_path %>
   </nav>
 <% else %>
-  <p>
-    <span class="glass_box"><%= t('view.feedbacks.vote.html') %></span>
-  </p>
+  <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">&times;</button>
+    <p><%= t('view.feedbacks.vote.html') %></p>
+  </div>
 <% end %>

@@ -415,6 +415,7 @@
       switch_code_view: 'Cambiar vista'
       increase_font_size: 'Aumentar fuente'
       decrease_font_size: 'Reducir fuente'
+      execution_results_title: 'Salida'
       langs:
         ruby: 'Ruby'
         css: 'CSS'

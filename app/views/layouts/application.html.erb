@@ -16,5 +16,6 @@
   <div class="container-fluid"><%= yield %></div>
   <%= render 'shared/notice' if flash.notice %>
   <%= render 'shared/alert' if flash.alert %>
+  <%= yield :content_bottom %>
 </body>
 </html>

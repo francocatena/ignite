@@ -49,7 +49,8 @@ window.Slide =
       false
   
   showHtml: (htmlContainer)->
-    $.fancybox 'padding': 24, 'content': htmlContainer.val()
+    $('#modal-html .modal-body').html htmlContainer.val()
+    $('#modal-html').modal 'show'
   
   toggleEdition: (readonlyView, editableView)->
     if editableView.is(':visible')
@@ -132,11 +133,8 @@ jQuery ($)->
         )(document.body)
 
     $('form.ruby-code').live 'ajax:success', (event, data)->
-      $.fancybox
-        content: '<pre class="code">' + data + '</pre>',
-        autoDimensions: false,
-        width: 700,
-        height: 500
+      $('#modal-code .modal-body').html $('<pre></pre>').text(data)
+      $('#modal-code').modal 'show'
     
     $(document).on 'click', 'a[data-toggle-edition]', (e)->
       Slide.toggleEdition(
