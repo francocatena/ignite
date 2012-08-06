@@ -46,6 +46,7 @@ window.Util =
 
 jQuery ($)->
   $('*[data-show-tooltip]').tooltip()
+  $('*[data-show-popover]').popover()
   
   eventList = $.map EventHandler, (v, k)-> k
   

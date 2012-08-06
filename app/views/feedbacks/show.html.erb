@@ -23,11 +23,11 @@
   </div>
   
   <nav class="form-actions">
-    <%= link_to_edit edit_feedback_path(@feedback) %> |
+    <%= link_to_edit edit_lesson_feedback_path(@lesson, @feedback) %> |
     <% if @feedback.can_be_destroyed? %>
-      <%= link_to_destroy @feedback %> |
+      <%= link_to_destroy [@lesson, @feedback] %> |
     <% end %>
-    <%= link_to t('label.back'), feedbacks_path %>
+    <%= link_to t('label.back'), lesson_feedbacks_path(@lesson) %>
   </nav>
 <% else %>
   <div class="alert alert-success">

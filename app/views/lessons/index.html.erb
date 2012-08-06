@@ -1,12 +1,12 @@
 <table class="table table-striped">
   <caption>
-    <h3><%= t('view.lessons.course', course: @course.to_s) %></h3>
+    <h4><%= t('view.lessons.course.html', course: @course.to_s) %></h4>
   </caption>
   <thead>
     <tr>
       <th><%= Lesson.human_attribute_name 'name' %></th>
       <th><%= Lesson.human_attribute_name 'sequence' %></th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -20,6 +20,7 @@
           ) %>
         </td>
         <td><%= lesson.sequence %></td>
+        <td><%= link_to_lesson_feedback(lesson) %></td>
         <td><%= link_to_show [@course, lesson] %></td>
         <td><%= link_to_edit edit_course_lesson_path(@course, lesson) %></td>
         <td><%= link_to_destroy [@course, lesson] %></td>

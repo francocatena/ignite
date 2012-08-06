@@ -224,7 +224,6 @@
     
   menu:
     courses: 'Cursos'
-    feedbacks: 'Encuestas'
     images: 'Imágenes'
     
   messages:
@@ -394,8 +393,11 @@
       show_slides: 'Ver diapositivas'
       without_slides: 'La clase no tiene diapositivas'
       add_slide: 'Agregar diapositiva'
-      course: 'Clases del curso "%{course}"'
       new: 'Nueva'
+      course:
+        html: 'Clases del curso <span class="label label-info">%{course}</span>'
+      feedback_resume:
+        html: '<ul><li>Cantidad de votos: %{size}</li><li>Promedio: %{average}</li></ul>'
     slides:
       index_title: 'Listado de diapositivas'
       show_title: 'Detalle de diapositiva'

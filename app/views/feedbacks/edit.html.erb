@@ -1,6 +1,6 @@
 <%= content_for :form_actions do %>
-  <%= link_to_show feedback_path(@feedback, details: true) %> |
-  <%= link_to t('label.list'), feedbacks_path %>
+  <%= link_to_show lesson_feedback_path(@lesson, @feedback, details: true) %> |
+  <%= link_to t('label.list'), lesson_feedbacks_path(@lesson) %>
 <% end %>
 
 <%= render 'form' %>

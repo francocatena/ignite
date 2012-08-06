@@ -1,10 +1,9 @@
 Ignite::Application.routes.draw do
-  resources :feedbacks, path: 'f'
-
   resources :images, path: 'i'
 
   resources :lessons, path: 'l', only: [] do
     resources :slides, path: 's'
+    resources :feedbacks, path: 'f'
   end
   
   resources :courses, path: 'c' do

@@ -1,3 +1,4 @@
+*.swp
 .bundle
 app/assets/audio/
 db/*.sqlite3*

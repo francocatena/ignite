@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title><%= [t('app.name'), @title].compact.join(' | ') %></title>
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
   <%= javascript_tag do %>
@@ -13,9 +12,10 @@
 </head>
 <body id="<%= "ig_#{controller_name}" %>" data-action="<%= action_name %>">
   <%= render 'shared/menu' if local? %>
-  <div class="container-fluid"><%= yield %></div>
+  <div class="container"><%= yield %></div>
   <%= render 'shared/notice' if flash.notice %>
   <%= render 'shared/alert' if flash.alert %>
   <%= yield :content_bottom %>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>

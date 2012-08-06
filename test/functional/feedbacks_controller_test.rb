@@ -3,11 +3,12 @@ require 'test_helper'
 class FeedbacksControllerTest < ActionController::TestCase
   setup do
     @feedback = feedbacks(:good)
+    @lesson = @feedback.lesson
     @request.remote_addr = '127.0.0.1'
   end
 
   test 'should get index' do
-    get :index
+    get :index, lesson_id: @lesson.to_param
     assert_response :success
     assert_not_nil assigns(:feedbacks)
     assert_select '#error_body', false
@@ -15,7 +16,7 @@ class FeedbacksControllerTest < ActionController::TestCase
   end
   
   test 'should get new' do
-    get :new
+    get :new, lesson_id: @lesson.to_param
     assert_response :success
     assert_not_nil assigns(:feedback)
     assert_select '#error_body', false
@@ -24,26 +25,26 @@ class FeedbacksControllerTest < ActionController::TestCase
 
   test 'should create feedback' do
     assert_difference('Feedback.count') do
-      post :create, feedback: {
+      post :create, lesson_id: @lesson.to_param, feedback: {
         rate: 3,
         comments: 'So so',
         lesson_id: lessons(:introduction).id
       }
     end
 
-    assert_redirected_to feedback_path(assigns(:feedback))
+    assert_redirected_to lesson_feedback_url(@lesson, assigns(:feedback))
     assert_equal @request.remote_addr, assigns(:feedback).ip
   end
 
   test 'should show feedback' do
-    get :show, id: @feedback
+    get :show, lesson_id: @lesson.to_param, id: @feedback
     assert_response :success
     assert_select '#error_body', false
     assert_template 'feedbacks/show'
   end
 
   test 'should get edit' do
-    get :edit, id: @feedback
+    get :edit, lesson_id: @lesson.to_param, id: @feedback
     assert_response :success
     assert_select '#error_body', false
     assert_template 'feedbacks/edit'
@@ -51,25 +52,26 @@ class FeedbacksControllerTest < ActionController::TestCase
 
   test 'should update feedback' do
     assert_no_difference 'Feedback.count' do
-      put :update, id: @feedback, feedback: {
+      put :update, lesson_id: @lesson.to_param, id: @feedback, feedback: {
         rate: 3,
         comments: 'Updated comments',
         lesson_id: lessons(:introduction).id
       }
     end
     
-    assert_redirected_to feedback_path(assigns(:feedback))
+    assert_redirected_to lesson_feedback_url(@lesson, assigns(:feedback))
     assert_equal 'Updated comments', @feedback.reload.comments
     assert_equal @request.remote_addr, assigns(:feedback).ip
   end
   
   test 'should destroy feedback' do
     @feedback = feedbacks(:local)
+    @lesson = @feedback.lesson
     
     assert_difference 'Feedback.count', -1 do
-      delete :destroy, id: @feedback.to_param
+      delete :destroy, lesson_id: @lesson.to_param, id: @feedback.to_param
     end
 
-    assert_redirected_to feedbacks_path
+    assert_redirected_to lesson_feedbacks_url(@lesson)
   end
 end

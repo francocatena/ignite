@@ -1,9 +1,12 @@
 <table class="table table-striped">
+  <caption>
+    <h4><%= link_to @lesson, [@lesson.course, @lesson]%></h4>
+  </caption>
   <thead>
     <tr>
-      <th><%= Feedback.human_attribute_name 'lesson_id' %></th>
       <th><%= Feedback.human_attribute_name 'rate' %></th>
       <th><%= Feedback.human_attribute_name 'ip' %></th>
+      <th><%= Feedback.human_attribute_name 'comments' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,12 +14,12 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <tr>
-        <td><%= feedback.lesson %></td>
         <td><%= feedback.rate %></td>
         <td><%= feedback.ip %></td>
-        <td><%= link_to_show feedback_path(feedback, details: true) %></td>
-        <td><%= link_to_edit edit_feedback_path(feedback) %></td>
-        <td><%= link_to_destroy(feedback) if feedback.can_be_destroyed? %></td>
+        <td><%= feedback.comments %></td>
+        <td><%= link_to_show lesson_feedback_path(@lesson, feedback, details: true) %></td>
+        <td><%= link_to_edit edit_lesson_feedback_path(@lesson, feedback) %></td>
+        <td><%= link_to_destroy [@lesson, feedback] if feedback.can_be_destroyed? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,5 +27,6 @@
 
 <%= pagination_links(@feedbacks) %>
 
-<nav class="form-actions">  
+<nav class="form-actions">
+  <%= link_to t('label.back'), course_lessons_path(@lesson.course) %>
 </nav>

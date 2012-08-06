@@ -1,5 +1,6 @@
 class FeedbacksController < ApplicationController
   before_filter :require_local, only: [:index, :edit, :update, :destroy]
+  before_filter :load_lesson
   hide_action :default_args, :find_feedback
   
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
@@ -8,7 +9,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks.json
   def index
     @title = t('view.feedbacks.index_title')
-    @feedbacks = Feedback.page(params[:page])
+    @feedbacks = @lesson.feedbacks.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,7 +33,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/new.json
   def new
     @title = t('view.feedbacks.new_title')
-    @feedback = Feedback.new(default_args)
+    @feedback = @lesson.feedbacks.build(default_args)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,11 +51,13 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @title = t('view.feedbacks.new_title')
-    @feedback = Feedback.new(default_args.reverse_merge(params[:feedback]))
+    @feedback = @lesson.feedbacks.build(
+      default_args.reverse_merge(params[:feedback])
+    )
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: t('view.feedbacks.correctly_created') }
+        format.html { redirect_to [@lesson, @feedback], notice: t('view.feedbacks.correctly_created') }
         format.json { render json: @feedback, status: :created, location: @feedback }
       else
         format.html { render action: 'new' }
@@ -71,7 +74,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.update_attributes(default_args.reverse_merge(params[:feedback]))
-        format.html { redirect_to @feedback, notice: t('view.feedbacks.correctly_updated') }
+        format.html { redirect_to [@lesson, @feedback], notice: t('view.feedbacks.correctly_updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -86,7 +89,7 @@ class FeedbacksController < ApplicationController
     @feedback.destroy
 
     respond_to do |format|
-      format.html { redirect_to feedbacks_url }
+      format.html { redirect_to lesson_feedbacks_url(@lesson) }
       format.json { head :ok }
     end
   end
@@ -99,7 +102,13 @@ class FeedbacksController < ApplicationController
   
   def find_feedback
     local? ?
-      Feedback.find(params[:id]) :
-      Feedback.find_by_id_and_ip(params[:id], request.remote_ip)
+      @lesson.feedbacks.find(params[:id]) :
+      @lesson.feedbacks.find_by_id_and_ip(params[:id], request.remote_ip)
+  end
+
+  private
+  
+  def load_lesson
+    @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
   end
 end
