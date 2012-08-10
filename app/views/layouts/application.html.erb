@@ -6,9 +6,6 @@
   <%= stylesheet_link_tag 'application' %>
   <%= csrf_meta_tag %>
   <%= favicon_link_tag %>
-  <%= javascript_tag do %>
-    <%= yield :js_extra %>
-  <% end %>
 </head>
 <body id="<%= "ig_#{controller_name}" %>" data-action="<%= action_name %>">
   <%= render 'shared/menu' if local? %>
@@ -17,5 +14,6 @@
   <%= render 'shared/alert' if flash.alert %>
   <%= yield :content_bottom %>
   <%= javascript_include_tag 'application' %>
+  <%= javascript_tag { yield :js_extra } %>
 </body>
 </html>
