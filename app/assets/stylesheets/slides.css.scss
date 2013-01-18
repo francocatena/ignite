@@ -54,7 +54,7 @@ body {
     left: 0px;
     right: 0px;
     opacity: .75;
-    @include border-radius(0px);
+    border-radius: 0px;
 
     time {
       font-size: 13px;
@@ -104,6 +104,14 @@ body {
     left: 1em;
     font-size: 13px;
     font-style: italic;
+
+    code {
+      font-size: inherit;
+    }
+  }
+
+  p.footnote.one.of-two {
+    bottom: 5em;
   }
 
   sup.footnote {
@@ -143,6 +151,9 @@ body {
     overflow-y: hidden;
   }
 
+  .info {
+    color: #d14;
+  }
   
   .informal {
     font-family: 'Reenie Beanie', cursive;
@@ -161,7 +172,7 @@ body {
       margin-top: 6px;
       font-weight: normal;
       text-align: center;
-      @include border-radius(.25em);
+      border-radius: .25em;
     }
   }
 
@@ -181,7 +192,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: black;
+  background-color: #fff;
   
   div.content {
     padding: 0em;
@@ -200,5 +211,18 @@ body {
     background: rgba(0, 0, 0, .6);
     text-shadow: .03em .03em .05em black;
     white-space: nowrap;
+  }
+
+  h1.inverse {
+    background: transparent;
+    color: #333;
+  }
+
+  .code-node {
+    margin: 0px 40px;
+  }
+
+  .edit-code {
+    margin-right: 40px;
   }
 }

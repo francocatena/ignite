@@ -13,7 +13,9 @@ module LessonsHelper
     link_to(
       '&#xe029;'.html_safe, lesson_feedbacks_path(lesson),
       class: 'iconic', title: Feedback.model_name.human(count: 0),
-      data: { 'show-popover' => true, 'content' => content}
+      data: {
+        'show-popover' => true, 'content' => content, 'trigger' => 'hover'
+       }
     )
   end
 end

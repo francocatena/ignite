@@ -11,3 +11,4 @@
 //= require common
 //= require feedbacks
 //= require slides
+//= require slides_notes

@@ -1,6 +1,8 @@
 *.swp
 .bundle
+.sass-cache/
 app/assets/audio/
+app/assets/video/
 db/*.sqlite3*
 log/*.log
 nbproject/private/

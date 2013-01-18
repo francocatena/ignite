@@ -5,9 +5,14 @@
   .actions {
     margin-top: 1em;
   }
+
+  .control-group.text {
+    clear: both;
+  }
 }
 
 .rating {
+  clear: both;
   float: left;
   width: 100%;
   
@@ -25,17 +30,15 @@
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 475%;
+      font-size: 425%;
       line-height: 1.25;
       color: #e1e1e8;
-//      text-shadow: 1px 1px #999, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
       @include transition(.2s all ease-in);
     }
     
     > label:hover,
     > label:hover ~ label {
       color: #bd362f;
-//      text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
       @include transition(.3s all ease-out);
     }
   }
@@ -47,7 +50,6 @@
   
   > input:checked ~ label {
     color: #bd362f;
-//    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
     @include transition(.3s all ease-out);
   }
   
@@ -57,12 +59,21 @@
   > input:checked ~ label:hover ~ label,
   > label:hover ~ input:checked ~ label {
     color: #bd362f;
-//    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
   }
   
   > label:active {
     position: relative;
     top: 2px;
     left: 2px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .rating {
+    &:not(:checked) {
+      > label {
+        font-size: 525%;
+      }
+    }
   }
 }

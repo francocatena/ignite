@@ -1,4 +1,8 @@
-<section class="slide <%= raw slide.extra_classes %>" id="<%= slide.anchor %>" style="<%= raw slide.style %>">
+<section
+  class="slide <%= raw slide.extra_classes %>"
+  id="<%= slide.anchor %>" style="<%= raw slide.style %>"
+  data-indexed-db-id="<%= "#{slide.lesson.course}-#{slide.lesson}-#{slide.number}" %>">
+  
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">

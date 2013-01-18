@@ -43,12 +43,12 @@ module Ignite
     config.assets.enabled = true
     
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = '1.1'
 
     # Enable static assets
     config.serve_static_assets = true
     
     # Add audio assets
-    config.assets.paths << Rails.root.join('app', 'assets', 'audio')
+    config.assets.paths << Rails.root.join('app', 'assets', 'audio', 'video')
   end
 end
