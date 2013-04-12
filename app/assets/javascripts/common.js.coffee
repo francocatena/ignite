@@ -2,19 +2,19 @@ window.State =
   newIdCounter: 0
 
 window.EventHandler =
-  addNestedItem: (e)->
+  addNestedItem: (e) ->
     template = eval(e.data('template'))
 
     $(e.data('container')).append(Util.replaceIds(template, /NEW_RECORD/g))
 
     e.trigger('item:added', e)
-  hideItem: (e)->
+  hideItem: (e) ->
     Helper.hide($(e).parents($(e).data('target')))
 
     $(e).prev('input[type=hidden].destroy').val('1')
 
     $(e).trigger('item:hidden', $(e))
-  removeItem: (e)->
+  removeItem: (e) ->
     target = e.parents(e.data('target'))
 
     Helper.remove(target)
@@ -22,35 +22,35 @@ window.EventHandler =
     target.trigger('item:removed', target)
 
 window.Helper =
-  hide: (element, callback)->
+  hide: (element, callback) ->
     $(element).stop().slideUp(500, callback)
 
-  remove: (element, callback)->
+  remove: (element, callback) ->
     $(element).stop().slideUp 500, ->
       $(this).remove()
       
       callback() if jQuery.isFunction(callback)
 
-  show: (element, callback)->
+  show: (element, callback) ->
     e = $(element)
 
     e.stop().slideDown(500, callback) if e.is(':visible').length != 0
 
 window.Util =
-  merge: (hashOne, hashTwo)-> jQuery.extend({}, hashOne, hashTwo)
+  merge: (hashOne, hashTwo) -> jQuery.extend({}, hashOne, hashTwo)
 
-  replaceIds: (s, regex)->
+  replaceIds: (s, regex) ->
     s.replace(regex, new Date().getTime() + State.newIdCounter++)
   
-  refreshSortNumbers: -> $('input.sort_number').val((i)-> i + 1)
+  refreshSortNumbers: -> $('input.sort_number').val((i) -> i + 1)
 
-jQuery ($)->
+jQuery ($) ->
   $('*[data-show-tooltip]').tooltip()
   $('*[data-show-popover]').popover()
   
-  eventList = $.map EventHandler, (v, k)-> k
+  eventList = $.map EventHandler, (v, k) -> k
   
-  $('a[data-event]').live 'click', (event)->
+  $(document).on 'click', 'a[data-event]', (event) ->
     return if event.stopped
     
     element = $(this)
@@ -62,34 +62,22 @@ jQuery ($)->
       event.preventDefault()
       event.stopPropagation()
   
-  $(document).on 'click', 'a[data-increase-font-size]', (event)->
+  $(document).on 'click', 'a[data-increase-font-size]', (event) ->
     return if event.stopped
     
     $($(this).data('target')).css
-      zoom: (index, value)-> parseFloat(value) * 1.1
+      zoom: (index, value) -> parseFloat(value) * 1.1
     
     event.preventDefault()
     event.stopPropagation()
   
-  $(document).on 'click', 'a[data-decrease-font-size]', (event)->
+  $(document).on 'click', 'a[data-decrease-font-size]', (event) ->
     $($(this).data('target')).css
-      zoom: (index, value)-> parseFloat(value) / 1.1
+      zoom: (index, value) -> parseFloat(value) / 1.1
     
     event.preventDefault()
     event.stopPropagation()
-  
-  $('#loading-caption').bind
-    ajaxStart: `function() { $(this).stop(true, true).fadeIn(100) }`
-    ajaxStop: `function() { $(this).stop(true, true).fadeOut(100) }`
-
-  $('form').submit ->
-    $(this).find(
-      'input[type="submit"]:not(.avoid-disable), input[name="utf8"]'
-    ).attr 'disabled', true
-
-# click() function behaves like a real click
-if !HTMLAnchorElement.prototype.click
-  HTMLAnchorElement.prototype.click = ->
+ HTMLAnchorElement.prototype.click = ->
     ev = document.createEvent('MouseEvents')
     ev.initEvent 'click', true, true
     

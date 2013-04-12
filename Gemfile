@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -15,12 +15,12 @@ group :assets do
   gem 'sass-rails'
   gem 'bourbon'
   gem 'coffee-rails'
-  gem 'therubyracer', require: false
   gem 'uglifier'
 end
 
 group :development do
-  gem 'puma'
+  gem 'unicorn'
+  gem 'unicorn-rails'
 end
 
 group :test do

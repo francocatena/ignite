@@ -54,7 +54,7 @@ body {
     left: 0px;
     right: 0px;
     opacity: .75;
-    @include border-radius(0px);
+    border-radius: 0px;
 
     time {
       font-size: 13px;
@@ -161,7 +161,7 @@ body {
       margin-top: 6px;
       font-weight: normal;
       text-align: center;
-      @include border-radius(.25em);
+      border-radius: .25em;
     }
   }
 

@@ -1,6 +1,6 @@
-jQuery ($)->
+jQuery ($) ->
   if $('.feedback').length > 0
-    $(document).on 'ajax:success', 'form#new_feedback', (event, data)->
+    $(document).on 'ajax:success', 'form#new_feedback', (event, data) ->
       $('.feedback').html(data)
       
     $(document).on 'focus', '#feedback_comments', ->

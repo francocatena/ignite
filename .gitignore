@@ -1,8 +1,6 @@
-*.swp
-.bundle
 app/assets/audio/
+app/assets/video/
 db/*.sqlite3*
 log/*.log
-nbproject/private/
 public/system
 tmp/

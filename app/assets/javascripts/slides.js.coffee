@@ -48,11 +48,11 @@ window.Slide =
     else
       false
   
-  showHtml: (htmlContainer)->
+  showHtml: (htmlContainer) ->
     $('#modal-html .modal-body').html htmlContainer.val()
     $('#modal-html').modal 'show'
   
-  toggleEdition: (readonlyView, editableView)->
+  toggleEdition: (readonlyView, editableView) ->
     if editableView.is(':visible')
       editableView.hide()
       readonlyView.show()
@@ -77,8 +77,8 @@ window.Slide =
     
     $('head title').text "#{title} (#{number})"
 
-jQuery ($)->
-  $('#ig_slides:has(form)').keydown (e)->
+jQuery ($) ->
+  $('#ig_slides:has(form)').keydown (e) ->
     # CTRL + ALT + s = save changes
     if $.inArray(e.which, [83, 115]) != -1 && e.ctrlKey && e.altKey
       $('#ig_slides form').submit()
@@ -88,7 +88,7 @@ jQuery ($)->
     if !window.location.hash.match(/#/) && $('#slide-1').length > 0
       Slide.show('1', true)
 
-    $(document).keydown (e)->
+    $(document).keydown (e) ->
       key = e.which
       limitNavigation = Slide.limitNavigationQueue.length > 0
       # 39 = right arrow, 34 = page down, 40 = down arrow, 13 = enter
@@ -123,7 +123,7 @@ jQuery ($)->
       # F or f = Full screen mode
       else if $.inArray(key, [70, 102]) != -1 && !limitNavigation
         # Full screen request
-        ((e)->
+        ((e) ->
           if e.requestFullScreen
             e.requestFullScreen()
           else if e.mozRequestFullScreen
@@ -132,11 +132,11 @@ jQuery ($)->
             e.webkitRequestFullScreen()
         )(document.body)
 
-    $('form.ruby-code').live 'ajax:success', (event, data)->
+    $(document).on 'ajax:success', 'form.ruby-code', (event, data) ->
       $('#modal-code .modal-body').html $('<pre></pre>').text(data)
       $('#modal-code').modal 'show'
     
-    $(document).on 'click', 'a[data-toggle-edition]', (e)->
+    $(document).on 'click', 'a[data-toggle-edition]', (e) ->
       Slide.toggleEdition(
         $(this).parent('.node').find('.code-node'),
         $(this).parent('.node').find('.code-form')
@@ -145,13 +145,13 @@ jQuery ($)->
       e.preventDefault()
       e.stopPropagation()
     
-    $(document).on 'click', 'a[data-show-html]', (e)->
+    $(document).on 'click', 'a[data-show-html]', (e) ->
       Slide.showHtml $(this).parent('.node').find('.html-code')
       
       e.preventDefault()
       e.stopPropagation()
     
-    $(document).on 'click', 'a[data-execute-js]', (e)->
+    $(document).on 'click', 'a[data-execute-js]', (e) ->
       Slide.executeJS $(this).parent('.node').find('.js-code')
       
       e.preventDefault()
