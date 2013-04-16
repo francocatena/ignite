@@ -1,5 +1,5 @@
 <section class="slide <%= raw slide.extra_classes %>" id="<%= slide.anchor %>" style="<%= raw slide.style %>">
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
         <div class="brand"><%= slide.title %></div>
@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <footer class="alert alert-info">
-    <h4 class="alert-heading pull-left"><%= t('app.powered_by.html') %></h4>
+    <%= t('app.powered_by.html') %>
     <div class="btn-group dropup pull-right">
       <%= link_to(
         '&#x2699;'.html_safe, '#', class: 'btn btn-mini dropdown-toggle iconic',

@@ -25,17 +25,15 @@
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 475%;
+      font-size: 450%;
       line-height: 1.25;
       color: #e1e1e8;
-//      text-shadow: 1px 1px #999, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
       @include transition(.2s all ease-in);
     }
     
     > label:hover,
     > label:hover ~ label {
-      color: #bd362f;
-//      text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
+      color: #3a87ad;
       @include transition(.3s all ease-out);
     }
   }

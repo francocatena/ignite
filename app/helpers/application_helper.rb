@@ -1,4 +1,8 @@
 module ApplicationHelper  
+  def title
+    [t('app.name'), @title].compact.join(' | ')
+  end
+
   # Returns a string with an object identifier
   # 
   # * _prefix_:: The prefix to append in the ID
