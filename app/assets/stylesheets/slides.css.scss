@@ -108,6 +108,10 @@ body {
     left: 1em;
     font-size: 13px;
     font-style: italic;
+
+    code {
+      font-size: inherit;
+    }
   }
 
   sup.footnote {
