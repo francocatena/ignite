@@ -2,7 +2,7 @@
   <caption>
     <h3><%= @lesson %></h3>
   </caption>
-  
+
   <thead>
     <tr>
       <th><%= Slide.human_attribute_name 'title' %></th>
@@ -27,5 +27,5 @@
 <%= pagination_links(@slides) %>
 
 <nav class="form-actions">
-  <%= link_to t('view.slides.new'), new_lesson_slide_path(@lesson), class: 'btn btn-primary' %>
+<%= link_to t('view.slides.new'), new_lesson_slide_path(@lesson), class: 'btn btn-primary' %>
 </nav>

@@ -114,6 +114,10 @@ body {
     }
   }
 
+  p.footnote + p.footnote {
+    bottom: 5em;
+  }
+
   sup.footnote {
     font-size: .5em;
   }
