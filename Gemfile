@@ -25,6 +25,5 @@ group :development do
 end
 
 group :test do
-  gem 'minitest', require: false # Turn dependency
   gem 'turn'
 end
