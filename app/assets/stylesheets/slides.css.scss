@@ -91,7 +91,7 @@ body {
   li {
     line-height: 1.25;
 
-    .muted {
+    .muted, .muted code {
       font-size: 50%;
     }
   }
