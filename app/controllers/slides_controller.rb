@@ -50,7 +50,7 @@ class SlidesController < ApplicationController
   # POST /lessons/1/slides.json
   def create
     @title = t('view.slides.new_title')
-    @slide = @lesson.slides.build(params[:slide])
+    @slide = @lesson.slides.build slide_params
 
     respond_to do |format|
       if @slide.save
@@ -70,7 +70,7 @@ class SlidesController < ApplicationController
     @slide = @lesson.slides.find(params[:id])
 
     respond_to do |format|
-      if @slide.update_attributes(params[:slide])
+      if @slide.update slide_params
         format.html { redirect_to(course_lesson_url(@lesson.course, @lesson, anchor: @slide.anchor), notice: t('view.slides.correctly_updated')) }
         format.json  { head :ok }
       else
@@ -114,5 +114,12 @@ class SlidesController < ApplicationController
 
   def load_lesson
     @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
+  end
+
+  def slide_params
+    params.require(:slide).permit(
+      :title, :number, :extra_classes, :style, :lock_version,
+      nodes_attributes: [:id, :type, :content, :lang, :rank, :lock_version]
+    )
   end
 end

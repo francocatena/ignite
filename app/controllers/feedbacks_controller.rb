@@ -51,9 +51,7 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @title = t('view.feedbacks.new_title')
-    @feedback = @lesson.feedbacks.build(
-      default_args.reverse_merge(params[:feedback])
-    )
+    @feedback = @lesson.feedbacks.build default_args.reverse_merge(feedback_params)
 
     respond_to do |format|
       if @feedback.save
@@ -73,7 +71,7 @@ class FeedbacksController < ApplicationController
     @feedback = find_feedback
 
     respond_to do |format|
-      if @feedback.update_attributes(default_args.reverse_merge(params[:feedback]))
+      if @feedback.update default_args.reverse_merge(feedback_params)
         format.html { redirect_to [@lesson, @feedback], notice: t('view.feedbacks.correctly_updated') }
         format.json { head :no_content }
       else
@@ -110,5 +108,9 @@ class FeedbacksController < ApplicationController
   
   def load_lesson
     @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
+  end
+
+  def feedback_params
+    params.require(:feedback).permit(:comments, :rate, :ip, :lesson_id)
   end
 end

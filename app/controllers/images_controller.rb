@@ -47,7 +47,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @title = t('view.images.new_title')
-    @image = Image.new(params[:image])
+    @image = Image.new image_params
 
     respond_to do |format|
       if @image.save
@@ -67,7 +67,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     respond_to do |format|
-      if @image.update_attributes(params[:image])
+      if @image.update image_params
         format.html { redirect_to @image, notice: t('view.images.correctly_updated') }
         format.json { head :ok }
       else
@@ -90,5 +90,11 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url }
       format.json { head :ok }
     end
+  end
+
+  private
+
+  def image_params
+    params.require(:image).permit(:name, :caption, :image, :lock_version)
   end
 end

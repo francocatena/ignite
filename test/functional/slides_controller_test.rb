@@ -29,19 +29,18 @@ class SlidesControllerTest < ActionController::TestCase
         number: '4',
         extra_classes: 'test-class',
         style: 'color: pink',
-        nodes_attributes: {
-          new_1: {
+        nodes_attributes: [
+          {
             type: 'TextNode',
             content: 'h1. Some sample title',
             rank: '1'
-          },
-          new_2: {
+          }, {
             type: 'CodeNode',
             content: 'puts "Some Ruby code"',
             lang: 'ruby',
             rank: '2'
           }
-        }
+        ]
       }
     end
 
@@ -69,21 +68,20 @@ class SlidesControllerTest < ActionController::TestCase
         number: '1',
         extra_classes: 'test-class',
         style: 'color: pink',
-        nodes_attributes: {
-          nodes(:opening_title).id => {
+        nodes_attributes: [
+          {
             id: nodes(:opening_title).id,
             type: 'TextNode',
             content: 'h1. Updated sample title',
             rank: '1'
-          },
-          nodes(:opening_ruby_code).id => {
+          }, {
             id: nodes(:opening_ruby_code).id,
             type: 'CodeNode',
             content: 'puts "Some Updated Ruby code"',
             lang: 'ruby',
             rank: '2'
           }
-        }
+        ]
       }
     end
     

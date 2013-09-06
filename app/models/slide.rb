@@ -10,9 +10,9 @@ class Slide < ActiveRecord::Base
   
   # Relations
   belongs_to :lesson
-  has_many :nodes, dependent: :destroy, order: 'rank ASC'
-  has_many :code_nodes, readonly: true, order: 'rank ASC'
-  has_many :text_nodes, readonly: true, order: 'rank ASC'
+  has_many :nodes, -> { order 'rank ASC' }, dependent: :destroy
+  has_many :code_nodes, -> { order 'rank ASC' }
+  has_many :text_nodes, -> { order 'rank ASC' }
   
   accepts_nested_attributes_for :nodes, allow_destroy: true
   

@@ -50,7 +50,7 @@ class LessonsController < ApplicationController
   # POST /lessons.json
   def create
     @title = t('view.lessons.new_title')
-    @lesson = @course.lessons.build(params[:lesson])
+    @lesson = @course.lessons.build lesson_params
 
     respond_to do |format|
       if @lesson.save
@@ -70,7 +70,7 @@ class LessonsController < ApplicationController
     @lesson = @course.lessons.find(params[:id])
 
     respond_to do |format|
-      if @lesson.update_attributes(params[:lesson])
+      if @lesson.update lesson_params
         format.html { redirect_to([@course, @lesson], notice: t('view.lessons.correctly_updated')) }
         format.json  { head :ok }
       else
@@ -99,5 +99,9 @@ class LessonsController < ApplicationController
   
   def load_course
     @course = Course.find(params[:course_id]) if params[:course_id]
+  end
+
+  def lesson_params
+    params.require(:lesson).permit(:name, :sequence, :lock_version)
   end
 end

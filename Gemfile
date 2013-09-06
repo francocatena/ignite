@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.0'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -9,15 +9,14 @@ gem 'jquery-ui-rails'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'paperclip'
-gem 'simple_form'
+gem 'simple_form', '3.0.0.rc'
 gem 'capistrano'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'bourbon'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+# Old assets group
+gem 'sass-rails'
+gem 'bourbon'
+gem 'coffee-rails'
+gem 'uglifier'
 
 group :development do
   gem 'unicorn'

@@ -1,11 +1,9 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :comments, :rate, :ip, :lesson_id
-  
   LOCALHOST = ['127.0.0.1', '::1']
   
-  default_scope order("#{table_name}.created_at ASC")
-  scope :remote, where("#{table_name}.ip NOT IN (?)", LOCALHOST)
-  scope :local, where("#{table_name}.ip" => LOCALHOST)
+  default_scope -> { order "#{table_name}.created_at ASC" }
+  scope :remote, -> { where "#{table_name}.ip NOT IN (?)", LOCALHOST }
+  scope :local, -> { where "#{table_name}.ip" => LOCALHOST }
   
   # Callbacks
   before_destroy :can_be_destroyed?

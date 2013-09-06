@@ -11,19 +11,6 @@ class Node < ActiveRecord::Base
   # Relations
   belongs_to :slide
   
-  class << self
-    def new(attributes = nil, options = {})
-      type = attributes.try :delete, :type
-      return super if type.blank?
-
-      klass = type.constantize
-      
-      raise "Unknown type #{type}" unless klass
-
-      klass.new attributes, options
-    end
-  end
-  
   def <=>(other)
     if other.kind_of?(Node)
       self.rank <=> other.rank
