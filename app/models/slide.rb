@@ -9,7 +9,7 @@ class Slide < ActiveRecord::Base
     uniqueness: { scope: :lesson_id }
   
   # Relations
-  belongs_to :lesson
+  belongs_to :lesson, touch: true
   has_many :nodes, -> { order 'rank ASC' }, dependent: :destroy
   has_many :code_nodes, -> { order 'rank ASC' }
   has_many :text_nodes, -> { order 'rank ASC' }
@@ -17,7 +17,7 @@ class Slide < ActiveRecord::Base
   accepts_nested_attributes_for :nodes, allow_destroy: true
   
   def all_nodes
-    (self.code_nodes | self.text_nodes).sort
+    (code_nodes | text_nodes).sort
   end
   
   def anchor

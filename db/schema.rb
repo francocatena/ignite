@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914152501) do
+ActiveRecord::Schema.define(version: 20130914160902) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20130914152501) do
   create_table "lessons", force: true do |t|
     t.string   "name"
     t.integer  "sequence"
-    t.integer  "lock_version", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
