@@ -9,7 +9,7 @@ class Node < ActiveRecord::Base
     numericality: { greater_than: 0, only_integer: true }
   
   # Relations
-  belongs_to :slide
+  belongs_to :slide, touch: true
   
   def <=>(other)
     if other.kind_of?(Node)

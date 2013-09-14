@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
   def show
     @title = t('view.lessons.show_title')
     @lesson = @course.lessons.find(params[:id])
-    @feedback = Feedback.find_by_ip_and_lesson_id(request.remote_ip, @lesson.id)
+    @feedback = Feedback.find_by ip: request.remote_ip, lesson_id: @lesson.id
     @feedback ||= @lesson.feedbacks.build
 
     respond_to do |format|
