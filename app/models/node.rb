@@ -9,20 +9,7 @@ class Node < ActiveRecord::Base
     numericality: { greater_than: 0, only_integer: true }
   
   # Relations
-  belongs_to :slide
-  
-  class << self
-    def new(attributes = nil, options = {})
-      type = attributes.try :delete, :type
-      return super if type.blank?
-
-      klass = type.constantize
-      
-      raise "Unknown type #{type}" unless klass
-
-      klass.new attributes, options
-    end
-  end
+  belongs_to :slide, touch: true
   
   def <=>(other)
     if other.kind_of?(Node)

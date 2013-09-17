@@ -1,5 +1,5 @@
 class Lesson < ActiveRecord::Base
-  default_scope order("#{table_name}.sequence ASC")
+  default_scope -> { order "#{table_name}.sequence ASC" }
   
   # Validations
   validates :name, length: { maximum: 255 }, presence: true
@@ -10,7 +10,7 @@ class Lesson < ActiveRecord::Base
   
   # Relations
   belongs_to :course
-  has_many :slides, dependent: :destroy, order: "#{Slide.table_name}.number ASC"
+  has_many :slides, -> { order "#{Slide.table_name}.number ASC" }, dependent: :destroy
   has_many :feedbacks
   
   def to_s
