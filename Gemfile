@@ -11,6 +11,7 @@ gem 'RedCloth'
 gem 'paperclip'
 gem 'simple_form'
 gem 'capistrano'
+gem 'bcrypt-ruby' # TODO: borrar, solo para clase 6
 
 group :assets do
   gem 'sass-rails'

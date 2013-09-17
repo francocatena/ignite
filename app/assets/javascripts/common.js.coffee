@@ -45,8 +45,8 @@ window.Util =
   refreshSortNumbers: -> $('input.sort_number').val((i) -> i + 1)
 
 jQuery ($) ->
-  $('*[data-show-tooltip]').tooltip()
-  $('*[data-show-popover]').popover()
+  $('[data-show-tooltip]').tooltip()
+  $('[data-show-popover]').popover(html: true, trigger: 'hover')
   
   eventList = $.map EventHandler, (v, k) -> k
   

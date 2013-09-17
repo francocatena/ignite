@@ -161,6 +161,10 @@ body {
     text-rendering: optimizeLegibility;
   }
 
+  .fire {
+    text-shadow: 0 0 4px white, 0 -5px 4px #ffff33, 2px -10px 6px #ffdd33, -2px -15px 11px #ff8800, 2px -25px 18px #ff2200;
+  }
+
   .navbar {
     .badge, .brand {
       font-size: 24px;
