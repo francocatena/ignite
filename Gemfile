@@ -9,9 +9,8 @@ gem 'jquery-ui-rails'
 gem 'will_paginate'
 gem 'RedCloth'
 gem 'paperclip'
-gem 'simple_form', '3.0.0.rc'
+gem 'simple_form'
 gem 'capistrano'
-gem 'bcrypt-ruby' # TODO: borrar, solo para clase 6
 
 # Old assets group
 gem 'sass-rails'
