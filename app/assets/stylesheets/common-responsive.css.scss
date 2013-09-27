@@ -1,0 +1,31 @@
+@media (max-width: 400px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {  
+}
+
+@media (max-width: 991px) {
+  footer.alert {
+    left: 0em;
+    right: 0em;
+  }
+
+  ul.pagination {
+    li {
+      display: none;
+    }
+
+    li.previous_page, li.next {
+      display: inline;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

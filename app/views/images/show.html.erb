@@ -3,10 +3,10 @@
 </div>
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
     <%= image_tag @image.image.url(:medium), alt: @image.caption %>
   </div>
-  <div class="span6">
+  <div class="col-md-6">
     <dl>
       <% ([:original] + @image.styles.keys).each do |style| %>
         <dt>

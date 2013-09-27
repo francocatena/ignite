@@ -1,10 +1,11 @@
 @import "bourbon";
 
-@import "twitter/bootstrap";
+@import "bootstrap";
+@import "bootstrap-theme";
 @import "body_padding";
-@import "twitter/bootstrap-responsive";
 @import "fonts";
 @import "common";
+@import "common-responsive";
 @import "coderay";
 @import "feedbacks";
 @import "slides";

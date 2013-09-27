@@ -73,7 +73,7 @@ window.Slide =
   
   updateTitle: ->
     number = Slide.currentNumber() || 0
-    title = $("#slide-#{number}").find('.navbar .brand').text()
+    title = $("#slide-#{number}").find('.navbar .navbar-brand').text()
     
     $('head title').text "#{title} (#{number})"
 

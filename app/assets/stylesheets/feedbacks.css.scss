@@ -22,10 +22,11 @@
       float: right;
       width: 1em;
       padding: 0;
+      margin-left: .1em;
       overflow: hidden;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 450%;
+      font-size: 400%;
       line-height: 1.25;
       color: #e1e1e8;
       @include transition(.2s all ease-in);

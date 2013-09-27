@@ -1,24 +1,26 @@
-<div class="navbar navbar-fixed-top not-printable">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="iconic">&#xe055;</span>
-      </a>
+<div class="navbar navbar-default navbar-fixed-top hidden-print" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       
-      <%= link_to t('app.name'), root_path, class: 'brand' %>
-      
-      <div class="nav-collapse">
-        <ul class="nav">
-          <%= content_tag(
-            :li, link_to(t('menu.courses'), courses_path),
-            class: ('active' if controller_name == 'courses')
-          ) %>
-          <%= content_tag(
-            :li, link_to(t('menu.images'), images_path),
-            class: ('active' if controller_name == 'images')
-          ) %>
-        </ul>
-      </div>
+      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <%= content_tag(
+          :li, link_to(t('menu.courses'), courses_path),
+          class: ('active' if controller_name == 'courses')
+        ) %>
+        <%= content_tag(
+          :li, link_to(t('menu.images'), images_path),
+          class: ('active' if controller_name == 'images')
+        ) %>
+      </ul>
     </div>
   </div>
 </div>

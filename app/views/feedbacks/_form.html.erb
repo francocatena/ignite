@@ -1,4 +1,4 @@
-<%= simple_form_for([@lesson, @feedback], defaults: { input_html: { class: 'span6' } }) do |f| %>
+<%= simple_form_for([@lesson, @feedback], defaults: { input_html: { class: 'col-md-6' } }) do |f| %>
   <%= f.input :rate, input_html: { autofocus: true, min:1, max: 5 } %>
   <%= f.input :ip, input_html: { maxlength: 255 } %>
   <%= f.input :comments, input_html: { rows: 4 } %>

@@ -10,8 +10,14 @@ body {
 }
 
 #ig_lessons[data-action="show"] {
-  .navbar.not-printable {
+  .navbar {
     display: none;
+  }
+
+  .slide {
+    .navbar {
+      display: block;
+    }
   }
 
   .slide.image {
@@ -55,27 +61,27 @@ body {
     right: 0px;
     opacity: .75;
     border-radius: 0px;
+    border-width: 1px 0px 0px 0px;
+    padding: 10px 15px;
 
     time {
-      font-size: 13px;
-      margin-right: 13px;
+      margin-right: 1em;
       padding: .5em;
     }
 
     .dropdown-menu {
       font-size: 13px;
-      line-height: 18px;
     }
   }
 
   h1 {
-    font-size: 81px;
+    font-size: 61px;
     line-height: 1;
     margin: 36px 0px;
     text-align: center;
 
     code {
-      font-size: 81px;
+      font-size: 61px;
     }
 
     small {
@@ -92,12 +98,12 @@ body {
     line-height: 1.25;
 
     .muted, .muted code {
-      font-size: 50%;
+      font-size: 16px;
     }
   }
 
   p, ul, ol, code, table {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 200;
     line-height: 1.25;
   }
@@ -166,7 +172,7 @@ body {
   }
 
   .navbar {
-    .badge, .brand {
+    .badge, .navbar-brand {
       font-size: 24px;
       line-height: 1.5;
     }
@@ -174,7 +180,7 @@ body {
     .badge {
       width: 1.5em;
       padding: 3px 9px;
-      margin-top: 6px;
+      margin-top: 12px;
       font-weight: normal;
       text-align: center;
       border-radius: .25em;
@@ -186,8 +192,8 @@ body {
 
     .edit-code {
       position: absolute;
-      top: .5em;
-      right: .5em;
+      top: -2em;
+      right: 0em;
     }
   }
 }

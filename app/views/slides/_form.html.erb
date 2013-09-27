@@ -1,4 +1,4 @@
-<%= simple_form_for([@lesson, @slide], defaults: { input_html: { class: 'span11' } }) do |f| %>
+<%= simple_form_for([@lesson, @slide]) do |f| %>
   <%= content_for :js_extra do -%>
     <%= raw "var textNode='#{generate_template(f, :nodes,
       locals: { disabled: false }, object: TextNode.new)}';" %>
@@ -6,12 +6,12 @@
       locals: { disabled: false }, object: CodeNode.new)}';" %>
   <% end -%>
   
-  <div class="row-fluid">
-    <div class="span6">
+  <div class="row">
+    <div class="col-md-6">
       <%= f.input :title, input_html: { autofocus: true, maxlength: 255 } %>
       <%= f.input :number, input_html: { min: 1, max: 999, autocomplete: 'off' } %>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <%= f.input :extra_classes, input_html: { maxlength: 255 } %>
       <%= f.input :style, input_html: { maxlength: 255 } %>
     </div>
@@ -21,11 +21,11 @@
     <h3><%= t 'view.slides.nodes' %></h3>
   </div>
 
-  <div class="row-fluid">
-    <div class="span8">
+  <div class="row">
+    <div class="col-md-8">
       <h4><%= Node.human_attribute_name 'content' %></h4>
     </div>
-    <div class="span2">
+    <div class="col-md-2">
       <h4><%= Node.human_attribute_name 'options' %></h4>
     </div>
   </div>
@@ -41,17 +41,19 @@
   <div>
     <%= link_to(
       t('view.slides.add_text_node'), '#',
-      class: 'btn btn-mini', data: {
+      class: 'btn btn-default btn-xs', data: {
         template: 'textNode', container: '#nodes', event: 'addNestedItem'
       }
     ) %> |
     <%= link_to(
       t('view.slides.add_code_node'), '#',
-      class: 'btn btn-mini', data: {
+      class: 'btn btn-default btn-xs', data: {
         template: 'codeNode', container: '#nodes', event: 'addNestedItem'
       }
     ) %>
   </div>
+
+  <br />
   
   <div class="form-actions">
     <%= f.button :submit, class: 'btn-primary' %>

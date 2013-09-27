@@ -4,20 +4,20 @@
       <% (1..5).reverse_each do |i| %>
         <%= f.radio_button :rate, i.to_s, id: "star#{i}" %>
         <%= f.label(
-          :rate, '&#x2605;'.html_safe,
-          for: "star#{i}", class: "for-#{i}-stars iconic",
+          :rate, nil,
+          for: "star#{i}", class: "for-#{i}-stars glyphicon glyphicon-star",
           title: t("view.feedbacks.rate.#{i}")
         ) %>
       <% end %>
     </div>
   
     <%= f.input :comments, label: false, input_html: {
-      rows: 3, class: 'span12',
+      rows: 3, class: 'col-md-12',
       placeholder: Feedback.human_attribute_name('comments')
     } %>
 
     <div class="actions">
-      <%= f.button :submit, class: 'btn-inverse btn-large' %>
+      <%= f.button :submit, class: 'btn-default btn-lg' %>
     </div>
   <% end %>
 </div>

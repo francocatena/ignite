@@ -1,13 +1,16 @@
 <div class="code-form" style="display: none;">
-  <div class="row-fluid">
-    <div class="span12">
+  <div class="row">
+    <div class="col-md-12">
       <%= simple_form_for :code_node, url: execute_ruby_path(format: :html), html: { class: 'ruby-code' }, remote: true do |f| %>
         <div class="field">
-          <%= f.text_area :code, value: node.content, id: "code_#{node.id}", class: 'span12', rows: 10 %>
+          <%= f.input(
+            :code, as: :text, label: false,
+            input_html: { value: node.content, id: "code_#{node.id}", class: 'col-md-12', rows: 6 }
+          ) %>
         </div>
         
         <div class="actions">
-          <%= f.button :submit, t('view.slides.execute'), class: 'avoid-disable' %>
+          <%= f.button :submit, t('view.slides.execute'), class: 'btn-default avoid-disable' %>
         </div>
       <% end %>
     </div>

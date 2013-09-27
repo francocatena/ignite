@@ -1,16 +1,16 @@
 <% id = dynamic_object_id('node', f) %>
 <% hide = is_dynamic || f.object.marked_for_destruction? %>
-<div class="node nested_item row-fluid" id="<%= id %>" <%= raw 'style="display: none;"' if hide %>>
-  <div class="span8">
+<div class="node nested-item row" id="<%= id %>" <%= raw 'style="display: none;"' if hide %>>
+  <div class="col-md-8">
     <%= f.input :content, label: false, input_html: { rows: 4 } %>
   </div>
-  <div class="span2">
+  <div class="col-md-2">
     <% if f.object.kind_of?(CodeNode) %>
       <%= show_options_for_code_node(f) %><br />
     <% end %>
     <%= f.input :css_class, label: false, input_html: { placeholder: t('view.slides.css_class') } %>
   </div>
-  <div class="span2">
+  <div class="col-md-2">
     <%= link_to_remove_nested_item(f, 'node') %>
     <%= f.input :rank, as: :hidden, input_html: { class: :sort_number } %>
     <%= f.input :type, as: :hidden %>

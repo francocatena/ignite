@@ -84,7 +84,7 @@
   app:
     name: 'Presentaciones'
     powered_by:
-      html: 'Creado con <a href="https://github.com/francocatena/ignite">Ignite</a>'
+      html: 'Creado con <a class="alert-link" href="https://github.com/francocatena/ignite">Ignite</a>'
 
   # Active Support
   date:

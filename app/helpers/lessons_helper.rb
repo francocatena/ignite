@@ -9,11 +9,12 @@ module LessonsHelper
     content = t(
       'view.lessons.feedback_resume.html', size: size, average: average
     )
+    options = {
+      title: Feedback.model_name.human(count: 0), data: { content: content}
+    }
 
-    link_to(
-      '&#xe029;'.html_safe, lesson_feedbacks_path(lesson),
-      class: 'iconic', title: Feedback.model_name.human(count: 0),
-      data: { show_popover: true, content: content}
-    )
+    link_to lesson_feedbacks_path(lesson), options do
+      content_tag :span, nil, class: 'glyphicon glyphicon-stats'
+    end
   end
 end

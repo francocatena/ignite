@@ -1,10 +1,12 @@
 <% cache [slide, has_not_voted?] do %>
   <section class="slide <%= raw slide.extra_classes %>" id="<%= slide.anchor %>" style="<%= raw slide.style %>">
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <div class="brand"><%= slide.title %></div>
-          <div class="badge pull-right"><%= slide.number %></div>
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand"><%= slide.title %></div>
+        </div>
+        <div class="navbar-right">
+          <span class="badge"><%= slide.number %></span>
         </div>
       </div>
     </div>
@@ -18,9 +20,9 @@
       <% end %>
       <% if last %>
         <% if has_not_voted? %>
-          <div class="row-fluid">
-            <div class="span4">&nbsp;</div>
-            <div class="span4">
+          <div class="row">
+            <div class="col-md-4">&nbsp;</div>
+            <div class="col-md-4">
               <%= render template: 'feedbacks/new' %>
             </div>
           </div>
@@ -32,10 +34,9 @@
     <footer class="alert alert-info">
       <%= t('app.powered_by.html') %>
       <div class="btn-group dropup pull-right">
-        <%= link_to(
-          '&#x2699;'.html_safe, '#', class: 'btn btn-mini dropdown-toggle iconic',
-          data: { toggle: 'dropdown' }
-        ) %>
+        <%= link_to('#', class: 'btn btn-xs dropdown-toggle', data: { toggle: 'dropdown' }) do %>
+          <span class="glyphicon glyphicon-cog"></span>
+        <% end %>
 
         <ul class="dropdown-menu">
           <% if local? %>
