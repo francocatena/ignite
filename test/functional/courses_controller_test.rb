@@ -10,14 +10,12 @@ class CoursesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:courses)
-    assert_select '#error_body', false
     assert_template 'courses/index'
   end
 
   test 'should get new' do
     get :new
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'courses/new'
   end
 
@@ -35,14 +33,12 @@ class CoursesControllerTest < ActionController::TestCase
   test 'should show course' do
     get :show, id: @course.to_param
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'courses/show'
   end
 
   test 'should get edit' do
     get :edit, id: @course.to_param
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'courses/edit'
   end
 

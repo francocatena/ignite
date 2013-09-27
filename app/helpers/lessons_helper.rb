@@ -1,6 +1,6 @@
 module LessonsHelper
   def has_not_voted?
-    @feedback.new_record?
+    !!@feedback.try(:new_record?)
   end
 
   def link_to_lesson_feedback(lesson)

@@ -11,14 +11,12 @@ class SlidesControllerTest < ActionController::TestCase
     get :index, lesson_id: @lesson.to_param
     assert_response :success
     assert_not_nil assigns(:slides)
-    assert_select '#error_body', false
     assert_template 'slides/index'
   end
 
   test 'should get new' do
     get :new, lesson_id: @lesson.to_param
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'slides/new'
   end
 
@@ -50,14 +48,12 @@ class SlidesControllerTest < ActionController::TestCase
   test 'should show slide' do
     get :show, lesson_id: @lesson.to_param, id: @slide.to_param
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'slides/show'
   end
 
   test 'should get edit' do
     get :edit, lesson_id: @lesson.to_param, id: @slide.to_param
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'slides/edit'
   end
 

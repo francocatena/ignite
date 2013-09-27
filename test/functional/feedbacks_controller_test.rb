@@ -11,7 +11,6 @@ class FeedbacksControllerTest < ActionController::TestCase
     get :index, lesson_id: @lesson.to_param
     assert_response :success
     assert_not_nil assigns(:feedbacks)
-    assert_select '#error_body', false
     assert_template 'feedbacks/index'
   end
   
@@ -19,7 +18,6 @@ class FeedbacksControllerTest < ActionController::TestCase
     get :new, lesson_id: @lesson.to_param
     assert_response :success
     assert_not_nil assigns(:feedback)
-    assert_select '#error_body', false
     assert_template 'feedbacks/new'
   end
 
@@ -39,14 +37,12 @@ class FeedbacksControllerTest < ActionController::TestCase
   test 'should show feedback' do
     get :show, lesson_id: @lesson.to_param, id: @feedback
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'feedbacks/show'
   end
 
   test 'should get edit' do
     get :edit, lesson_id: @lesson.to_param, id: @feedback
     assert_response :success
-    assert_select '#error_body', false
     assert_template 'feedbacks/edit'
   end
 

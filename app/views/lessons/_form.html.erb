@@ -3,7 +3,6 @@
   <%= f.input :sequence, input_html: { min:1, max: 999 } %>
   
   <div class="form-actions">
-    <%= f.input :lock_version, as: :hidden %>
     <%= f.button :submit, class: 'btn btn-primary' %>
     <div class="pull-right"><%= yield :form_actions %></div>
   </div>
