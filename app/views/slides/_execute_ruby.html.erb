@@ -1,7 +1,7 @@
 <div class="code-form" style="display: none;">
   <div class="row">
     <div class="col-md-12">
-      <%= simple_form_for :code_node, url: execute_ruby_path(format: :html), html: { class: 'ruby-code' }, remote: true do |f| %>
+      <%= simple_form_for :code_node, url: execute_ruby_path, html: { class: 'ruby-code' }, remote: true do |f| %>
         <div class="field">
           <%= f.input(
             :code, as: :text, label: false,

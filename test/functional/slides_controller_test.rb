@@ -99,7 +99,7 @@ class SlidesControllerTest < ActionController::TestCase
       code: 'puts "Inside a test!"'
     }
 
-    assert_equal "Inside a test!\n", @response.body
+    assert_match /Inside a test/, @response.body
   end
   
   test 'can not execute ruby from remote hosts' do
@@ -108,6 +108,6 @@ class SlidesControllerTest < ActionController::TestCase
       code: 'puts "Inside a test!"'
     }
 
-    assert_not_equal "Inside a test!\n", @response.body
+    assert_no_match /Inside a test/, @response.body
   end
 end

@@ -107,7 +107,7 @@ class SlidesController < ApplicationController
       end
     RUBY
 
-    render inline: ROOT_BINDING.eval(code)
+    @out = ROOT_BINDING.eval(code)
   end
   
   private

@@ -132,10 +132,6 @@ jQuery ($) ->
             e.webkitRequestFullScreen()
         )(document.body)
 
-    $(document).on 'ajax:success', 'form.ruby-code', (event, data) ->
-      $('#modal-code .modal-body').html $('<pre></pre>').text(data)
-      $('#modal-code').modal 'show'
-    
     $(document).on 'click', 'a[data-toggle-edition]', (e) ->
       Slide.toggleEdition(
         $(this).parent('.node').find('.code-node'),
