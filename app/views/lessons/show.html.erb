@@ -1,4 +1,4 @@
-<% cache [@lesson, has_not_voted?] do %>
+<% cache [@lesson, has_not_voted?, local?] do %>
   <% if @lesson.slides.empty? %>
     <div class="alert">
       <h3 class="alert-heading">

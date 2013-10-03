@@ -1,13 +1,11 @@
-<% cache [slide, has_not_voted?] do %>
+<% cache [slide, has_not_voted?, local?] do %>
   <section class="slide <%= raw slide.extra_classes %>" id="<%= slide.anchor %>" style="<%= raw slide.style %>">
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <div class="navbar-brand"><%= slide.title %></div>
-        </div>
-        <div class="navbar-right">
-          <span class="badge"><%= slide.number %></span>
-        </div>
+      <div class="navbar-header">
+        <div class="navbar-brand"><%= slide.title %></div>
+      </div>
+      <div class="navbar-right">
+        <span class="badge"><%= slide.number %></span>
       </div>
     </div>
     

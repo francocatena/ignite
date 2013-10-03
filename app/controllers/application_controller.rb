@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   after_filter -> { expires_now }
   
   def local?
-    request.local?
+    !!request.local?
   end
   
   def require_local
