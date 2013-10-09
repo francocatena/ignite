@@ -22,8 +22,8 @@
         <td><%= lesson.sequence %></td>
         <td><%= link_to_lesson_feedback(lesson) if local? %></td>
         <td><%= link_to_show [@course, lesson] %></td>
-        <td><%= link_to_edit edit_course_lesson_path(@course, lesson) %></td>
-        <td><%= link_to_destroy [@course, lesson] %></td>
+        <td><%= link_to_edit edit_course_lesson_path(@course, lesson) if local? %></td>
+        <td><%= link_to_destroy [@course, lesson] if local? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,5 +32,5 @@
 <%= pagination_links(@lessons) %>
 
 <nav class="form-actions">
-  <%= link_to t('view.lessons.new'), new_course_lesson_path(@course), class: 'btn btn-primary' %>
+  <%= link_to t('view.lessons.new'), new_course_lesson_path(@course), class: 'btn btn-primary' if local? %>
 </nav>
