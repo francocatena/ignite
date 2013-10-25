@@ -105,8 +105,6 @@ jQuery ($) ->
       else if $.inArray(key, prevKeys) != -1
         hasPrev = $("#slide-#{Slide.prev()}").length > 0
 
-        console.log "#slide-#{Slide.prev()}"
-
         Slide.show Slide.prev(), false if !Slide.hideDelayed() && hasPrev
 
         e.preventDefault()
