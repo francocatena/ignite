@@ -10,7 +10,6 @@ gem 'will_paginate'
 gem 'RedCloth'
 gem 'paperclip'
 gem 'simple_form'
-gem 'capistrano'
 
 # Old assets group
 gem 'sass-rails'
