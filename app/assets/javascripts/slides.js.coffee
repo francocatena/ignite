@@ -1,14 +1,14 @@
 window.Slide =
   currentNumber: ->
     number = window.location.hash.match(/\d+$/)
-    
+
     if number
       parseInt number[0]
     else
       undefined
-  
+
   executeJS: (jsContainer) -> eval jsContainer.val()
-  
+
   hideDelayed: ->
     restriction = '.delayed:visible:not(:animated):last'
     pendings = $(window.location.hash).find(restriction)
@@ -27,16 +27,16 @@ window.Slide =
 
   show: (number, hideDelayed) ->
     slide = "#slide-#{number}"
-    
+
     if hideDelayed
       $(slide).find('.delayed').hide()
     else
       $(slide).find('.delayed').show()
-    
+
     window.location.hash = slide
-    
+
     Slide.updateTitle()
-  
+
   showDelayed: ->
     restriction = '.delayed:not(:visible):not(:animated):first'
     pendings = $(window.location.hash).find(restriction)
@@ -47,34 +47,34 @@ window.Slide =
       pendings.addClass('current').fadeIn(500)
     else
       false
-  
+
   showHtml: (htmlContainer) ->
     $('#modal-html .modal-body').html htmlContainer.val()
     $('#modal-html').modal 'show'
-  
+
   toggleEdition: (readonlyView, editableView) ->
     if editableView.is(':visible')
       editableView.hide()
       readonlyView.show()
-      
+
       Slide.limitNavigationQueue.pop()
     else
       readonlyView.hide()
       editableView.show()
-      
+
       Slide.limitNavigationQueue.push(1)
-  
+
   updateTime: ->
     time = new Date().toLocaleTimeString().match(/^\d+:\d+/)[0]
-    
+
     $('.slide footer time').text(time)
-    
+
     window.setTimeout(Slide.updateTime, 5000)
-  
+
   updateTitle: ->
     number = Slide.currentNumber() || 0
     title = $("#slide-#{number}").find('.navbar .navbar-brand').text()
-    
+
     $('head title').text "#{title} (#{number})"
 
 jQuery ($) ->
@@ -83,7 +83,7 @@ jQuery ($) ->
     if $.inArray(e.which, [83, 115]) != -1 && e.ctrlKey && e.altKey
       $('#ig_slides form').submit()
       e.preventDefault()
-  
+
   if $('.slide').length > 0
     if !window.location.hash.match(/#/) && $('#slide-1').length > 0
       Slide.show('1', true)
@@ -111,12 +111,12 @@ jQuery ($) ->
       # CTRL + ALT + n = new slide
       else if $.inArray(key, [78, 110]) != -1 && e.ctrlKey && e.altKey
         $("#slide-#{Slide.currentNumber()}").find('a[data-action="new"]')[0].click()
-        
+
         e.preventDefault()
       # CTRL + ALT + e = edit slide
       else if $.inArray(key, [69, 101]) != -1 && e.ctrlKey && e.altKey
         $("#slide-#{Slide.currentNumber()}").find('a[data-action="edit"]')[0].click()
-        
+
         e.preventDefault()
       # F or f = Full screen mode
       else if $.inArray(key, [70, 102]) != -1 && !limitNavigation
@@ -138,16 +138,16 @@ jQuery ($) ->
 
       e.preventDefault()
       e.stopPropagation()
-    
+
     $(document).on 'click', 'a[data-show-html]', (e) ->
       Slide.showHtml $(this).parent('.node').find('.html-code')
-      
+
       e.preventDefault()
       e.stopPropagation()
-    
+
     $(document).on 'click', 'a[data-execute-js]', (e) ->
       Slide.executeJS $(this).parent('.node').find('.js-code')
-      
+
       e.preventDefault()
       e.stopPropagation()
 

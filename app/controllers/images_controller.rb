@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_filter :require_local
-  
+
   # GET /images
   # GET /images.json
   def index
@@ -75,7 +75,7 @@ class ImagesController < ApplicationController
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
-    
+
   rescue ActiveRecord::StaleObjectError
     redirect_to edit_image_url(@app, @hint), alert: t('view.images.stale_object_error')
   end

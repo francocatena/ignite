@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
+gem 'rails', '~> 4.0.4'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -12,7 +12,7 @@ gem 'paperclip'
 gem 'simple_form'
 
 # Old assets group
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.2'
 gem 'bourbon'
 gem 'coffee-rails'
 gem 'uglifier'
@@ -20,8 +20,4 @@ gem 'uglifier'
 group :development do
   gem 'unicorn'
   gem 'unicorn-rails'
-end
-
-group :test do
-  gem 'turn'
 end

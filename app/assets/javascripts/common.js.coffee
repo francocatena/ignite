@@ -28,7 +28,7 @@ window.Helper =
   remove: (element, callback) ->
     $(element).stop().slideUp 500, ->
       $(this).remove()
-      
+
       callback() if jQuery.isFunction(callback)
 
   show: (element, callback) ->
@@ -41,44 +41,44 @@ window.Util =
 
   replaceIds: (s, regex) ->
     s.replace(regex, new Date().getTime() + State.newIdCounter++)
-  
+
   refreshSortNumbers: -> $('input.sort_number').val((i) -> i + 1)
 
 jQuery ($) ->
   $('[data-show-tooltip]').tooltip()
   $('[data-show-popover]').popover(html: true, trigger: 'hover')
-  
+
   eventList = $.map EventHandler, (v, k) -> k
-  
+
   $(document).on 'click', 'a[data-event]', (event) ->
     return if event.stopped
-    
+
     element = $(this)
     eventName = element.data('event')
 
     if $.inArray(eventName, eventList) != -1
       EventHandler[eventName](element)
-      
+
       event.preventDefault()
       event.stopPropagation()
-  
+
   $(document).on 'click', 'a[data-increase-font-size]', (event) ->
     return if event.stopped
-    
+
     $($(this).data('target')).css
       zoom: (index, value) -> parseFloat(value) * 1.1
-    
+
     event.preventDefault()
     event.stopPropagation()
-  
+
   $(document).on 'click', 'a[data-decrease-font-size]', (event) ->
     $($(this).data('target')).css
       zoom: (index, value) -> parseFloat(value) / 1.1
-    
+
     event.preventDefault()
     event.stopPropagation()
  HTMLAnchorElement.prototype.click = ->
     ev = document.createEvent('MouseEvents')
     ev.initEvent 'click', true, true
-    
+
     document.location.href = this.href if this.dispatchEvent(ev) != false

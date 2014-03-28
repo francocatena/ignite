@@ -56,7 +56,7 @@ class ImagesControllerTest < ActionController::TestCase
       caption: 'Updated screen',
       image: fixture_file_upload('/files/test.gif', 'image/gif')
     }
-    
+
     assert_redirected_to image_path(assigns(:image))
     assert_equal 'Updated screenshot', @image.reload.name
   end

@@ -23,8 +23,6 @@ class FeedbackTest < ActiveSupport::TestCase
         comments: 'So so',
         lesson_id: lessons(:introduction).id
       )
-      
-      puts @feedback.errors.full_messages.join('; ')
     end
   end
 
@@ -36,10 +34,10 @@ class FeedbackTest < ActiveSupport::TestCase
 
     assert_equal 'Updated comments', @feedback.reload.comments
   end
-  
+
   test 'destroy' do
     @feedback = feedbacks(:local)
-    
+
     assert_difference('Feedback.count', -1) { @feedback.destroy }
   end
 
@@ -64,7 +62,7 @@ class FeedbackTest < ActiveSupport::TestCase
     assert_equal [error_message_from_model(@feedback, :rate, :inclusion)],
       @feedback.errors[:rate]
   end
-  
+
   test 'validates uniqueness of attributes' do
     @feedback.ip = feedbacks(:bad).ip
     assert @feedback.invalid?

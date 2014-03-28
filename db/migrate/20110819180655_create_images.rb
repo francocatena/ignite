@@ -11,13 +11,13 @@ class CreateImages < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
     add_index :images, :name, unique: true
   end
 
   def self.down
     remove_index :images, column: [:name]
-    
+
     drop_table :images
   end
 end

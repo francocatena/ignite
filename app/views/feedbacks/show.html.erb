@@ -2,26 +2,26 @@
   <div class="page-header">
     <h1><%= @feedback.lesson %></h1>
   </div>
-  
+
   <div>
     <strong><%= Feedback.human_attribute_name 'rate' %></strong>:
     <%= @feedback.rate %>
   </div>
-  
+
   <br />
-  
+
   <div>
     <strong><%= Feedback.human_attribute_name 'ip' %></strong>:
     <%= @feedback.ip %>
   </div>
-  
+
   <br />
-  
+
   <div>
     <strong><%= Feedback.human_attribute_name 'comments' %></strong>:
     <%= simple_format @feedback.comments %>
   </div>
-  
+
   <nav class="form-actions">
     <%= link_to_edit edit_lesson_feedback_path(@lesson, @feedback) %> |
     <% if @feedback.can_be_destroyed? %>

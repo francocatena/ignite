@@ -1,10 +1,10 @@
 module SlidesHelper
   def show_options_for_code_node(form)
     langs = CodeNode::LANGS.map { |l| [t("view.slides.langs.#{l}"), l] }
-    
+
     form.input :lang, label: false, collection: langs, prompt: true
   end
-  
+
   def draw_node_optionals(node)
     if node.kind_of?(CodeNode)
       case node.lang
@@ -32,7 +32,7 @@ module SlidesHelper
           ].compact.join(' ')
         )
         content = content_tag :div, raw(node.content)
-        
+
         out << content_tag(:textarea, raw(content), class: 'html-code hidden')
 
         unless @modal_html_displayed
@@ -44,7 +44,7 @@ module SlidesHelper
             }
           end
         end
-        
+
         raw(out)
       when 'java_script'
         out = link_to(
@@ -54,11 +54,11 @@ module SlidesHelper
             'edit-code', 'btn', 'btn-xs', 'btn-default', node.css_class
           ].compact.join(' ')
         )
-        
+
         out << content_tag(
           :textarea, raw(node.content), class: 'js-code hidden'
         )
-        
+
         raw(out)
       end
     end

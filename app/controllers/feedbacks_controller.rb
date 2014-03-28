@@ -2,9 +2,9 @@ class FeedbacksController < ApplicationController
   before_filter :require_local, only: [:index, :edit, :update, :destroy]
   before_filter :load_lesson
   hide_action :default_args, :find_feedback
-  
+
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
-  
+
   # GET /feedbacks
   # GET /feedbacks.json
   def index
@@ -80,7 +80,7 @@ class FeedbacksController < ApplicationController
       end
     end
   end
-  
+
   # DELETE /feedbacks/1.json
   def destroy
     @feedback = find_feedback
@@ -91,13 +91,13 @@ class FeedbacksController < ApplicationController
       format.json { head :ok }
     end
   end
-  
+
   private
-  
+
   def default_args
     { ip: request.remote_ip }
   end
-  
+
   def find_feedback
     local? ?
       @lesson.feedbacks.find(params[:id]) :
@@ -105,7 +105,7 @@ class FeedbacksController < ApplicationController
   end
 
   private
-  
+
   def load_lesson
     @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
   end

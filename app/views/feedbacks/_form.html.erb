@@ -2,7 +2,7 @@
   <%= f.input :rate, input_html: { autofocus: true, min:1, max: 5 } %>
   <%= f.input :ip, input_html: { maxlength: 255 } %>
   <%= f.input :comments, input_html: { rows: 4 } %>
-  
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn-primary' %>
     <div class="pull-right"><%= yield :form_actions %></div>

@@ -193,20 +193,20 @@
 
   .inline {
     color: black;
-    
+
     .inline {
       background: #ccc;
-      
+
       .inline {
         background: #bbb;
       }
     }
-    
+
     .inline-delimiter {
       color: #D14;
     }
   }
-  
+
   .inline-delimiter {
     color: #D14;
   }
@@ -270,11 +270,11 @@
 
   .key {
     color: #808;
-    
+
     .delimiter {
       color: #606;
     }
-    
+
     .char {
       color: #80f;
     }
@@ -286,19 +286,19 @@
 
   .regexp {
     background-color:#fff0ff;
-    
+
     .content {
       color:#808;
     }
-    
+
     .delimiter {
       color:#404;
     }
-    
+
     .mod {
       color:#C2C;
     }
-    
+
     .function  {
       color:#404;
       font-weight: bold;
@@ -307,21 +307,21 @@
 
   .string {
     color: #D20;
-    
+
     .string {
       .string {
         background-color:#ffd0d0;
       }
     }
-    
+
     .content {
       color: #D14;
     }
-    
+
     .char {
       color: #D14;
     }
-    
+
     .delimiter {
       color: #D14;
     }
@@ -329,10 +329,10 @@
 
   .shell {
     color:#D14;
-    
+
     .content {
     }
-    
+
     .delimiter {
       color:#D14;
     }
@@ -340,11 +340,11 @@
 
   .symbol {
     color:#990073;
-    
+
     .content {
       color:#A60;
     }
-    
+
     .delimiter {
       color:#630;
     }
@@ -431,7 +431,7 @@ span.CodeRay {
 table.CodeRay {
   border-collapse: collapse;
   width: 100%;
-  
+
   td.code, td.line-numbers {
     padding: 0em .5em;
   }

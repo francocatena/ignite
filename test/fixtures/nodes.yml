@@ -3,7 +3,7 @@ opening_title:
   content: h1. Grand Opening Title
   rank: 1
   slide: opening
-  
+
 opening_ruby_code:
   type: CodeNode
   content: "puts 'Hello world!'"

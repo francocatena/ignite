@@ -13,7 +13,7 @@ class FeedbacksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:feedbacks)
     assert_template 'feedbacks/index'
   end
-  
+
   test 'should get new' do
     get :new, lesson_id: @lesson.to_param
     assert_response :success
@@ -54,16 +54,16 @@ class FeedbacksControllerTest < ActionController::TestCase
         lesson_id: lessons(:introduction).id
       }
     end
-    
+
     assert_redirected_to lesson_feedback_url(@lesson, assigns(:feedback))
     assert_equal 'Updated comments', @feedback.reload.comments
     assert_equal @request.remote_addr, assigns(:feedback).ip
   end
-  
+
   test 'should destroy feedback' do
     @feedback = feedbacks(:local)
     @lesson = @feedback.lesson
-    
+
     assert_difference 'Feedback.count', -1 do
       delete :destroy, lesson_id: @lesson.to_param, id: @feedback.to_param
     end

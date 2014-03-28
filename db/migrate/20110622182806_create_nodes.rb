@@ -10,7 +10,7 @@ class CreateNodes < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
     add_index :nodes, :slide_id
     add_index :nodes, :type
   end
@@ -18,7 +18,7 @@ class CreateNodes < ActiveRecord::Migration
   def self.down
     remove_index :nodes, :column => :slide_id
     remove_index :nodes, :column => :type
-    
+
     drop_table :nodes
   end
 end

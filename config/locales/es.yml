@@ -158,7 +158,7 @@
     title: 'Error'
     header_message: 'Se ha encontrado un problema'
     apologies_for_the_inconvenience: 'Disculpe las molestias'
-    
+
     # The default format to use in full error messages.
     format: '%{attribute} %{message}'
 
@@ -221,15 +221,15 @@
 
   lang:
     es: 'Español'
-    
+
   menu:
     courses: 'Cursos'
     images: 'Imágenes'
-    
+
   messages:
     confirmation: '¿Está seguro?'
     must_be_a_local_request: 'Debe ser requerido desde una dirección local'
-    
+
   # Action View
   number:
     # Used in number_with_delimiter()

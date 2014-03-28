@@ -5,7 +5,7 @@
     <%= raw "var codeNode='#{generate_template(f, :nodes,
       locals: { disabled: false }, object: CodeNode.new)}';" %>
   <% end -%>
-  
+
   <div class="row">
     <div class="col-md-6">
       <%= f.input :title, input_html: { autofocus: true, maxlength: 255 } %>
@@ -16,7 +16,7 @@
       <%= f.input :style, input_html: { maxlength: 255 } %>
     </div>
   </div>
-  
+
   <div class="page-header">
     <h3><%= t 'view.slides.nodes' %></h3>
   </div>
@@ -54,7 +54,7 @@
   </div>
 
   <br />
-  
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn-primary' %>
     <div class="pull-right"><%= yield :form_actions %></div>

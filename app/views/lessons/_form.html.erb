@@ -1,7 +1,7 @@
 <%= simple_form_for([@course, @lesson], defaults: { input_html: { class: 'col-md-6' } }) do |f| %>
   <%= f.input :name, input_html: { autofocus: true, maxlength: 255 } %>
   <%= f.input :sequence, input_html: { min:1, max: 999 } %>
-  
+
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
     <div class="pull-right"><%= yield :form_actions %></div>

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_filter :require_local, except: [:index, :show]
-  
+
   # GET /courses
   # GET /courses.json
   def index
@@ -75,7 +75,7 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
-    
+
   rescue ActiveRecord::StaleObjectError
     redirect_to edit_lesson_url(@lesson), alert: t('view.courses.stale_object_error')
   end

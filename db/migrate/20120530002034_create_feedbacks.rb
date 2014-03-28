@@ -8,7 +8,7 @@ class CreateFeedbacks < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
     add_index :feedbacks, :lesson_id
   end
 end

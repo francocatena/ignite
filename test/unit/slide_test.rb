@@ -76,7 +76,7 @@ class SlideTest < ActiveSupport::TestCase
       error_message_from_model(@slide, :style, :too_long, count: 255)
     ], @slide.errors[:style]
   end
-  
+
   # Prueba que las validaciones del modelo se cumplan como es esperado
   test 'validates duplicated attributes' do
     @slide.number = slides(:toc).number
@@ -84,7 +84,7 @@ class SlideTest < ActiveSupport::TestCase
     assert_equal 1, @slide.errors.count
     assert_equal [error_message_from_model(@slide, :number, :taken)],
       @slide.errors[:number]
-    
+
     @slide.lesson_id = lessons(:scratching_ruby).id
     assert @slide.valid?
   end

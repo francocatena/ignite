@@ -1,16 +1,16 @@
-module ApplicationHelper  
+module ApplicationHelper
   def title
     [t('app.name'), @title].compact.join(' | ')
   end
 
   # Returns a string with an object identifier
-  # 
+  #
   # * _prefix_:: The prefix to append in the ID
   # * _form_builder_:: The form builder object
   def dynamic_object_id(prefix, form_builder)
     "#{prefix}_#{form_builder.object_name.to_s.gsub(/[_\]\[]+/, '_')}"
   end
-  
+
   def generate_html(form_builder, method, user_options = {})
     options = {
       object: form_builder.object.class.reflect_on_association(method).klass.new,
@@ -36,7 +36,7 @@ module ApplicationHelper
   def generate_template(form_builder, method, options = {})
     escape_javascript generate_html(form_builder, method, options)
   end
-  
+
   # Returns a link to remove a nested item
   #
   # * _fields_:: The fields_for builder
@@ -57,7 +57,7 @@ module ApplicationHelper
 
     raw out
   end
-  
+
   # Returns the pagination links for the objects collection
   #
   # * _objects_:: The collection objects
@@ -71,7 +71,7 @@ module ApplicationHelper
       content_tag(:small, page_entries_info(objects), class: 'page-entries'),
       class: 'visible-sm visible-xs pull-right'
     )
-    
+
     unless result
       previous_tag = content_tag(
         :li,
@@ -83,17 +83,17 @@ module ApplicationHelper
         content_tag(:a, t('will_paginate.next_label').html_safe),
         class: 'next disabled'
       )
-      
+
       result = content_tag(:ul, previous_tag + next_tag, class: 'pagination pull-right')
     end
 
     content_tag(:div, page_entries, class: 'clearfix') + content_tag(:div, result, class: 'clearfix')
   end
-  
+
   def textilize(text)
     textilized = RedCloth.new(text, [:hard_breaks])
     textilized.hard_breaks = true if textilized.respond_to?(:'hard_breaks=')
-    
+
     raw textilized.to_html
   end
 end

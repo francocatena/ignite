@@ -50,7 +50,7 @@ class LessonsControllerTest < ActionController::TestCase
         sequence: '1'
       }
     end
-    
+
     assert_redirected_to course_lesson_path(@course, assigns(:lesson))
     assert_equal 'Updated lesson', @lesson.reload.name
   end

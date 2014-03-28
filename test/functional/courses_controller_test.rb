@@ -49,7 +49,7 @@ class CoursesControllerTest < ActionController::TestCase
         notes: 'Updated notes'
       }
     end
-    
+
     assert_redirected_to course_path(assigns(:course))
     assert_equal 'Updated course', @course.reload.name
   end

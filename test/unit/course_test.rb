@@ -58,7 +58,7 @@ class CourseTest < ActiveSupport::TestCase
       error_message_from_model(@course, :name, :too_long, count: 255)
     ], @course.errors[:name]
   end
-  
+
   # Prueba que las validaciones del modelo se cumplan como es esperado
   test 'validates uniqueness of attributes' do
     @course.name = courses(:torch).name

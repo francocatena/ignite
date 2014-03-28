@@ -1,9 +1,9 @@
 class SlidesController < ApplicationController
   before_filter :require_local, except: [:index, :show]
   before_filter :load_lesson
-  
+
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
-  
+
   # GET /lessons/1/slides
   # GET /lessons/1/slides.json
   def index
@@ -78,7 +78,7 @@ class SlidesController < ApplicationController
         format.json  { render json: @slide.errors, status: :unprocessable_entity }
       end
     end
-    
+
   rescue ActiveRecord::StaleObjectError
     redirect_to edit_lesson_slide_url(@lesson, @slide), alert: t('view.slides.stale_object_error')
   end
@@ -94,7 +94,7 @@ class SlidesController < ApplicationController
       format.json  { head :ok }
     end
   end
-  
+
   # POST /lessons/1/slides/execute_ruby
   def execute_ruby
     code = <<-RUBY
@@ -109,7 +109,7 @@ class SlidesController < ApplicationController
 
     @out = ROOT_BINDING.eval(code)
   end
-  
+
   private
 
   def load_lesson

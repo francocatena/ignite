@@ -1,7 +1,7 @@
 .feedback {
   text-align: center;
   margin: 2em auto;
-  
+
   .actions {
     margin-top: 1em;
   }
@@ -10,14 +10,14 @@
 .rating {
   float: left;
   width: 100%;
-  
+
   &:not(:checked) {
     > input {
       position: absolute;
       top: -9999px;
       clip: rect(0,0,0,0);
     }
-    
+
     > label {
       float: right;
       width: 1em;
@@ -31,25 +31,25 @@
       color: #e1e1e8;
       @include transition(.2s all ease-in);
     }
-    
+
     > label:hover,
     > label:hover ~ label {
       color: #3a87ad;
       @include transition(.3s all ease-out);
     }
   }
-  
+
   > label.for-5-stars:hover {
     text-shadow: 0 0 4px white, 0 -2px 3px #ffff33, 2px -4px 6px #ffdd33, -2px -6px 9px #ff8800, 2px -8px 12px #ff2200;
     @include transition(.3s all ease-out);
   }
-  
+
   > input:checked ~ label {
     color: #bd362f;
 //    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
     @include transition(.3s all ease-out);
   }
-  
+
   > input:checked + label:hover,
   > input:checked + label:hover ~ label,
   > input:checked ~ label:hover,
@@ -58,7 +58,7 @@
     color: #bd362f;
 //    text-shadow:1px 1px #ddd, 2px 2px #fff, .1em .1em .2em rgba(0,0,0,.5);
   }
-  
+
   > label:active {
     position: relative;
     top: 2px;

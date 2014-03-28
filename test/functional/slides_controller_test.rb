@@ -80,7 +80,7 @@ class SlidesControllerTest < ActionController::TestCase
         ]
       }
     end
-    
+
     assert_redirected_to course_lesson_path(@lesson.course, @lesson, anchor: assigns(:slide).anchor)
     assert_equal 'Updated title', @slide.reload.title
     assert_equal 'h1. Updated sample title', @slide.text_nodes.first.content
@@ -93,7 +93,7 @@ class SlidesControllerTest < ActionController::TestCase
 
     assert_redirected_to lesson_slides_path(@lesson)
   end
-  
+
   test 'execute ruby locally' do
     xhr :post, :execute_ruby, code_node: {
       code: 'puts "Inside a test!"'
@@ -101,10 +101,10 @@ class SlidesControllerTest < ActionController::TestCase
 
     assert_match /Inside a test/, @response.body
   end
-  
+
   test 'can not execute ruby from remote hosts' do
     @request.remote_addr = '192.168.0.1'
-    xhr :post, :execute_ruby, code_node: { 
+    xhr :post, :execute_ruby, code_node: {
       code: 'puts "Inside a test!"'
     }
 
