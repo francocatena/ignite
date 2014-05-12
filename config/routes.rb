@@ -1,4 +1,4 @@
-Ignite::Application.routes.draw do
+Rails.application.routes.draw do
   resources :images, path: 'i'
 
   resources :lessons, path: 'l', only: [] do
