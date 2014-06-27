@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.1'
+gem 'rails', '~> 4.1.2'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -15,7 +15,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 
 # Old assets group
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails'
 gem 'bourbon'
 gem 'coffee-rails'
 gem 'uglifier'
