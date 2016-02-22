@@ -5,16 +5,8 @@ class LessonTest < ActiveSupport::TestCase
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
-    @lesson = Lesson.find lessons(:introduction).id
-    @course = Course.find courses(:ignite)
-  end
-
-  # Prueba que se realicen las búsquedas como se espera
-  test 'find' do
-    assert_kind_of Lesson, @lesson
-    assert_equal lessons(:introduction).name, @lesson.name
-    assert_equal lessons(:introduction).sequence, @lesson.sequence
-    assert_equal lessons(:introduction).course_id, @lesson.course_id
+    @lesson = lessons :introduction
+    @course = courses :ignite
   end
 
   # Prueba la creación de una clase

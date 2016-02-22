@@ -2,17 +2,7 @@ require 'test_helper'
 
 class ImageTest < ActiveSupport::TestCase
   def setup
-    @image = Image.find images(:rails).id
-  end
-
-  test 'find' do
-    assert_kind_of Image, @image
-    assert_equal images(:rails).name, @image.name
-    assert_equal images(:rails).caption, @image.caption
-    assert_equal images(:rails).image_file_name, @image.image_file_name
-    assert_equal images(:rails).image_content_type, @image.image_content_type
-    assert_equal images(:rails).image_file_size, @image.image_file_size
-    assert_equal images(:rails).image_updated_at, @image.image_updated_at
+    @image = images :rails
   end
 
   test 'create' do

@@ -4,15 +4,7 @@ class FeedbackTest < ActiveSupport::TestCase
   fixtures :feedbacks
 
   def setup
-    @feedback = Feedback.find feedbacks(:good)
-  end
-
-  test 'find' do
-    assert_kind_of Feedback, @feedback
-    assert_equal feedbacks(:good).rate, @feedback.rate
-    assert_equal feedbacks(:good).ip, @feedback.ip
-    assert_equal feedbacks(:good).comments, @feedback.comments
-    assert_equal feedbacks(:good).lesson_id, @feedback.lesson_id
+    @feedback = feedbacks :good
   end
 
   test 'create' do

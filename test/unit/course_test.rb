@@ -5,14 +5,7 @@ class CourseTest < ActiveSupport::TestCase
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
-    @course = Course.find courses(:ignite)
-  end
-
-  # Prueba que se realicen las búsquedas como se espera
-  test 'find' do
-    assert_kind_of Course, @course
-    assert_equal courses(:ignite).name, @course.name
-    assert_equal courses(:ignite).notes, @course.notes
+    @course = courses :ignite
   end
 
   # Prueba la creación de un curso

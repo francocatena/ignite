@@ -5,14 +5,7 @@ class NodeTest < ActiveSupport::TestCase
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
-    @node = Node.find nodes(:content_title).id
-  end
-
-  # Prueba que se realicen las búsquedas como se espera
-  test 'find' do
-    assert_kind_of Node, @node
-    assert_equal nodes(:content_title).content, @node.content
-    assert_equal nodes(:content_title).rank, @node.rank
+    @node = nodes :content_title
   end
 
   # Prueba la creación de un nodo

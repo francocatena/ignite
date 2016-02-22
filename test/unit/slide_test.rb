@@ -5,15 +5,7 @@ class SlideTest < ActiveSupport::TestCase
 
   # Función para inicializar las variables utilizadas en las pruebas
   def setup
-    @slide = Slide.find slides(:opening).id
-  end
-
-  # Prueba que se realicen las búsquedas como se espera
-  test 'find' do
-    assert_kind_of Slide, @slide
-    assert_equal slides(:opening).title, @slide.title
-    assert_equal slides(:opening).number, @slide.number
-    assert_equal slides(:opening).lesson_id, @slide.lesson_id
+    @slide = slides :opening
   end
 
   # Prueba la creación de una diapositiva
