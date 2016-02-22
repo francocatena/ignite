@@ -4,16 +4,21 @@
   <meta charset="utf-8">
   <title><%= title %></title>
   <%= stylesheet_link_tag 'application' %>
+
   <%= javascript_include_tag 'application' %>
   <%= javascript_tag { yield :js_extra } %>
+
   <%= csrf_meta_tag %>
-  <%= favicon_link_tag '/favicon.ico' %>
+  <%= favicon_link_tag %>
 </head>
 <body id="<%= "ig_#{controller_name}" %>" data-action="<%= action_name %>">
   <%= render 'shared/menu' if local? %>
+
   <div class="container"><%= yield %></div>
+
   <%= render 'shared/notice' if flash.notice %>
   <%= render 'shared/alert' if flash.alert %>
+
   <%= yield :content_bottom %>
 </body>
 </html>
