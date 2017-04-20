@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.5.1'
+gem 'rails', '~> 5.0.2'
 
 gem 'sqlite3'
 gem 'coderay'
@@ -19,6 +19,8 @@ gem 'sass-rails'
 gem 'bourbon'
 gem 'coffee-rails'
 gem 'uglifier'
+
+gem 'rails-controller-testing' # TODO: remove after decouple test from assigns
 
 group :development do
   gem 'spring'

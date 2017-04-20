@@ -1,12 +1,12 @@
 class Feedback < ActiveRecord::Base
   LOCALHOST = ['127.0.0.1', '::1']
 
-  default_scope -> { order "#{table_name}.created_at ASC" }
-  scope :remote, -> { where "#{table_name}.ip NOT IN (?)", LOCALHOST }
-  scope :local, -> { where "#{table_name}.ip" => LOCALHOST }
+  default_scope -> { order created_at: :asc }
+  scope :remote, -> { where.not ip: LOCALHOST }
+  scope :local, -> { where ip: LOCALHOST }
 
   # Callbacks
-  before_destroy :can_be_destroyed?
+  before_destroy :check_if_can_be_destroyed
 
   # Validations
   validates :rate, presence: true, inclusion: { in: 1..5 }
@@ -18,4 +18,10 @@ class Feedback < ActiveRecord::Base
   def can_be_destroyed?
     LOCALHOST.include?(self.ip)
   end
+
+  private
+
+    def check_if_can_be_destroyed
+      throw :abort unless can_be_destroyed?
+    end
 end

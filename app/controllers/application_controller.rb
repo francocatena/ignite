@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  after_filter -> { expires_now }
+  after_action -> { expires_now }
 
   def local?
     !!request.local?

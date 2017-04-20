@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_filter :require_local
+  before_action :require_local
 
   # GET /images
   # GET /images.json

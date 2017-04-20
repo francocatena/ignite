@@ -21,9 +21,11 @@ class CoursesControllerTest < ActionController::TestCase
 
   test 'should create course' do
     assert_difference 'Course.count' do
-      post :create, course: {
-        name: 'New name',
-        notes: 'New notes'
+      post :create, params: {
+          course: {
+          name: 'New name',
+          notes: 'New notes'
+        }
       }
     end
 
@@ -31,22 +33,25 @@ class CoursesControllerTest < ActionController::TestCase
   end
 
   test 'should show course' do
-    get :show, id: @course.to_param
+    get :show, params: { id: @course.to_param }
     assert_response :success
     assert_template 'courses/show'
   end
 
   test 'should get edit' do
-    get :edit, id: @course.to_param
+    get :edit, params: { id: @course.to_param }
     assert_response :success
     assert_template 'courses/edit'
   end
 
   test 'should update course' do
     assert_no_difference 'Course.count' do
-      put :update, id: @course.to_param, course: {
-        name: 'Updated course',
-        notes: 'Updated notes'
+      put :update, params: {
+        id: @course.to_param,
+        course: {
+          name: 'Updated course',
+          notes: 'Updated notes'
+        }
       }
     end
 
@@ -56,7 +61,7 @@ class CoursesControllerTest < ActionController::TestCase
 
   test 'should destroy course' do
     assert_difference 'Course.count', -1 do
-      delete :destroy, id: @course.to_param
+      delete :destroy, params: { id: @course.to_param }
     end
 
     assert_redirected_to courses_path

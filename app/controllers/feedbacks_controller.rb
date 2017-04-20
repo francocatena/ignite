@@ -1,7 +1,6 @@
 class FeedbacksController < ApplicationController
-  before_filter :require_local, only: [:index, :edit, :update, :destroy]
-  before_filter :load_lesson
-  hide_action :default_args, :find_feedback
+  before_action :require_local, only: [:index, :edit, :update, :destroy]
+  before_action :load_lesson
 
   layout ->(controller) { controller.request.xhr? ? false : 'application' }
 
@@ -94,23 +93,21 @@ class FeedbacksController < ApplicationController
 
   private
 
-  def default_args
-    { ip: request.remote_ip }
-  end
+    def default_args
+      { ip: request.remote_ip }
+    end
 
-  def find_feedback
-    local? ?
-      @lesson.feedbacks.find(params[:id]) :
-      @lesson.feedbacks.find_by_id_and_ip(params[:id], request.remote_ip)
-  end
+    def find_feedback
+      local? ?
+        @lesson.feedbacks.find(params[:id]) :
+        @lesson.feedbacks.find_by_id_and_ip(params[:id], request.remote_ip)
+    end
 
-  private
+    def load_lesson
+      @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
+    end
 
-  def load_lesson
-    @lesson = Lesson.find(params[:lesson_id]) if params[:lesson_id]
-  end
-
-  def feedback_params
-    params.require(:feedback).permit(:comments, :rate, :ip, :lesson_id)
-  end
+    def feedback_params
+      params.require(:feedback).permit(:comments, :rate, :ip, :lesson_id)
+    end
 end

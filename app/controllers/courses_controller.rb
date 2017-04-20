@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_filter :require_local, except: [:index, :show]
+  before_action :require_local, except: [:index, :show]
 
   # GET /courses
   # GET /courses.json

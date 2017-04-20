@@ -13,7 +13,7 @@ class Node < ActiveRecord::Base
 
   def <=>(other)
     if other.kind_of?(Node)
-      self.rank <=> other.rank
+      rank <=> other.rank
     else
       -1
     end
@@ -21,10 +21,10 @@ class Node < ActiveRecord::Base
 
   def ==(other)
     if other.kind_of?(Node)
-      if self.new_record?
-        self.object_id == other.object_id
+      if new_record?
+        object_id == other.object_id
       else
-        self.id == other.id
+        id == other.id
       end
     end
   end
@@ -32,7 +32,7 @@ class Node < ActiveRecord::Base
   def css_class
     self.options ||= {}
 
-    self.options['css_class']
+    options['css_class']
   end
 
   def css_class=(css_class)

@@ -10,9 +10,9 @@ class Slide < ActiveRecord::Base
 
   # Relations
   belongs_to :lesson, touch: true
-  has_many :nodes, -> { order 'rank ASC' }, dependent: :destroy
-  has_many :code_nodes, -> { order 'rank ASC' }
-  has_many :text_nodes, -> { order 'rank ASC' }
+  has_many :nodes, -> { order rank: :asc }, dependent: :destroy
+  has_many :code_nodes, -> { order rank: :asc }
+  has_many :text_nodes, -> { order rank: :asc }
 
   accepts_nested_attributes_for :nodes, allow_destroy: true
 
@@ -21,6 +21,6 @@ class Slide < ActiveRecord::Base
   end
 
   def anchor
-    "slide-#{self.number}"
+    "slide-#{number}"
   end
 end

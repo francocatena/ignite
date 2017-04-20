@@ -8,23 +8,26 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test 'should get index' do
-    get :index, course_id: @course.to_param
+    get :index, params: { course_id: @course.to_param }
     assert_response :success
     assert_not_nil assigns(:lessons)
     assert_template 'lessons/index'
   end
 
   test 'should get new' do
-    get :new, course_id: @course.to_param
+    get :new, params: { course_id: @course.to_param }
     assert_response :success
     assert_template 'lessons/new'
   end
 
   test 'should create lesson' do
     assert_difference 'Lesson.count' do
-      post :create, course_id: @course.to_param, lesson: {
-        name: 'New lesson',
-        sequence: '3'
+      post :create, params: {
+        course_id: @course.to_param,
+        lesson: {
+          name: 'New lesson',
+          sequence: '3'
+        }
       }
     end
 
@@ -32,22 +35,26 @@ class LessonsControllerTest < ActionController::TestCase
   end
 
   test 'should show lesson' do
-    get :show, course_id: @course.to_param, id: @lesson.to_param
+    get :show, params: { course_id: @course.to_param, id: @lesson.to_param }
     assert_response :success
     assert_template 'lessons/show'
   end
 
   test 'should get edit' do
-    get :edit, course_id: @course.to_param, id: @lesson.to_param
+    get :edit, params: { course_id: @course.to_param, id: @lesson.to_param }
     assert_response :success
     assert_template 'lessons/edit'
   end
 
   test 'should update lesson' do
     assert_no_difference 'Lesson.count' do
-      put :update, course_id: @course.to_param, id: @lesson.to_param, lesson: {
-        name: 'Updated lesson',
-        sequence: '1'
+      put :update, params: {
+        course_id: @course.to_param,
+        id: @lesson.to_param,
+        lesson: {
+          name: 'Updated lesson',
+          sequence: '1'
+        }
       }
     end
 
@@ -57,7 +64,10 @@ class LessonsControllerTest < ActionController::TestCase
 
   test 'should destroy lesson' do
     assert_difference 'Lesson.count', -1 do
-      delete :destroy, course_id: @course.to_param, id: @lesson.to_param
+      delete :destroy, params: {
+        course_id: @course.to_param,
+        id: @lesson.to_param
+      }
     end
 
     assert_redirected_to course_lessons_path(@course)

@@ -19,7 +19,7 @@ class CodeNode < Node
   def lang
     self.options ||= {}
 
-    self.options['lang']
+    options['lang']
   end
 
   def lang=(lang)
