@@ -1,4 +1,4 @@
-class Slide < ActiveRecord::Base
+class Slide < ApplicationRecord
   # Validations
   validates :title, :lesson, presence: true
   validates :title, :extra_classes, :style, length: { maximum: 255 }

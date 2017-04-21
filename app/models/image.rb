@@ -1,4 +1,4 @@
-class Image < ActiveRecord::Base
+class Image < ApplicationRecord
   has_attached_file :image, styles: ->(attachment) { attachment.instance.styles }
 
   default_scope -> { order name: :asc }

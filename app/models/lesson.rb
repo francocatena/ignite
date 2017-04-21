@@ -1,4 +1,4 @@
-class Lesson < ActiveRecord::Base
+class Lesson < ApplicationRecord
   default_scope -> { order sequence: :asc }
 
   # Validations

@@ -1,4 +1,4 @@
-class Feedback < ActiveRecord::Base
+class Feedback < ApplicationRecord
   LOCALHOST = ['127.0.0.1', '::1']
 
   default_scope -> { order created_at: :asc }

@@ -1,4 +1,4 @@
-class Course < ActiveRecord::Base
+class Course < ApplicationRecord
   default_scope -> { order "#{table_name}.name ASC" }
 
   # Validations
