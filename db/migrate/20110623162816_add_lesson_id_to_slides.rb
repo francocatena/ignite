@@ -1,4 +1,4 @@
-class AddLessonIdToSlides < ActiveRecord::Migration
+class AddLessonIdToSlides < ActiveRecord::Migration[4.2]
   def self.up
     add_column :slides, :lesson_id, :integer
 

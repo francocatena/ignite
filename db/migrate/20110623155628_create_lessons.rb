@@ -1,4 +1,4 @@
-class CreateLessons < ActiveRecord::Migration
+class CreateLessons < ActiveRecord::Migration[4.2]
   def self.up
     create_table :lessons do |t|
       t.string :name
